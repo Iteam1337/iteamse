@@ -1,0 +1,18 @@
+{
+  "name": "gatsby-starter-reason",
+  "namespace": true,
+  "reason": { "react-jsx": 3 },
+  "bs-dependencies": ["reason-react", "gatsby-link-reason"],
+  "sources": [
+    {
+      "dir": "re",
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "commonjs"
+    }
+  ],
+  "refmt": 3
+}
