@@ -1,10 +1,10 @@
 module Colors = {
   let fromType =
     fun
-    | `Aquamarine => `hex("54FBAC")
-    | `Concrete => `hex("F3F2F2")
-    | `CornflowerBlue => `hex("668CFF")
-    | `RadicalRed => `hex("FF3B5C");
+    | `Aquamarine => "bg-aquamarine"
+    | `Concrete => "bg-concrete"
+    | `CornflowerBlue => "bg-cornflower-blue text-white"
+    | `RadicalRed => "bg-radical-red text-white";
 };
 
 module Breakpoints = {

@@ -1,34 +1,23 @@
-module Style = {
-  open Css;
-
-  let wrap =
-    style([
-      display(`grid),
-      gridTemplateColumns([`repeat((`num(4), `fr(1.0)))]),
-    ]);
-
-  let employee = style([textAlign(`center)]);
-};
-
 [@react.component]
-let make = (~employees: array(Types.employee), ~title=None) => {
-  <div className=Style.wrap>
+let make = (~contacts: list(Page.Employee.t), ~title=None) => {
+  <div className="grid grid-columns-4 grid-gap-8-x">
     {switch (title) {
      | None => React.null
      | Some(title) => <div> title->React.string </div>
      }}
-    {employees
-     ->Belt.Array.map(employee =>
-         <div className=Style.employee>
-           <div> {employee##title->React.string} </div>
-           {switch (employee##avatar->Js.Nullable.toOption) {
+    {contacts
+     ->Belt.List.map(({title, avatar, email, name}) =>
+         <div className="text-center">
+           <div> title->React.string </div>
+           {switch (avatar) {
             | None => React.null
-            | Some(src) => <img src={src##file##url} alt="" />
+            | Some(src) => <img src alt="" />
             }}
-           <div> {employee##name->React.string} </div>
-           {employee##email->React.string}
+           <div> name->React.string </div>
+           email->React.string
          </div>
        )
+     ->Belt.List.toArray
      ->React.array}
   </div>;
 };

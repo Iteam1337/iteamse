@@ -6,4 +6,5 @@ yarn-error.log
 /public
 lib
 .env.development
+.bsb.lock
 

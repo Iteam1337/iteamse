@@ -1,52 +1,27 @@
-type t = {
-  .
-  "weAreTitle": string,
-  "weAreText": {. "weAreText": string},
-  "weOfferTitle": string,
-  "weOfferText": {. "weOfferText": string},
-  "ourMethodTitle": string,
-  "ourMethodText": {. "ourMethodText": string},
-  "contacts": array(Types.employee),
-};
-
-module Style = {
-  open Css;
-
-  let main =
-    style([
-      display(`grid),
-      gridTemplateColumns([`fr(1.0), `px(1024), `fr(1.0)]),
-      gridRowGap(`px(100)),
-      media(
-        Theme.Breakpoints.fromType(`Mobile),
-        [
-          gridTemplateColumns([`px(20), `fr(1.0), `px(20)]),
-          gridRowGap(`px(40)),
-        ],
-      ),
-    ]);
-};
-
 [@react.component]
-let make = (~data: t, ~illustration) => {
+let make = (~data, ~illustration) => {
+  let {
+    ourMethodTitle,
+    ourMethodText,
+    weAreText,
+    weAreTitle,
+    weOfferText,
+    weOfferTitle,
+    contacts,
+  }: Page.Start.t =
+    Page.Start.make(data);
+
   <>
-    <main className=Style.main>
-      <Block.Text title={data##weAreTitle}>
-        {data##weAreText##weAreText}
-      </Block.Text>
-      <Block.Text title={data##weOfferTitle}>
-        {data##weOfferText##weOfferText}
-      </Block.Text>
+    <main
+      className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y my-24">
+      <Block.Text title=weAreTitle> weAreText </Block.Text>
+      <Block.Text title=weOfferTitle> weOfferText </Block.Text>
       <Block.Illustration src=illustration />
-      <Block.Text title={data##ourMethodTitle}>
-        {data##ourMethodText##ourMethodText}
-      </Block.Text>
+      <Block.Text title=ourMethodTitle> ourMethodText </Block.Text>
     </main>
-    <Block.Section color=`CornflowerBlue>
-      <Contacts employees={data##contacts} />
-    </Block.Section>
+    <Block.Section color=`RadicalRed> <Contacts contacts /> </Block.Section>
     <Block.Section color=`Concrete>
-      <div> {data##ourMethodText##ourMethodText->React.string} </div>
+      <div> ourMethodText->React.string </div>
     </Block.Section>
   </>;
 };

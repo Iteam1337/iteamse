@@ -15,3 +15,22 @@ p {
 p:last-of-type {
   @apply mb-0;
 }
+
+/* Grid */
+.grid-columns-1fr {
+  grid-template-columns: 20px 1fr 20px;
+}
+
+@responsive {
+  .grid-columns-1024 {
+    grid-template-columns: 1fr 1024px 1fr;
+  }
+
+  .grid-columns-1024 > * {
+    @apply col-start-2 col-end-2;
+  }
+}
+
+.col-bleed {
+  grid-column: -1 / 1;
+}
