@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply font-sans;
+  -webkit-font-smoothing: antialiased;
+}
+
+p {
+  @apply mb-5 text-lg font-light;
+}
+
+p:last-of-type {
+  @apply mb-0;
+}
