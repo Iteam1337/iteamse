@@ -3,8 +3,8 @@ let make = (~data, ~illustrationFun) => {
   let page = Page.About.make(data);
 
   <>
-    <Gatsby.Link _to="/"> "Start"->React.string </Gatsby.Link>
-    <main
+    <Gatsby.Link className=None _to="/"> "Start"->React.string </Gatsby.Link>
+    <div
       className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y my-24">
       <Block.Text title={page.valueTitle}> {page.valueText} </Block.Text>
       <Block.Text title={page.funTitle}> {page.funText} </Block.Text>
@@ -21,10 +21,10 @@ let make = (~data, ~illustrationFun) => {
         </div>
       </Block.Element>
       <Block.Text title={page.valueeText}> {page.valueIteam} </Block.Text>
-      <Block.Section color=`Aquamarine>
-        <Contacts contacts={page.contacts} title={page.contactTitle} />
-      </Block.Section>
-    </main>
+    </div>
+    <Block.Section color=`Aquamarine>
+      <Contacts contacts={page.contacts} title={page.contactTitle} />
+    </Block.Section>
   </>;
 };
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql, useStaticQuery } from 'gatsby'
 import About from '../../lib/js/re/pages/About'
+import Layout from '../Layout'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -65,9 +66,11 @@ export default () => {
   `)
 
   return (
-    <About
-      data={data.contentfulSidaOmOss}
-      illustrationFun={data.illustrationFun.publicURL}
-    />
+    <Layout>
+      <About
+        data={data.contentfulSidaOmOss}
+        illustrationFun={data.illustrationFun.publicURL}
+      />
+    </Layout>
   )
 }

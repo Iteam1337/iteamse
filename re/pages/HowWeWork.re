@@ -2,8 +2,8 @@
 let make = (~data, ~illustrationGroup, ~illustrationShare) => {
   let page = Page.HowWeWork.make(data);
 
-  <main>
-    <Gatsby.Link _to="/"> "Start"->React.string </Gatsby.Link>
+  <>
+    <Gatsby.Link className=None _to="/"> "Start"->React.string </Gatsby.Link>
     <div
       className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y my-24">
       <Block.Text title={page.teamTitle}> {page.teamText} </Block.Text>
@@ -28,11 +28,11 @@ let make = (~data, ~illustrationGroup, ~illustrationShare) => {
       <Block.Text title={page.customersTitle}>
         {page.customersText}
       </Block.Text>
-      <Block.Section color=`CornflowerBlue>
-        <Contacts contacts={page.contacts} title={page.contactTitle} />
-      </Block.Section>
     </div>
-  </main>;
+    <Block.Section color=`CornflowerBlue>
+      <Contacts contacts={page.contacts} title={page.contactTitle} />
+    </Block.Section>
+  </>;
 };
 
 let default = make;

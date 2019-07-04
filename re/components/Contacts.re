@@ -9,21 +9,30 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
     {switch (Belt.List.length(contacts)) {
      | 2 =>
        <div
-         className="grid md:grid-columns-2 grid-gap-8-x grid-gap-4-y col-start-2 col-end-2">
+         className="grid md:grid-columns-2 grid-gap-8 col-start-2 col-end-2">
          {contacts
-          ->Belt.List.map(({title, avatar, email, name, phoneNumber}) =>
+          ->Belt.List.map(({title, short, avatar, email, name, phoneNumber}) =>
               <div
                 className="grid md:grid-columns-10 items-center
-              justify-center text-center md:text-left">
-                <div className="md:col-start-1 md:col-end-5">
-                  {switch (avatar) {
-                   | None => <Avatar.Gravatar email />
-                   | Some(src) => <Avatar.Contentful src />
-                   }}
+              justify-center text-center md:text-left"
+                key=name>
+                <div className="mb-5 md:mb-0 md:col-start-1 md:col-end-5">
+                  <Gatsby.Link
+                    className={Some("flex justify-center")}
+                    _to={"/medarbetare/" ++ short}>
+                    {switch (avatar) {
+                     | None => <Avatar.Gravatar email />
+                     | Some(src) => <Avatar.Contentful src />
+                     }}
+                  </Gatsby.Link>
                 </div>
                 <div className="md:col-start-6 md:col-end-11 font-light">
                   <div className="font-medium mb-2"> title->React.string </div>
-                  <div> name->React.string </div>
+                  <div>
+                    <Gatsby.Link className=None _to={"/medarbetare/" ++ short}>
+                      name->React.string
+                    </Gatsby.Link>
+                  </div>
                   {switch (phoneNumber) {
                    | None => React.null
                    | Some(pn) =>
@@ -42,16 +51,26 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
        </div>
      | _ =>
        <div
-         className="grid md:grid-columns-4 grid-gap-8-x col-start-2 col-end-2">
+         className="grid md:grid-columns-4 grid-gap-8 col-start-2 col-end-2">
          {contacts
-          ->Belt.List.map(({title, avatar, email, name}) =>
-              <div className="flex flex-col items-center text-center">
+          ->Belt.List.map(({title, avatar, email, name, short}) =>
+              <div
+                className="flex flex-col items-center justify-between text-center"
+                key=name>
                 <div className="font-medium mb-5"> title->React.string </div>
-                {switch (avatar) {
-                 | None => <Avatar.Gravatar email />
-                 | Some(src) => <Avatar.Contentful src />
-                 }}
-                <div className="font-medium mt-5"> name->React.string </div>
+                <Gatsby.Link
+                  className={Some("flex justify-center")}
+                  _to={"/medarbetare/" ++ short}>
+                  {switch (avatar) {
+                   | None => <Avatar.Gravatar email />
+                   | Some(src) => <Avatar.Contentful src />
+                   }}
+                </Gatsby.Link>
+                <div className="font-medium mt-5">
+                  <Gatsby.Link className=None _to={"/medarbetare/" ++ short}>
+                    name->React.string
+                  </Gatsby.Link>
+                </div>
                 <Mailto email />
               </div>
             )

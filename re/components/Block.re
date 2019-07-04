@@ -33,7 +33,7 @@ module Element = {
   let make = (~title, ~children) => {
     <section
       className="grid-gap-2-y grid md:grid-columns-12 col-start-2
-      col-end-2">
+      col-end-2 grid-gap-8-x">
       <div className="md:col-start-1 md:col-end-5">
         <Typography.H2> title </Typography.H2>
       </div>

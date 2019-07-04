@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql, useStaticQuery } from 'gatsby'
 import HowWeWork from '../../lib/js/re/pages/HowWeWork'
+import Layout from '../Layout'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -62,10 +63,12 @@ export default () => {
   `)
 
   return (
-    <HowWeWork
-      data={data.contentfulSidaHurViJobbar}
-      illustrationGroup={data.illustrationGroup.publicURL}
-      illustrationShare={data.illustrationShare.publicURL}
-    />
+    <Layout>
+      <HowWeWork
+        data={data.contentfulSidaHurViJobbar}
+        illustrationGroup={data.illustrationGroup.publicURL}
+        illustrationShare={data.illustrationShare.publicURL}
+      />
+    </Layout>
   )
 }

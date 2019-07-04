@@ -27,6 +27,10 @@ li:before {
   width: 1em;
 }
 
+.list-no-dots:before {
+  display: none;
+}
+
 /* Grid */
 .grid-columns-1fr {
   grid-template-columns: 20px 1fr 20px;

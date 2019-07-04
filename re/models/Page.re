@@ -14,7 +14,6 @@ module Employee = {
       | None => None
       | Some(src) => Some(src##file##url)
       },
-
     email: employee##email,
     name: employee##name,
     short: employee##short,
@@ -169,5 +168,45 @@ module HowWeWork = {
     openApplicationHeader: page##openApplicationHeader,
     contactTitle: page##contactTitle,
     contacts: Employee.fromArray(page##contacts),
+  };
+};
+
+module Coworkers = {
+  type t = {
+    contactTitle: string,
+    contacts: list(Employee.t),
+  };
+
+  let make = page => {
+    contactTitle: page##contactTitle,
+    contacts: Employee.fromArray(page##contacts),
+  };
+};
+
+module Coworker = {
+  type t = {
+    name: string,
+    why: string,
+    whyTitle: string,
+    phoneNumber: string,
+    email: string,
+    competence: string,
+    competenceTitle: string,
+    background: string,
+    backgroundTitle: string,
+    headerImage: string,
+  };
+
+  let make = page => {
+    name: page##name,
+    why: page##why##why,
+    whyTitle: page##whyTitle,
+    competence: page##competence##competence,
+    competenceTitle: page##competenceTitle,
+    background: page##background##background,
+    backgroundTitle: page##backgroundTitle,
+    email: page##email,
+    phoneNumber: Telefonnummer.parse(page##phoneNumber),
+    headerImage: page##headerImage##file##url,
   };
 };
