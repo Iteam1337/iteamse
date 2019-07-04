@@ -6,7 +6,9 @@ module Markdown = {
 module Text = {
   [@react.component]
   let make = (~title, ~children as source) => {
-    <section className="grid-gap-2-y grid md:grid-columns-12">
+    <section
+      className="grid-gap-2-y grid md:grid-columns-12 col-start-2
+      col-end-2">
       <div className="md:col-start-1 md:col-end-5">
         <Typography.H2> title </Typography.H2>
       </div>
@@ -53,5 +55,12 @@ module CTA = {
         </Button.Secondary>
       </div>
     </div>;
+  };
+};
+
+module Image = {
+  [@react.component]
+  let make = (~src) => {
+    <img className="col-bleed w-full" src alt="" />;
   };
 };
