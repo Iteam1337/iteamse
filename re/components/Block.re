@@ -30,10 +30,28 @@ module Section = {
   let make = (~color as c, ~children) => {
     <div
       className={Css.merge([
-        "grid py-24 grid-columns-1024 col-bleed",
+        "grid-columns-1fr grid py-24 md:grid-columns-1024 col-bleed",
         Theme.Colors.fromType(c),
       ])}>
       children
+    </div>;
+  };
+};
+
+module CTA = {
+  [@react.component]
+  let make = (~button, ~title, ~children, ~illustration) => {
+    <div className="grid-gap-2-y grid md:grid-columns-12">
+      <div className="md:col-start-1 md:col-end-5">
+        <img src=illustration alt="" />
+      </div>
+      <div className="md:col-start-5 md:col-end-13">
+        <Typography.H2> title </Typography.H2>
+        <p className="pt-2 pb-10"> children->React.string </p>
+        <Button.Secondary href="mailto:info@iteam.se">
+          button
+        </Button.Secondary>
+      </div>
     </div>;
   };
 };

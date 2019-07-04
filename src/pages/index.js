@@ -7,6 +7,11 @@ export default () => {
   const data = useStaticQuery(graphql`
     query Start {
       contentfulSidaStartsida2019 {
+        ctaText {
+          ctaText
+        }
+        ctaTitle
+        ctaButtonText
         weAreTitle
         weAreText {
           weAreText
@@ -31,7 +36,10 @@ export default () => {
           title
         }
       }
-      illustration: file(relativePath: { eq: "illustrations-group.svg" }) {
+      illustrationGroup: file(relativePath: { eq: "illustration-group.svg" }) {
+        publicURL
+      }
+      illustrationCrane: file(relativePath: { eq: "illustration-crane.png" }) {
         publicURL
       }
     }
@@ -40,7 +48,8 @@ export default () => {
   return (
     <Index
       data={data.contentfulSidaStartsida2019}
-      illustration={data.illustration.publicURL}
+      illustrationGroup={data.illustrationGroup.publicURL}
+      illustrationCrane={data.illustrationCrane.publicURL}
     />
   )
 }

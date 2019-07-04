@@ -23,6 +23,9 @@ module Employee = {
 
 module Start = {
   type t = {
+    ctaTitle: string,
+    ctaButton: string,
+    ctaText: string,
     weAreTitle: string,
     weAreText: string,
     weOfferTitle: string,
@@ -33,6 +36,9 @@ module Start = {
   };
 
   let make = page => {
+    ctaTitle: page##ctaTitle,
+    ctaText: page##ctaText##ctaText,
+    ctaButton: page##ctaButtonText,
     weAreTitle: page##weAreTitle,
     weAreText: page##weAreText##weAreText,
     weOfferTitle: page##weOfferTitle,

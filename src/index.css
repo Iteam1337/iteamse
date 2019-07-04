@@ -21,6 +21,10 @@ p:last-of-type {
   grid-template-columns: 20px 1fr 20px;
 }
 
+.grid-columns-1fr > * {
+  @apply col-start-2 col-end-2;
+}
+
 @responsive {
   .grid-columns-1024 {
     grid-template-columns: 1fr 1024px 1fr;
