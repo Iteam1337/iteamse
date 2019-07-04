@@ -15,6 +15,10 @@ module.exports = {
     fontFamily: {
       sans: ['Roboto', 'sans-serif'],
     },
+    height: {
+      md: '430px',
+      jumbo: '800px',
+    },
   },
   variants: {},
   plugins: [

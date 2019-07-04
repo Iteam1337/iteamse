@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import Layout from '../Layout'
 import Career from '../../lib/js/re/pages/Career'
 import '../index.css'
 
@@ -15,7 +16,6 @@ export default () => {
         }
         headerText1
         headerTextBgColor
-        hiringTitle
         contactTitle
         openApplicationLabel
         openApplicationText {
@@ -33,8 +33,23 @@ export default () => {
           title
         }
       }
+      allContentfulAnnonser(filter: { node_locale: { eq: "sv-SE" } }) {
+        nodes {
+          id
+          location
+          title
+          role {
+            role
+          }
+          urlId
+        }
+      }
     }
   `)
 
-  return <Career data={data.contentfulSidaJobbaHosOss} />
+  return (
+    <Layout>
+      <Career data={data} />
+    </Layout>
+  )
 }

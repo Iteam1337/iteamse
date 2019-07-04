@@ -8,6 +8,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+a {
+  @apply border-b-2 border-solid border-current text-lg text-cornflower-blue;
+}
+
 p {
   @apply mb-5 text-lg;
 }

@@ -4,12 +4,16 @@ module Markdown = {
 };
 
 module Header = {
+  let bgImage = imageUrl => Css.(style([backgroundImage(`url(imageUrl))]));
+
   [@react.component]
-  let make = (~backgroundImage, ~title, ~children as source) => {
-    <header className="grid md:grid-columns-1">
-      <div className="md:col-start-1 md:col-end-5">
-        <Typography.H2> title </Typography.H2>
-      </div>
+  let make = (~backgroundImage, ~children) => {
+    <header
+      className={Css.merge([
+        "grid md:grid-columns-1024 grid-columns-1fr bg-top bg-cover md:h-jumbo h-md",
+        bgImage(backgroundImage),
+      ])}>
+      <div className="col-start-2 self-end md:pb-20 pb-8"> children </div>
     </header>;
   };
 };

@@ -26,7 +26,13 @@
   "repository": {
     "url": "https://github.com/jtberglund/gatsby-starter-reason"
   },
-  "keywords": ["gatsby", "gatsby-starter", "starter", "reason", "reasonml"],
+  "keywords": [
+    "gatsby",
+    "gatsby-starter",
+    "starter",
+    "reason",
+    "reasonml"
+  ],
   "license": "MIT",
   "scripts": {
     "re:build": "bsb -make-world",

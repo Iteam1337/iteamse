@@ -8,6 +8,13 @@ module Colors = {
     | `CornflowerBlue => "bg-cornflower-blue text-white"
     | `RadicalRed => "bg-radical-red text-white";
 
+  let textFromType =
+    fun
+    | `Aquamarine => "text-aquamarine"
+    | `Concrete => "text-concrete"
+    | `CornflowerBlue => "text-cornflower-blue"
+    | `RadicalRed => "text-radical-red";
+
   let fromHex =
     fun
     | "#FF405F" => `RadicalRed

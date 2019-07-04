@@ -1,3 +1,14 @@
+module H1 = {
+  [@react.component]
+  let make = (~children, ~color as c) => {
+    <h1 className="md:text-5xl text-2xl font-medium">
+      <span className={Css.merge(["px-2 py-1", Theme.Colors.fromType(c)])}>
+        children->React.string
+      </span>
+    </h1>;
+  };
+};
+
 module H2 = {
   [@react.component]
   let make = (~children) => {

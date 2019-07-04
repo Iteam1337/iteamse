@@ -118,20 +118,55 @@ module About = {
   };
 };
 
+module Opportunity = {
+  type t = {
+    id: string,
+    role: string,
+    location: [ | `Stockholm | `Gothenburg | `Remote],
+    title: string,
+    urlId: string,
+  };
+
+  let locationFromString =
+    fun
+    | "Göteborg" => `Gothenburg
+    | "Stockholm" => `Stockholm
+    | _ => `Remote;
+
+  let make = opportunity => {
+    id: opportunity##id,
+    role: opportunity##role##role,
+    location: opportunity##location |> locationFromString,
+    title: opportunity##title,
+    urlId: opportunity##urlId,
+  };
+};
+
 module Career = {
   type t = {
     header: Header.t,
-    hiringTitle: string,
     contacts: list(Employee.t),
+    opportunities: list(Opportunity.t),
     contactTitle: string,
+    openApplicationLabel: string,
+    openApplicationText: string,
   };
 
   let make = page => {
-    header: Header.make(page),
-    hiringTitle: page##hiringTitle,
-    contactTitle: page##contactTitle,
+    header: Header.make(page##contentfulSidaJobbaHosOss),
+    contactTitle: page##contentfulSidaJobbaHosOss##contactTitle,
+    opportunities:
+      page##allContentfulAnnonser##nodes
+      ->Belt.Array.map(Opportunity.make)
+      ->Belt.List.fromArray,
     contacts:
-      page##contacts->Belt.Array.map(Employee.make)->Belt.List.fromArray,
+      page##contentfulSidaJobbaHosOss##contacts
+      ->Belt.Array.map(Employee.make)
+      ->Belt.List.fromArray,
+    openApplicationLabel:
+      page##contentfulSidaJobbaHosOss##openApplicationLabel,
+    openApplicationText:
+      page##contentfulSidaJobbaHosOss##openApplicationText##openApplicationText,
   };
 };
 
