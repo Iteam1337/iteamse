@@ -24,6 +24,20 @@ module Employee = {
     employees->Belt.Array.map(make)->Belt.List.fromArray;
 };
 
+module Header = {
+  type t = {
+    url: string,
+    text: string,
+    textBgColor: Theme.Colors.t,
+  };
+
+  let make = headerData => {
+    url: headerData##headerImage##file##url,
+    text: headerData##headerText1,
+    textBgColor: headerData##headerTextBgColor->Theme.Colors.fromHex,
+  };
+};
+
 module Start = {
   type t = {
     ctaTitle: string,
@@ -94,5 +108,22 @@ module About = {
       ->Belt.Array.map(icon => icon##file##url)
       ->Belt.List.fromArray,
     contacts: Employee.fromArray(page##contacts),
+  };
+};
+
+module Career = {
+  type t = {
+    header: Header.t,
+    hiringTitle: string,
+    contacts: list(Employee.t),
+    contactTitle: string,
+  };
+
+  let make = page => {
+    header: Header.make(page),
+    hiringTitle: page##hiringTitle,
+    contactTitle: page##contactTitle,
+    contacts:
+      page##contacts->Belt.Array.map(Employee.make)->Belt.List.fromArray,
   };
 };

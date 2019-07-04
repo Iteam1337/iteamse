@@ -7,7 +7,7 @@
 ```
 npm install
 npm run start
-npm run develop (in another terminal)
+npm run dev (in another terminal)
 ```
 
 Open http://localhost:8000

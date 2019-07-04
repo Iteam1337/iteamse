@@ -3,6 +3,17 @@ module Markdown = {
   external make: (~source: string) => React.element = "react-markdown";
 };
 
+module Header = {
+  [@react.component]
+  let make = (~backgroundImage, ~title, ~children as source) => {
+    <header className="grid md:grid-columns-1">
+      <div className="md:col-start-1 md:col-end-5">
+        <Typography.H2> title </Typography.H2>
+      </div>
+    </header>;
+  };
+};
+
 module Text = {
   [@react.component]
   let make = (~title, ~children as source) => {

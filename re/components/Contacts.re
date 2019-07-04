@@ -1,9 +1,9 @@
 [@react.component]
 let make = (~contacts: list(Page.Employee.t), ~title=None) => {
-  <div className="grid md:grid-columns-4 grid-gap-8-x col-start-2 col-end-2">
+  <div className="grid md:grid-columns-4 grid-gap-8-x">
     {switch (title) {
      | None => React.null
-     | Some(title) => <div> title->React.string </div>
+     | Some(title) => <Typography.H2> title </Typography.H2>
      }}
     {contacts
      ->Belt.List.map(({title, avatar, email, name}) =>
