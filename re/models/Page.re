@@ -135,3 +135,39 @@ module Career = {
       page##contacts->Belt.Array.map(Employee.make)->Belt.List.fromArray,
   };
 };
+
+module HowWeWork = {
+  type t = {
+    methodTitle: string,
+    methodText: string,
+    sharingText: string,
+    sharingTitle: string,
+    teamText: string,
+    teamTitle: string,
+    customersText: string,
+    customersTitle: string,
+    imageBleed: string,
+    hiringTitle: string,
+    openApplicationText: string,
+    openApplicationHeader: string,
+    contactTitle: string,
+    contacts: list(Employee.t),
+  };
+
+  let make = page => {
+    methodTitle: page##methodTitle,
+    methodText: page##methodText##methodText,
+    sharingText: page##sharingText##sharingText,
+    sharingTitle: page##sharingTitle,
+    teamText: page##teamText##teamText,
+    teamTitle: page##teamTitle,
+    customersText: page##customersText##customersText,
+    customersTitle: page##customersTitle,
+    imageBleed: page##imageBleed##file##url,
+    hiringTitle: page##hiringTitle,
+    openApplicationText: page##openApplicationText##openApplicationText,
+    openApplicationHeader: page##openApplicationHeader,
+    contactTitle: page##contactTitle,
+    contacts: Employee.fromArray(page##contacts),
+  };
+};

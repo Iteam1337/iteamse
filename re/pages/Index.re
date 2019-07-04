@@ -16,6 +16,9 @@ let make = (~data, ~illustrationGroup, ~illustrationCrane) => {
 
   <>
     <Gatsby.Link _to="/om-oss"> "Om oss"->React.string </Gatsby.Link>
+    <Gatsby.Link _to="/hur-vi-jobbar">
+      "Hur vi jobbar"->React.string
+    </Gatsby.Link>
     <main
       className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y my-24">
       <Block.Text title=weAreTitle> weAreText </Block.Text>

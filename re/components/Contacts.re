@@ -15,13 +15,13 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
               <div
                 className="grid md:grid-columns-10 items-center
               justify-center text-center md:text-left">
-                <div className="md:col-start-1 md:col-end-6">
+                <div className="md:col-start-1 md:col-end-5">
                   {switch (avatar) {
                    | None => <Avatar.Gravatar email />
                    | Some(src) => <Avatar.Contentful src />
                    }}
                 </div>
-                <div className="md:col-start-7 md:col-end-11 font-light">
+                <div className="md:col-start-6 md:col-end-11 font-light">
                   <div className="font-medium mb-2"> title->React.string </div>
                   <div> name->React.string </div>
                   {switch (phoneNumber) {

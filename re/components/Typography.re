@@ -6,3 +6,21 @@ module H2 = {
     </h2>;
   };
 };
+
+module H3 = {
+  [@react.component]
+  let make = (~children) => {
+    <h3 className="text-xl md:text-3xl font-medium">
+      {React.string(children)}
+    </h3>;
+  };
+};
+
+module H4 = {
+  [@react.component]
+  let make = (~children) => {
+    <h4 className="text-lg md:text-2xl font-medium">
+      {React.string(children)}
+    </h4>;
+  };
+};
