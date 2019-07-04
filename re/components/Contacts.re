@@ -9,10 +9,12 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
     {switch (Belt.List.length(contacts)) {
      | 2 =>
        <div
-         className="grid md:grid-columns-2 grid-gap-8-x col-start-2 col-end-2">
+         className="grid md:grid-columns-2 grid-gap-8-x grid-gap-4-y col-start-2 col-end-2">
          {contacts
           ->Belt.List.map(({title, avatar, email, name, phoneNumber}) =>
-              <div className="grid md:grid-columns-10 items-center">
+              <div
+                className="grid md:grid-columns-10 items-center
+              justify-center text-center md:text-left">
                 <div className="md:col-start-1 md:col-end-6">
                   {switch (avatar) {
                    | None => <Avatar.Gravatar email />
