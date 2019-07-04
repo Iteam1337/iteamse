@@ -4,16 +4,27 @@
 
 html,
 body {
-  @apply font-sans;
+  @apply font-sans font-light;
   -webkit-font-smoothing: antialiased;
 }
 
 p {
-  @apply mb-5 text-lg font-light;
+  @apply mb-5 text-lg;
 }
 
 p:last-of-type {
   @apply mb-0;
+}
+
+li {
+  @apply mb-2;
+}
+
+li:before {
+  content: '•';
+  display: inline-block;
+  margin-left: -1em;
+  width: 1em;
 }
 
 /* Grid */

@@ -3,8 +3,8 @@ module Colors = {
 
   let fromType =
     fun
-    | `Aquamarine => "bg-aquamarine"
-    | `Concrete => "bg-concrete"
+    | `Aquamarine => "bg-aquamarine text-black"
+    | `Concrete => "bg-concrete text-black"
     | `CornflowerBlue => "bg-cornflower-blue text-white"
     | `RadicalRed => "bg-radical-red text-white";
 

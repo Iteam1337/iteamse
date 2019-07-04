@@ -1,6 +1,8 @@
 [@react.component]
 let make = (~email) => {
-  <a className="border-b-2 border-white" href={"mailto:" ++ email}>
+  <a
+    className="border-b-2 border-solid border-current"
+    href={"mailto:" ++ email}>
     {React.string(email)}
   </a>;
 };

@@ -11,12 +11,18 @@ let make = (~data, ~illustrationFun) => {
       <Block.Illustration src=illustrationFun />
       <Block.Text title={page.goodTitle}> {page.goodText} </Block.Text>
       <Block.Image src={page.imageBleed} />
-      <Block.Text title={page.stabilityTitle}>
-        {page.stabilityText}
-      </Block.Text>
+      <Block.Element title={page.stabilityTitle}>
+        page.stabilityText->React.string
+        <div className="mt-10 flex items-center">
+          {page.stabilityIcons
+           ->Belt.List.map(src => <img className="mr-5 w-40" src alt="" />)
+           ->Belt.List.toArray
+           ->React.array}
+        </div>
+      </Block.Element>
       <Block.Text title={page.valueeText}> {page.valueIteam} </Block.Text>
       <Block.Section color=`Aquamarine>
-        <Contacts contacts={page.contacts} />
+        <Contacts contacts={page.contacts} title={page.contactTitle} />
       </Block.Section>
     </main>
   </>;

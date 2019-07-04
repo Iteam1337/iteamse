@@ -6,6 +6,7 @@ module.exports = {
         concrete: 'hsl(0, 4%, 95%)', // #f3f2f2
         'cornflower-blue': 'hsl(225, 100%, 70%)', // #668cff
         'radical-red': 'hsl(350, 100%, 62%)', // #ff3b5c
+        current: 'currentcolor',
       },
       maxWidth: {
         initial: 'initial',

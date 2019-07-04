@@ -5,19 +5,25 @@ module Employee = {
     name: string,
     short: string,
     title: string,
+    phoneNumber: option(string),
   };
 
   let make = employee => {
-    avatar: {
+    avatar:
       switch (employee##avatar->Js.Nullable.toOption) {
       | None => None
       | Some(src) => Some(src##file##url)
-      };
-    },
+      },
+
     email: employee##email,
     name: employee##name,
     short: employee##short,
     title: employee##title,
+    phoneNumber:
+      switch (employee##phoneNumber->Js.Nullable.toOption) {
+      | None => None
+      | Some(pn) => Some(Telefonnummer.parse(pn))
+      },
   };
 
   let fromArray = employees =>
@@ -84,6 +90,7 @@ module About = {
     stabilityText: string,
     stabilityTitle: string,
     stabilityIcons: list(string),
+    contactTitle: string,
     contacts: list(Employee.t),
   };
 
@@ -107,6 +114,7 @@ module About = {
       page##stabilityIcons
       ->Belt.Array.map(icon => icon##file##url)
       ->Belt.List.fromArray,
+    contactTitle: page##contactTitle,
     contacts: Employee.fromArray(page##contacts),
   };
 };

@@ -44,6 +44,7 @@ export default () => {
             url
           }
         }
+        contactTitle
         contacts {
           avatar {
             file {
@@ -54,6 +55,7 @@ export default () => {
           name
           short
           title
+          phoneNumber
         }
       }
       illustrationFun: file(relativePath: { eq: "illustration-fun.svg" }) {
