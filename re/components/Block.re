@@ -43,7 +43,8 @@ module Section = {
 module CTA = {
   [@react.component]
   let make = (~button, ~title, ~children, ~illustration) => {
-    <div className="grid-gap-2-y grid md:grid-columns-12">
+    <div
+      className="grid-gap-2-y grid md:grid-columns-12 col-start-2 col-end-2">
       <div className="md:col-start-1 md:col-end-5">
         <img src=illustration alt="" />
       </div>
