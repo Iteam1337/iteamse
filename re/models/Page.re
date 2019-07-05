@@ -3,6 +3,7 @@ module Employee = {
     avatar: option(string),
     email: string,
     name: string,
+    location: Location.t,
     short: string,
     title: string,
     phoneNumber: option(string),
@@ -16,6 +17,7 @@ module Employee = {
       },
     email: employee##email,
     name: employee##name,
+    location: Location.fromString(employee##location),
     short: employee##short,
     title: employee##title,
     phoneNumber:

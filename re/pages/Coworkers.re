@@ -12,12 +12,12 @@ module Coworker = {
          | Some(src) => <Avatar.Contentful src />
          }}
       </Gatsby.Link>
-      <div className="font-medium mt-5">
+      <div className="font-medium mt-5 text-lg">
         <Gatsby.Link className=None _to={"/medarbetare/" ++ short}>
           name->React.string
         </Gatsby.Link>
       </div>
-      <div className="font-normal my-1 text-sm"> title->React.string </div>
+      <div className="font-normal my-1 text-md"> title->React.string </div>
       {switch (phoneNumber) {
        | None => React.null
        | Some(pn) =>
@@ -36,6 +36,15 @@ module Coworker = {
 let make = (~coworkers, ~data) => {
   let page = Page.Coworkers.make(data);
 
+  let (locationFilter, setLocation) = React.useState(_ => `All);
+
+  let matchesLocationFilter = (currentFilter, employee: Page.Employee.t) =>
+    switch (currentFilter, employee) {
+    | (`All, _) => true
+    | (_, {location}) when location == currentFilter => true
+    | _ => false
+    };
+
   <>
     <Block.Header
       backgroundImage={page.header.url}
@@ -44,9 +53,46 @@ let make = (~coworkers, ~data) => {
     />
     <div className="grid grid-columns-1fr md:grid-columns-1024">
       <div
+        className="grid-gap-2-y grid md:grid-columns-12 col-start-2
+      col-end-2 grid-gap-8-x pt-24">
+        <div
+          className=Css.(
+            merge([
+              "md:col-start-1 md:col-end-12",
+              Theme.Colors.textFromType(`CornflowerBlue),
+            ])
+          )>
+          {Location.asList
+           ->Belt.List.map(area =>
+               <span
+                 className=Css.(
+                   merge([
+                     "mr-4",
+                     locationFilter == area ? "font-medium" : "",
+                   ])
+                 )
+                 key={area |> Location.toString}
+                 onKeyUp={event =>
+                   ReactEvent.Keyboard.keyCode(event) == 13
+                     ? setLocation(_ => area) : ()
+                 }
+                 onClick={_ => setLocation(_ => area)}
+                 tabIndex=0
+                 role="button">
+                 {area->Location.toString->React.string}
+               </span>
+             )
+           ->Belt.List.toArray
+           ->React.array}
+        </div>
+      </div>
+      <div
         className="grid md:grid-columns-4 grid-gap-8 col-start-2 col-end-2 my-24">
         {coworkers
          ->Page.Employee.fromArray
+         ->Belt.List.keep(employee =>
+             matchesLocationFilter(locationFilter, employee)
+           )
          ->Belt.List.map(coworker => <Coworker coworker key={coworker.name} />)
          ->Belt.List.toArray
          ->React.array}

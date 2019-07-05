@@ -46,12 +46,8 @@ let make = (~title) => {
     | _ => None;
 
   <div
-    className=Css.(
-      merge([
-        "grid-gap-2-y grid md:grid-columns-12 col-start-2
-      col-end-2 grid-gap-8-x",
-      ])
-    )>
+    className="grid-gap-2-y grid md:grid-columns-12 col-start-2
+      col-end-2 grid-gap-8-x">
     <div className=Css.(merge([separator, "md:col-start-1 md:col-end-12"]))>
       {parts
        ->Belt.List.map(p =>
