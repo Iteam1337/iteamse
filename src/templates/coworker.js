@@ -29,6 +29,7 @@ export const query = graphql`
       background {
         background
       }
+      headerTextBgColor
       headerImage {
         file {
           url

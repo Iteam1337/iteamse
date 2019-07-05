@@ -4,6 +4,11 @@ let make = (~data, ~illustrationFun) => {
 
   <>
     <Gatsby.Link className=None _to="/"> "Start"->React.string </Gatsby.Link>
+    <Block.Header backgroundImage={page.header.url}>
+      <Typography.H1 color={page.header.textBgColor}>
+        {page.header.text}
+      </Typography.H1>
+    </Block.Header>
     <div
       className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y my-24">
       <Block.Text title={page.valueTitle}> {page.valueText} </Block.Text>

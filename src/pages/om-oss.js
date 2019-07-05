@@ -10,6 +10,11 @@ export default () => {
         headerText2
         headerTextBgColor
         headerText1
+        headerImage {
+          file {
+            url
+          }
+        }
         funTitle
         funText {
           funText
@@ -18,11 +23,6 @@ export default () => {
           goodText
         }
         goodTitle
-        headerImage {
-          file {
-            url
-          }
-        }
         imageBleed {
           file {
             url

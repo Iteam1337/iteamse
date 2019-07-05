@@ -17,7 +17,12 @@ module Colors = {
 
   let fromHex =
     fun
+    | "red"
     | "#FF405F" => `RadicalRed
+    | "green"
+    | "#54FBAC" => `Aquamarine
+    | "blue"
+    | "#668CFF" => `CornflowerBlue
     | _ => `Concrete;
 };
 

@@ -7,6 +7,13 @@ export default () => {
   const data = useStaticQuery(graphql`
     query HowWeWork {
       contentfulSidaHurViJobbar {
+        headerTextBgColor
+        headerText1
+        headerImage {
+          file {
+            url
+          }
+        }
         methodTitle
         methodText {
           methodText

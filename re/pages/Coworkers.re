@@ -36,19 +36,26 @@ module Coworker = {
 let make = (~coworkers, ~data) => {
   let page = Page.Coworkers.make(data);
 
-  <div className="grid grid-columns-1fr md:grid-columns-1024">
-    <div
-      className="grid md:grid-columns-4 grid-gap-8 col-start-2 col-end-2 my-24">
-      {coworkers
-       ->Page.Employee.fromArray
-       ->Belt.List.map(coworker => <Coworker coworker key={coworker.name} />)
-       ->Belt.List.toArray
-       ->React.array}
+  <>
+    <Block.Header backgroundImage={page.header.url}>
+      <Typography.H1 color={page.header.textBgColor}>
+        {page.header.text}
+      </Typography.H1>
+    </Block.Header>
+    <div className="grid grid-columns-1fr md:grid-columns-1024">
+      <div
+        className="grid md:grid-columns-4 grid-gap-8 col-start-2 col-end-2 my-24">
+        {coworkers
+         ->Page.Employee.fromArray
+         ->Belt.List.map(coworker => <Coworker coworker key={coworker.name} />)
+         ->Belt.List.toArray
+         ->React.array}
+      </div>
+      <Block.Section color=`RadicalRed>
+        <Contacts contacts={page.contacts} title={page.contactTitle} />
+      </Block.Section>
     </div>
-    <Block.Section color=`RadicalRed>
-      <Contacts contacts={page.contacts} title={page.contactTitle} />
-    </Block.Section>
-  </div>;
+  </>;
 };
 
 let default = make;

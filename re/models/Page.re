@@ -91,12 +91,14 @@ module About = {
     stabilityIcons: list(string),
     contactTitle: string,
     contacts: list(Employee.t),
+    header: Header.t,
   };
 
   let make = page => {
     headerText1: page##headerText1,
     headerText2: page##headerText2,
     headerBgColor: page##headerTextBgColor,
+    header: Header.make(page),
     funTitle: page##funTitle,
     funText: page##funText##funText,
     goodText: page##goodText##goodText,
@@ -186,6 +188,7 @@ module HowWeWork = {
     openApplicationHeader: string,
     contactTitle: string,
     contacts: list(Employee.t),
+    header: Header.t,
   };
 
   let make = page => {
@@ -203,6 +206,7 @@ module HowWeWork = {
     openApplicationHeader: page##openApplicationHeader,
     contactTitle: page##contactTitle,
     contacts: Employee.fromArray(page##contacts),
+    header: Header.make(page),
   };
 };
 
@@ -210,11 +214,13 @@ module Coworkers = {
   type t = {
     contactTitle: string,
     contacts: list(Employee.t),
+    header: Header.t,
   };
 
   let make = page => {
     contactTitle: page##contactTitle,
     contacts: Employee.fromArray(page##contacts),
+    header: Header.make(page),
   };
 };
 
@@ -229,7 +235,7 @@ module Coworker = {
     competenceTitle: string,
     background: string,
     backgroundTitle: string,
-    headerImage: string,
+    header: Header.t,
   };
 
   let make = page => {
@@ -242,6 +248,6 @@ module Coworker = {
     backgroundTitle: page##backgroundTitle,
     email: page##email,
     phoneNumber: Telefonnummer.parse(page##phoneNumber),
-    headerImage: page##headerImage##file##url,
+    header: Header.make(page),
   };
 };

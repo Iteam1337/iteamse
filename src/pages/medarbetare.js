@@ -24,6 +24,13 @@ export default () => {
         }
       }
       contentfulSidaTeamet {
+        headerText1
+        headerTextBgColor
+        headerImage {
+          file {
+            url
+          }
+        }
         contactTitle
         contacts {
           avatar {

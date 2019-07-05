@@ -14,7 +14,7 @@ let make = (~data) => {
     <Block.Header backgroundImage={header.url}>
       <Typography.H1 color={header.textBgColor}> {header.text} </Typography.H1>
     </Block.Header>
-    <main
+    <div
       className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y my-24">
       {opportunities
        ->Belt.List.map(opportunity =>
@@ -30,7 +30,7 @@ let make = (~data) => {
       <Block.Element title=openApplicationLabel>
         <Block.Markdown source=openApplicationText />
       </Block.Element>
-    </main>
+    </div>
     <Block.Section color=`RadicalRed>
       <Contacts title=contactTitle contacts />
     </Block.Section>
