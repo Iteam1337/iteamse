@@ -1,31 +1,53 @@
 module Markdown = {
-  [@bs.module] [@react.component]
-  external make: (~source: string) => React.element = "react-markdown";
+  module ReactMarkdown = {
+    [@bs.module] [@react.component]
+    external make: (~source: string, ~className: string) => React.element =
+      "react-markdown";
+  };
+
+  [@react.component]
+  let make = (~source) => <ReactMarkdown source className="markdown" />;
 };
 
 module Header = {
   let bgImage = imageUrl => Css.(style([backgroundImage(`url(imageUrl))]));
 
   [@react.component]
-  let make = (~backgroundImage, ~children) => {
+  let make = (~backgroundImage, ~color as c, ~messageOne, ~messageTwo=None) => {
+    let marker = Css.merge(["px-2 py-1", Theme.Colors.fromType(c)]);
+
     <header
       className={Css.merge([
         "grid md:grid-columns-1024 grid-columns-1fr bg-top bg-cover md:h-jumbo h-md",
         bgImage(backgroundImage),
       ])}>
-      <div className="col-start-2 self-end md:pb-20 pb-8"> children </div>
+      <div className="col-start-2 self-end md:pb-20 pb-8">
+        <Typography.H1>
+          <span className=marker> messageOne->React.string </span>
+          {messageTwo
+           ->Belt.Option.map(m =>
+               <> <br /> <span className=marker> m->React.string </span> </>
+             )
+           ->Belt.Option.getWithDefault(React.null)}
+        </Typography.H1>
+      </div>
     </header>;
   };
 };
 
 module Text = {
   [@react.component]
-  let make = (~title, ~children as source) => {
+  let make = (~title, ~children as source, ~subtitle=?) => {
     <section
       className="grid-gap-2-y grid md:grid-columns-12 col-start-2
       col-end-2 grid-gap-8-x">
       <div className="md:col-start-1 md:col-end-5">
         <Typography.H2> title </Typography.H2>
+        {subtitle
+         ->Belt.Option.map(s =>
+             <span className="text-lg"> s->React.string </span>
+           )
+         ->Belt.Option.getWithDefault(React.null)}
       </div>
       <div className="md:col-start-5 md:col-end-13"> <Markdown source /> </div>
     </section>;
@@ -34,12 +56,17 @@ module Text = {
 
 module Element = {
   [@react.component]
-  let make = (~title, ~children) => {
+  let make = (~title, ~children, ~subtitle=?) => {
     <section
       className="grid-gap-2-y grid md:grid-columns-12 col-start-2
       col-end-2 grid-gap-8-x">
       <div className="md:col-start-1 md:col-end-5">
         <Typography.H2> title </Typography.H2>
+        {subtitle
+         ->Belt.Option.map(s =>
+             <span className="text-lg"> s->React.string </span>
+           )
+         ->Belt.Option.getWithDefault(React.null)}
       </div>
       <div className="md:col-start-5 md:col-end-13"> children </div>
     </section>;

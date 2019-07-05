@@ -33,12 +33,14 @@ module Header = {
   type t = {
     url: string,
     text: string,
+    textSecond: option(string),
     textBgColor: Theme.Colors.t,
   };
 
   let make = headerData => {
     url: headerData##headerImage##file##url,
     text: headerData##headerText1,
+    textSecond: headerData##headerText2 |> Js.Nullable.toOption,
     textBgColor: headerData##headerTextBgColor->Theme.Colors.fromHex,
   };
 };
@@ -73,14 +75,10 @@ module Start = {
 
 module About = {
   type t = {
-    headerText1: string,
-    headerText2: string,
-    headerBgColor: string,
     funTitle: string,
     funText: string,
     goodText: string,
     goodTitle: string,
-    headerImage: string,
     imageBleed: string,
     valueText: string,
     valueTitle: string,
@@ -95,15 +93,11 @@ module About = {
   };
 
   let make = page => {
-    headerText1: page##headerText1,
-    headerText2: page##headerText2,
-    headerBgColor: page##headerTextBgColor,
     header: Header.make(page),
     funTitle: page##funTitle,
     funText: page##funText##funText,
     goodText: page##goodText##goodText,
     goodTitle: page##goodTitle,
-    headerImage: page##headerImage##file##url,
     imageBleed: page##imageBleed##file##url,
     valueText: page##valueText##valueText,
     valueTitle: page##valueTitle,
@@ -122,29 +116,71 @@ module About = {
 
 module Opportunity = {
   type t = {
-    id: string,
-    role: string,
-    location: [ | `Stockholm | `Gothenburg | `Remote],
+    aboutUsTitle: string,
+    aboutUs: string,
+    application: string,
+    applicationTitle: string,
+    bonusKnowledgeTitle: string,
+    bonusKnowledge: string,
+    contactTitle: string,
+    contacts: list(Employee.t),
+    header: Header.t,
+    knowledgeTitle: string,
+    knowledge: string,
+    location: string,
     title: string,
-    urlId: string,
+    perksTitle: string,
+    perks: string,
+    roleTitle: string,
+    role: string,
+    technicalitiesTitle: string,
+    technicalities: string,
   };
 
-  let locationFromString =
-    fun
-    | "Göteborg" => `Gothenburg
-    | "Stockholm" => `Stockholm
-    | _ => `Remote;
-
   let make = opportunity => {
-    id: opportunity##id,
-    role: opportunity##role##role,
-    location: opportunity##location |> locationFromString,
+    aboutUsTitle: opportunity##aboutUsTitle,
+    aboutUs: opportunity##aboutUs##aboutUs,
+    applicationTitle: opportunity##applicationTitle,
+    application: opportunity##application##application,
+    bonusKnowledgeTitle: opportunity##bonusKnowledgeTitle,
+    bonusKnowledge: opportunity##bonusKnowledge##bonusKnowledge,
+    contactTitle: opportunity##contactTitle,
+    contacts:
+      opportunity##contacts
+      ->Belt.Array.map(Employee.make)
+      ->Belt.List.fromArray,
+    header: Header.make(opportunity),
+    knowledgeTitle: opportunity##knowledgeTitle,
+    knowledge: opportunity##knowledge##knowledge,
+    location: opportunity##location,
     title: opportunity##title,
-    urlId: opportunity##urlId,
+    perksTitle: opportunity##perksTitle,
+    perks: opportunity##perks##perks,
+    roleTitle: opportunity##roleTitle,
+    role: opportunity##role##role,
+    technicalitiesTitle: opportunity##technicalitiesTitle,
+    technicalities: opportunity##technicalities##technicalities,
   };
 };
 
 module Career = {
+  module Opportunity = {
+    type t = {
+      id: string,
+      role: string,
+      location: string,
+      title: string,
+      urlId: string,
+    };
+    let make = opportunity => {
+      id: opportunity##id,
+      role: opportunity##role##role,
+      location: opportunity##location,
+      title: opportunity##title,
+      urlId: opportunity##urlId,
+    };
+  };
+
   type t = {
     header: Header.t,
     contacts: list(Employee.t),

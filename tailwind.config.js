@@ -7,6 +7,7 @@ module.exports = {
         'cornflower-blue': 'hsl(225, 100%, 70%)', // #668cff
         'radical-red': 'hsl(350, 100%, 62%)', // #ff3b5c
         current: 'currentcolor',
+        white: 'white',
       },
       maxWidth: {
         initial: 'initial',

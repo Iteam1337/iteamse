@@ -8,13 +8,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* TODO: Consistency issues where not all mailto's are black */
-/*
-main a[href^='mailto'] {
-  @apply border-b-2 border-solid border-current text-lg text-black;
-}
-*/
-
 p {
   @apply mb-5 text-lg;
 }
@@ -51,4 +44,26 @@ li:before {
 
 .col-bleed {
   grid-column: -1 / 1;
+}
+
+/* Markdown */
+.markdown li {
+  @apply text-lg;
+}
+
+.markdown a {
+  @apply border-b-2 border-solid border-current text-lg text-cornflower-blue;
+}
+
+.markdown h2 {
+  @apply text-2xl font-medium pb-4;
+}
+
+.markdown p:last-of-type {
+  @apply mb-5;
+}
+
+.markdown b,
+.markdown strong {
+  font-weight: bold;
 }

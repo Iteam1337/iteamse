@@ -4,11 +4,11 @@ let make = (~data, ~illustrationGroup, ~illustrationShare) => {
 
   <>
     <Gatsby.Link className=None _to="/"> "Start"->React.string </Gatsby.Link>
-    <Block.Header backgroundImage={page.header.url}>
-      <Typography.H1 color={page.header.textBgColor}>
-        {page.header.text}
-      </Typography.H1>
-    </Block.Header>
+    <Block.Header
+      backgroundImage={page.header.url}
+      color={page.header.textBgColor}
+      messageOne={page.header.text}
+    />
     <div
       className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y my-24">
       <Block.Text title={page.teamTitle}> {page.teamText} </Block.Text>

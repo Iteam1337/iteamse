@@ -13,6 +13,11 @@ exports.createPages = ({ graphql, actions }) => {
           short
         }
       }
+      allContentfulAnnonser(filter: { node_locale: { eq: "sv-SE" } }) {
+        nodes {
+          urlId
+        }
+      }
     }
   `).then(result => {
     result.data.allContentfulKollegor.nodes.forEach(node => {
@@ -21,6 +26,16 @@ exports.createPages = ({ graphql, actions }) => {
         component: path.resolve('./src/templates/coworker.js'),
         context: {
           short: node.short,
+        },
+      })
+    })
+
+    result.data.allContentfulAnnonser.nodes.forEach(node => {
+      createPage({
+        path: `/karriar/${node.urlId}`,
+        component: path.resolve('./src/templates/opportunity.js'),
+        context: {
+          urlId: node.urlId,
         },
       })
     })

@@ -11,14 +11,19 @@ let make = (~data) => {
     Page.Career.make(data);
 
   <>
-    <Block.Header backgroundImage={header.url}>
-      <Typography.H1 color={header.textBgColor}> {header.text} </Typography.H1>
-    </Block.Header>
+    <Block.Header
+      backgroundImage={header.url}
+      color={header.textBgColor}
+      messageOne={header.text}
+    />
     <div
       className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y my-24">
       {opportunities
        ->Belt.List.map(opportunity =>
-           <Block.Element key={opportunity.id} title={opportunity.title}>
+           <Block.Element
+             key={opportunity.id}
+             title={opportunity.title}
+             subtitle={opportunity.location}>
              <Block.Markdown source={opportunity.role} />
              <Link url={"/karriar/" ++ opportunity.urlId}>
                {React.string({j|Läs mer och ansök|j})}

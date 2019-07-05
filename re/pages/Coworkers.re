@@ -5,7 +5,7 @@ module Coworker = {
 
     <div className="text-center flex flex-col justify-between items-center">
       <Gatsby.Link
-        className={Some("flex justify-center")}
+        className={Some("flex justify-center items-start")}
         _to={"/medarbetare/" ++ short}>
         {switch (avatar) {
          | None => <Avatar.Gravatar email />
@@ -37,11 +37,11 @@ let make = (~coworkers, ~data) => {
   let page = Page.Coworkers.make(data);
 
   <>
-    <Block.Header backgroundImage={page.header.url}>
-      <Typography.H1 color={page.header.textBgColor}>
-        {page.header.text}
-      </Typography.H1>
-    </Block.Header>
+    <Block.Header
+      backgroundImage={page.header.url}
+      color={page.header.textBgColor}
+      messageOne={page.header.text}
+    />
     <div className="grid grid-columns-1fr md:grid-columns-1024">
       <div
         className="grid md:grid-columns-4 grid-gap-8 col-start-2 col-end-2 my-24">

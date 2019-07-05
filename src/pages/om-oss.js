@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import About from '../../lib/js/re/pages/About'
 import Layout from '../Layout'
 
@@ -7,9 +7,9 @@ export default () => {
   const data = useStaticQuery(graphql`
     query AboutUs {
       contentfulSidaOmOss {
-        headerText2
         headerTextBgColor
         headerText1
+        headerText2
         headerImage {
           file {
             url

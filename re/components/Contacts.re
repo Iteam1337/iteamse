@@ -18,7 +18,7 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
                 key=name>
                 <div className="mb-5 md:mb-0 md:col-start-1 md:col-end-5">
                   <Gatsby.Link
-                    className={Some("flex justify-center")}
+                    className={Some("flex justify-center items-start")}
                     _to={"/medarbetare/" ++ short}>
                     {switch (avatar) {
                      | None => <Avatar.Gravatar email />
@@ -59,7 +59,7 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
                 key=name>
                 <div className="font-medium mb-5"> title->React.string </div>
                 <Gatsby.Link
-                  className={Some("flex justify-center")}
+                  className={Some("flex justify-center items-start")}
                   _to={"/medarbetare/" ++ short}>
                   {switch (avatar) {
                    | None => <Avatar.Gravatar email />
