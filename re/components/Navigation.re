@@ -26,14 +26,17 @@ module NavigationLink = {
 
 [@react.component]
 let make = () => {
-  <nav className="col-start-2 bg-transparent flex items-start">
-    <div className="flex ml-auto">
+  <div className="col-start-2 bg-transparent flex flex-1 items-start">
+    <Gatsby.Link className={Some("py-8")} _to="/">
+      <img src="/image/iteam-logo.svg" alt="Iteam Logotype" />
+    </Gatsby.Link>
+    <nav className="flex ml-auto">
       <NavigationLink _to="/erbjudanden" text="Erbjudanden" />
       <NavigationLink _to="/case" text={j|Våra case|j} />
       <NavigationLink _to="/hur-vi-jobbar" text="Metod" />
       <NavigationLink _to="/medarbetare" text="Medarbetare" />
       <NavigationLink _to="/karriar" text={j|Karriär|j} />
       <NavigationLink _to="/om-oss" text="Om" />
-    </div>
-  </nav>;
+    </nav>
+  </div>;
 };
