@@ -21,6 +21,7 @@ module Header = {
         "grid md:grid-columns-1024 grid-columns-1fr bg-top bg-cover md:h-jumbo h-md",
         bgImage(backgroundImage),
       ])}>
+      <Navigation />
       <div className="col-start-2 self-end md:pb-20 pb-8">
         <Typography.H1>
           <span className=marker> messageOne->React.string </span>

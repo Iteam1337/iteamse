@@ -3,7 +3,6 @@ let make = (~data, ~illustrationFun) => {
   let page = Page.About.make(data);
 
   <>
-    <Gatsby.Link className=None _to="/"> "Start"->React.string </Gatsby.Link>
     <Block.Header
       backgroundImage={page.header.url}
       color={page.header.textBgColor}

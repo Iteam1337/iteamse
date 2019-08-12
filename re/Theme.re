@@ -1,19 +1,27 @@
 module Colors = {
-  type t = [ | `Aquamarine | `Concrete | `CornflowerBlue | `RadicalRed];
+  type t = [
+    | `Aquamarine
+    | `Concrete
+    | `CornflowerBlue
+    | `RadicalRed
+    | `White
+  ];
 
   let fromType =
     fun
     | `Aquamarine => "bg-aquamarine text-black"
     | `Concrete => "bg-concrete text-black"
     | `CornflowerBlue => "bg-cornflower-blue text-white"
-    | `RadicalRed => "bg-radical-red text-white";
+    | `RadicalRed => "bg-radical-red text-white"
+    | `White => "bg-transparent text-white";
 
   let textFromType =
     fun
     | `Aquamarine => "text-aquamarine"
     | `Concrete => "text-concrete"
     | `CornflowerBlue => "text-cornflower-blue"
-    | `RadicalRed => "text-radical-red";
+    | `RadicalRed => "text-radical-red"
+    | `White => "text-white";
 
   let fromHex =
     fun
@@ -23,6 +31,8 @@ module Colors = {
     | "#54FBAC" => `Aquamarine
     | "blue"
     | "#668CFF" => `CornflowerBlue
+    | "white"
+    | "#FFFFFF" => `White
     | _ => `Concrete;
 };
 

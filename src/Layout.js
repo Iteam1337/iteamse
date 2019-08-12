@@ -26,13 +26,13 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <main>
+    <>
       {children}
       <Footer
         data={data.allContentfulAdresser.nodes}
         socialMedia={data.socialMediaIcons.nodes}
       />
-    </main>
+    </>
   )
 }
 

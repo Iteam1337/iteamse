@@ -17,6 +17,13 @@ let split_on_char = (sep, s) => {
   [sub(s, 0, j^), ...r^];
 };
 
+let parseSlug =
+  fun
+  | "karriar" => Some({js|Karriär|js})
+  | "medarbetare" => Some({js|Medarbetare|js})
+  | "case" => Some({js|Case|js})
+  | _ => None;
+
 [@react.component]
 let make = (~title) => {
   let separator =
@@ -37,13 +44,6 @@ let make = (~title) => {
     );
 
   let parts = JsWindow.location |> split_on_char('/') |> List.tl;
-
-  let parseSlug =
-    fun
-    | "karriar" => Some({js|Karriär|js})
-    | "medarbetare" => Some({js|Medarbetare|js})
-    | "case" => Some({js|Case|js})
-    | _ => None;
 
   <div
     className="grid-gap-2-y grid md:grid-columns-12 col-start-2
