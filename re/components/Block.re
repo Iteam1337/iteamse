@@ -13,24 +13,44 @@ module Header = {
   let bgImage = imageUrl => Css.(style([backgroundImage(`url(imageUrl))]));
 
   [@react.component]
-  let make = (~backgroundImage, ~color as c, ~messageOne, ~messageTwo=None) => {
+  let make =
+      (~backgroundImage as bg, ~color as c, ~messageOne, ~messageTwo=None) => {
     let marker = Css.merge(["px-2 py-1", Theme.Colors.fromType(c)]);
+    let navigationBackground =
+      Css.(
+        merge([
+          style([
+            backgroundImage(
+              linearGradient(
+                `deg(180.0),
+                [
+                  (`px(0), `rgba((0, 0, 0, 0.3))),
+                  (`px(100), `rgba((0, 0, 0, 0.0))),
+                ],
+              ),
+            ),
+          ]),
+          "grid md:grid-columns-1024 col-bleed",
+        ])
+      );
 
     <header
       className={Css.merge([
         "grid md:grid-columns-1024 grid-columns-1fr bg-top bg-cover md:h-jumbo h-md",
-        bgImage(backgroundImage),
+        bgImage(bg),
       ])}>
-      <Navigation />
-      <div className="col-start-2 self-end md:pb-20 pb-8">
-        <Typography.H1>
-          <span className=marker> messageOne->React.string </span>
-          {messageTwo
-           ->Belt.Option.map(m =>
-               <> <br /> <span className=marker> m->React.string </span> </>
-             )
-           ->Belt.Option.getWithDefault(React.null)}
-        </Typography.H1>
+      <div className=navigationBackground>
+        <Navigation />
+        <div className="col-start-2 self-end md:pb-20 pb-8">
+          <Typography.H1>
+            <span className=marker> messageOne->React.string </span>
+            {messageTwo
+             ->Belt.Option.map(m =>
+                 <> <br /> <span className=marker> m->React.string </span> </>
+               )
+             ->Belt.Option.getWithDefault(React.null)}
+          </Typography.H1>
+        </div>
       </div>
     </header>;
   };
