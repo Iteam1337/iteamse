@@ -38,7 +38,7 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
                    | Some(pn) =>
                      <a
                        className="font-light block"
-                       href={"tel:" ++ Telefonnummer.Normalize.clean(pn)}>
+                       href={Telefonnummer.Link.make(pn)}>
                        pn->React.string
                      </a>
                    }}

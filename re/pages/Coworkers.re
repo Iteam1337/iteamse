@@ -23,7 +23,7 @@ module Coworker = {
        | Some(pn) =>
          <a
            className="font-light block mb-1"
-           href={"tel:" ++ Telefonnummer.Normalize.clean(pn)}>
+           href={Telefonnummer.Link.make(pn)}>
            pn->React.string
          </a>
        }}
