@@ -5,8 +5,9 @@ cache:
 node_js:
   - 10
 install:
-  - npm install --silent
+  - npm ci
 script:
+  - npm run build
   - npm test
 branches:
   only:
