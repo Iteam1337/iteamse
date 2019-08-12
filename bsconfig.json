@@ -2,7 +2,12 @@
   "name": "iteam-se",
   "namespace": true,
   "reason": { "react-jsx": 3 },
-  "bs-dependencies": ["reason-react", "bs-css", "bs-telefonnummer"],
+  "bs-dependencies": [
+    "reason-react",
+    "bs-css",
+    "bs-telefonnummer",
+    "re-classnames"
+  ],
   "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "sources": [
     {

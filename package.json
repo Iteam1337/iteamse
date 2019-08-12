@@ -6,7 +6,7 @@
   "dependencies": {
     "bs-css": "^9.0.1",
     "bs-platform": "5.0.6",
-    "bs-telefonnummer": "^1.1.0",
+    "bs-telefonnummer": "1.2.0",
     "gatsby": "2.13.59",
     "gatsby-image": "2.2.8",
     "gatsby-link": "2.2.4",
@@ -19,6 +19,7 @@
     "gatsby-source-filesystem": "2.1.9",
     "gatsby-transformer-sharp": "2.2.6",
     "md5": "^2.2.1",
+    "re-classnames": "^4.0.0",
     "react-helmet": "5.2.1",
     "react-markdown": "^4.1.0",
     "reason-react": "0.7.0"

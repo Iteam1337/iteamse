@@ -13,9 +13,8 @@ module NavigationLink = {
       className={
         Some(
           Css.merge([
-            "border-t-4 text-white text-lg font-normal mr-6 last:mr-0 py-8 flex justify-center
-                    items-center",
-            isActive ? "border-white" : "border-transparent",
+            "border-t-4 text-white text-lg font-normal mr-6 last:mr-0 py-8 flex justify-center items-center border-transparent",
+            "border-white"->Cn.ifTrue(isActive),
           ]),
         )
       }
