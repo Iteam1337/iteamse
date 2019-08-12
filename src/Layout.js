@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
     <>
       {children}
       <Footer
-        data={data.allContentfulAdresser.nodes}
+        locations={data.allContentfulAdresser.nodes}
         socialMedia={data.socialMediaIcons.nodes}
       />
     </>
