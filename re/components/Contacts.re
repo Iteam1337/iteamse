@@ -57,21 +57,23 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
               <div
                 className="flex flex-col items-center justify-between text-center"
                 key=name>
-                <div className="font-medium mb-5"> title->React.string </div>
-                <Gatsby.Link
-                  className={Some("flex justify-center items-start")}
-                  _to={"/medarbetare/" ++ short}>
-                  {switch (avatar) {
-                   | None => <Avatar.Gravatar email />
-                   | Some(src) => <Avatar.Contentful src />
-                   }}
-                </Gatsby.Link>
-                <div className="font-medium mt-5">
-                  <Gatsby.Link className=None _to={"/medarbetare/" ++ short}>
-                    name->React.string
+                <div className="font-medium"> title->React.string </div>
+                <div>
+                  <Gatsby.Link
+                    className={Some("flex justify-center items-start my-5")}
+                    _to={"/medarbetare/" ++ short}>
+                    {switch (avatar) {
+                     | None => <Avatar.Gravatar email />
+                     | Some(src) => <Avatar.Contentful src />
+                     }}
                   </Gatsby.Link>
+                  <div className="font-medium">
+                    <Gatsby.Link className=None _to={"/medarbetare/" ++ short}>
+                      name->React.string
+                    </Gatsby.Link>
+                  </div>
+                  <Mailto email />
                 </div>
-                <Mailto email />
               </div>
             )
           ->Belt.List.toArray

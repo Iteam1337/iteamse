@@ -3,7 +3,12 @@
   "namespace": true,
   "reason": { "react-jsx": 3 },
   "bs-dependencies": ["reason-react", "bs-css", "bs-telefonnummer"],
+  "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "sources": [
+    {
+      "dir": "__tests__",
+      "type": "dev"
+    },
     {
       "dir": "re",
       "subdirs": true
