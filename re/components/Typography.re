@@ -1,7 +1,13 @@
 module H1 = {
   [@react.component]
-  let make = (~children) => {
-    <h1 className="md:text-5xl text-2xl font-medium"> children </h1>;
+  let make = (~children, ~className=?) => {
+    <h1
+      className={Css.merge([
+        "md:text-5xl text-2xl font-medium",
+        className->Cn.unpack,
+      ])}>
+      children
+    </h1>;
   };
 };
 
@@ -25,8 +31,12 @@ module H3 = {
 
 module H4 = {
   [@react.component]
-  let make = (~children) => {
-    <h4 className="text-lg md:text-2xl font-medium">
+  let make = (~children, ~className=?) => {
+    <h4
+      className={Css.merge([
+        "text-lg md:text-2xl font-medium",
+        className->Cn.unpack,
+      ])}>
       {React.string(children)}
     </h4>;
   };

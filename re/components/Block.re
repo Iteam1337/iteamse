@@ -42,7 +42,7 @@ module Header = {
       <div className=navigationBackground>
         <Navigation />
         <div className="col-start-2 self-end md:pb-20 pb-8">
-          <Typography.H1>
+          <Typography.H1 className="ml-5 md:ml-0">
             <span className=marker> messageOne->React.string </span>
             {messageTwo
              ->Belt.Option.map(m =>
@@ -109,7 +109,7 @@ module Section = {
   let make = (~color as c, ~children) => {
     <div
       className={Css.merge([
-        "grid-columns-1fr grid py-24 md:grid-columns-1024 col-bleed",
+        "grid-columns-1fr grid py-10 md:py-24 md:grid-columns-1024 col-bleed",
         Theme.Colors.fromType(c),
       ])}>
       children

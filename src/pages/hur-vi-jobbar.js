@@ -64,6 +64,7 @@ export default () => {
         nodes {
           title
           location
+          urlId
         }
       }
     }
@@ -72,6 +73,7 @@ export default () => {
   return (
     <Layout>
       <HowWeWork
+        ads={data.allContentfulAnnonser.nodes}
         data={data.contentfulSidaHurViJobbar}
         illustrationGroup={data.illustrationGroup.publicURL}
         illustrationShare={data.illustrationShare.publicURL}
