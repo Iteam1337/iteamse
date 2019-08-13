@@ -306,3 +306,18 @@ module Offers = {
       page##contacts->Belt.Array.map(Employee.make)->Belt.List.fromArray,
   };
 };
+
+module Case = {
+  type t = {
+    header: Header.t,
+    contactTitle: string,
+    contacts: list(Employee.t),
+  };
+
+  let make = page => {
+    header: Header.make(page),
+    contactTitle: page##contactTitle,
+    contacts:
+      page##contacts->Belt.Array.map(Employee.make)->Belt.List.fromArray,
+  };
+};
