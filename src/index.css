@@ -46,6 +46,10 @@ li:before {
   grid-column: -1 / 1;
 }
 
+.justify-self-start {
+  justify-self: start;
+}
+
 /* Markdown */
 .markdown li {
   @apply text-lg;

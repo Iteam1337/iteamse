@@ -7,6 +7,16 @@ module Usp = {
   let make = ((title, text)) => {title, text};
 };
 
+module MiniUsp = {
+  type t = {
+    illustration: string,
+    title: string,
+    text: string,
+  };
+
+  let make = ((title, text, illustration)) => {title, text, illustration};
+};
+
 type t = {
   title: string,
   illustration: string,
