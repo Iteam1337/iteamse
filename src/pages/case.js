@@ -30,6 +30,21 @@ export default () => {
           title
         }
       }
+      allContentfulProjekt(
+        filter: { node_locale: { eq: "sv-SE" } }
+        sort: { fields: createdAt }
+      ) {
+        nodes {
+          title
+          thumbnailImage {
+            file {
+              url
+            }
+          }
+          shortDescription
+          slug
+        }
+      }
     }
   `)
 
@@ -38,7 +53,10 @@ export default () => {
       <Helmet>
         <title>Iteam | Case</title>
       </Helmet>
-      <Cases data={data.contentfulSidaCases} />
+      <Cases
+        data={data.contentfulSidaCases}
+        projects={data.allContentfulProjekt.nodes}
+      />
     </Layout>
   )
 }
