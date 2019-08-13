@@ -27,9 +27,7 @@ module NavigationLink = {
 [@react.component]
 let make = () => {
   <div className="col-start-2 bg-transparent flex flex-1 items-start">
-    <Gatsby.Link className={Some("py-8")} _to="/">
-      <img src="/image/iteam-logo.svg" alt="Iteam Logotype" />
-    </Gatsby.Link>
+    <Logo />
     <nav className="flex ml-auto">
       <NavigationLink _to="/erbjudanden" text="Erbjudanden" />
       <NavigationLink _to="/case" text={j|Våra case|j} />
