@@ -289,3 +289,20 @@ module Coworker = {
     header: Header.make(page),
   };
 };
+
+module Offers = {
+  type t = {
+    intro: string,
+    header: Header.t,
+    contactTitle: string,
+    contacts: list(Employee.t),
+  };
+
+  let make = page => {
+    header: Header.make(page),
+    intro: page##offersLeadText##offersLeadText,
+    contactTitle: page##contactTitle,
+    contacts:
+      page##contacts->Belt.Array.map(Employee.make)->Belt.List.fromArray,
+  };
+};

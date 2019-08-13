@@ -13,7 +13,7 @@ module Colors = {
     | `Concrete => "bg-concrete text-black"
     | `CornflowerBlue => "bg-cornflower-blue text-white"
     | `RadicalRed => "bg-radical-red text-white"
-    | `White => "bg-transparent text-white";
+    | `White => "bg-transparent text-black";
 
   let textFromType =
     fun
