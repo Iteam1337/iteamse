@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import Opportunity from '../../lib/js/re/pages/Opportunity'
 
 export default ({ data }) => {
-  console.log('Data', data)
   return (
     <Layout>
       <Opportunity data={data.contentfulAnnonser} />

@@ -18,6 +18,11 @@ exports.createPages = ({ graphql, actions }) => {
           urlId
         }
       }
+      allContentfulProjekt(filter: { node_locale: { eq: "sv-SE" } }) {
+        nodes {
+          slug
+        }
+      }
     }
   `).then(result => {
     result.data.allContentfulKollegor.nodes.forEach(node => {
@@ -36,6 +41,16 @@ exports.createPages = ({ graphql, actions }) => {
         component: path.resolve('./src/templates/opportunity.js'),
         context: {
           urlId: node.urlId,
+        },
+      })
+    })
+
+    result.data.allContentfulProjekt.nodes.forEach(node => {
+      createPage({
+        path: `/case/${node.slug}`,
+        component: path.resolve('./src/templates/case.js'),
+        context: {
+          slug: node.slug,
         },
       })
     })
