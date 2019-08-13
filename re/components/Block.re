@@ -60,15 +60,20 @@ module StartpageHeader = {
   let bgImage = imageUrl => Css.(style([backgroundImage(`url(imageUrl))]));
 
   [@react.component]
-  let make = (~title, ~lead, ~illustrationIteamI) => {
+  let make = (~title, ~lead, ~illustrationIteamI, ~backgroundImage as bg) => {
     <header
-      className={Css.merge([
-        "grid md:grid-columns-1024 grid-columns-1fr bg-top bg-cover md:h-startpage2019 h-md",
-        bgImage(""),
-      ])}>
+      className=Css.(
+        merge([
+          "grid md:grid-columns-1024 grid-columns-1fr bg-no-repeat md:h-startpage2019 h-md",
+          style([backgroundPosition(pct(70.), pct(120.))]),
+          bgImage(bg),
+        ])
+      )>
       <div className="grid md:grid-columns-1024 col-bleed">
         <Navigation color=`Black />
-        <div className="col-start-2 self-end md:pb-20 pb-8 startpage2019 flex">
+        <div
+          className="col-start-2 self-end md:pb-20 pb-8 startpage2019 flex flex-col-reverse
+          md:flex-row">
           <div className="flex items-start justify-center flex-col">
             <h1 className="md:text-3xl font-light text-3xl mb-12">
               title->React.string

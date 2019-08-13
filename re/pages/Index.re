@@ -1,10 +1,17 @@
 [@react.component]
 let make =
-    (~data, ~illustrationIteamI, ~illustrationGroup, ~illustrationCrane) => {
+    (
+      ~data,
+      ~illustrationIteamI,
+      ~illustrationGroup,
+      ~illustrationCrane,
+      ~greenBlob,
+    ) => {
   let page = Page.Start.make(data);
 
   <>
     <Block.StartpageHeader
+      backgroundImage=greenBlob
       illustrationIteamI
       title={page.headerText1}
       lead={page.headerLead}

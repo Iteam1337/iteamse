@@ -47,6 +47,9 @@ export default () => {
       ) {
         publicURL
       }
+      greenBlob: file(relativePath: { eq: "green-blob.svg" }) {
+        publicURL
+      }
       illustrationGroup: file(relativePath: { eq: "illustration-group.svg" }) {
         publicURL
       }
@@ -63,6 +66,7 @@ export default () => {
       </Helmet>
       <Index
         data={data.contentfulSidaStartsida2019}
+        greenBlob={data.greenBlob.publicURL}
         illustrationIteamI={data.illustrationIteamI.publicURL}
         illustrationGroup={data.illustrationGroup.publicURL}
         illustrationCrane={data.illustrationCrane.publicURL}
