@@ -56,6 +56,35 @@ module Header = {
   };
 };
 
+module StartpageHeader = {
+  let bgImage = imageUrl => Css.(style([backgroundImage(`url(imageUrl))]));
+
+  [@react.component]
+  let make = (~title, ~lead, ~illustrationIteamI) => {
+    <header
+      className={Css.merge([
+        "grid md:grid-columns-1024 grid-columns-1fr bg-top bg-cover md:h-startpage2019 h-md",
+        bgImage(""),
+      ])}>
+      <div className="grid md:grid-columns-1024 col-bleed">
+        <Navigation color=`Black />
+        <div className="col-start-2 self-end md:pb-20 pb-8 startpage2019 flex">
+          <div className="flex items-start justify-center flex-col">
+            <h1 className="md:text-3xl font-light text-3xl mb-12">
+              title->React.string
+            </h1>
+            <Markdown source=lead />
+          </div>
+          <img
+            src=illustrationIteamI
+            alt="The I in Iteam as a construction-site illustration"
+          />
+        </div>
+      </div>
+    </header>;
+  };
+};
+
 module Text = {
   [@react.component]
   let make = (~title, ~children as source, ~subtitle=?) => {

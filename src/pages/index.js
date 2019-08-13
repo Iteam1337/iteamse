@@ -9,6 +9,10 @@ export default () => {
   const data = useStaticQuery(graphql`
     query Start {
       contentfulSidaStartsida2019 {
+        headerText1
+        headerLead {
+          headerLead
+        }
         ctaText {
           ctaText
         }
@@ -38,6 +42,11 @@ export default () => {
           title
         }
       }
+      illustrationIteamI: file(
+        relativePath: { eq: "illustration-iteam-i.svg" }
+      ) {
+        publicURL
+      }
       illustrationGroup: file(relativePath: { eq: "illustration-group.svg" }) {
         publicURL
       }
@@ -54,6 +63,7 @@ export default () => {
       </Helmet>
       <Index
         data={data.contentfulSidaStartsida2019}
+        illustrationIteamI={data.illustrationIteamI.publicURL}
         illustrationGroup={data.illustrationGroup.publicURL}
         illustrationCrane={data.illustrationCrane.publicURL}
       />
