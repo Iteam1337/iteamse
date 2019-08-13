@@ -8,13 +8,11 @@ let make = (~ads, ~data, ~illustrationGroup, ~illustrationShare) => {
       color={page.header.textBgColor}
       messageOne={page.header.text}
     />
-    <div
-      className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid
-      md:grid-gap-24-y my-10 md:my-24">
+    <Container>
       <Block.Text title={page.teamTitle}> {page.teamText} </Block.Text>
       <Block.Illustration src=illustrationGroup />
       <Block.Text title={page.methodTitle}> {page.methodText} </Block.Text>
-    </div>
+    </Container>
     <Block.Section color=`Concrete>
       <div
         className="grid md:grid-columns-2 grid-gap-8-x col-start-2 col-end-2">
@@ -43,8 +41,7 @@ let make = (~ads, ~data, ~illustrationGroup, ~illustrationShare) => {
         </div>
       </div>
     </Block.Section>
-    <div
-      className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y mb-24">
+    <Container className="mt-0">
       <Gatsby.FluidImg
         className={Some("col-bleed w-full")}
         fluid=data##imageBleed##fluid
@@ -54,7 +51,7 @@ let make = (~ads, ~data, ~illustrationGroup, ~illustrationShare) => {
       <Block.Text title={page.customersTitle}>
         {page.customersText}
       </Block.Text>
-    </div>
+    </Container>
     <Block.Section color=`CornflowerBlue>
       <Contacts contacts={page.contacts} title={page.contactTitle} />
     </Block.Section>

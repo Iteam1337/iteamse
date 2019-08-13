@@ -8,8 +8,7 @@ let make = (~data) => {
       color={page.header.textBgColor}
       messageOne={page.name}
     />
-    <div
-      className="grid grid-columns-1fr md:grid-columns-1024 grid-gap-10-y md:grid-gap-24-y my-24">
+    <Container>
       <Breadcrumbs title={page.name} />
       <Block.Element title="Kontakt">
         <Contact.Telephone
@@ -24,7 +23,7 @@ let make = (~data) => {
       <Block.Text title={page.whyTitle}> {page.why} </Block.Text>
       <Block.Text title={page.backgroundTitle}> {page.background} </Block.Text>
       <Block.Text title={page.competenceTitle}> {page.competence} </Block.Text>
-    </div>
+    </Container>
   </>;
 };
 

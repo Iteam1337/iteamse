@@ -7,6 +7,12 @@ let make = (~color=`White) => {
     };
 
   <Gatsby.Link className={Some("py-8 border-t-4 border-transparent")} _to="/">
-    <img width="150" height="75" src=logoColor alt="Iteam Logotype" />
+    <img
+      width="150"
+      height="75"
+      src=logoColor
+      alt="Iteam Logotype"
+      className="tablet:mx-5"
+    />
   </Gatsby.Link>;
 };

@@ -9,8 +9,7 @@ let make = (~data, ~illustrationFun) => {
       messageOne={page.header.text}
       messageTwo={page.header.textSecond}
     />
-    <div
-      className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y my-24">
+    <Container>
       <Block.Text title={page.valueTitle}> {page.valueText} </Block.Text>
       <Block.Text title={page.funTitle}> {page.funText} </Block.Text>
       <Block.Illustration src=illustrationFun />
@@ -31,7 +30,7 @@ let make = (~data, ~illustrationFun) => {
         </div>
       </Block.Element>
       <Block.Text title={page.valueeText}> {page.valueIteam} </Block.Text>
-    </div>
+    </Container>
     <Block.Section color=`Aquamarine>
       <Contacts contacts={page.contacts} title={page.contactTitle} />
     </Block.Section>

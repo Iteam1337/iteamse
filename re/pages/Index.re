@@ -16,16 +16,14 @@ let make =
       title={page.headerText1}
       lead={page.headerLead}
     />
-    <div
-      className="grid grid-columns-1fr md:grid-columns-1024 grid-gap-10-y
-      md:grid-gap-24-y my-24">
+    <Container>
       <Block.Text title={page.weAreTitle}> {page.weAreText} </Block.Text>
       <Block.Text title={page.weOfferTitle}> {page.weOfferText} </Block.Text>
       <Block.Illustration src=illustrationGroup />
       <Block.Text title={page.ourMethodTitle}>
         {page.ourMethodText}
       </Block.Text>
-    </div>
+    </Container>
     <Block.Section color=`Concrete>
       <Block.CTA
         illustration=illustrationCrane

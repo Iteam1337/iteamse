@@ -54,7 +54,7 @@ let make = (~coworkers, ~data) => {
     <div className="grid grid-columns-1fr md:grid-columns-1024">
       <div
         className="grid-gap-2-y grid md:grid-columns-12 col-start-2
-      col-end-2 grid-gap-8-x pt-24">
+      col-end-2 grid-gap-8-x pt-8 md:pt-24">
         <div
           className=Css.(
             merge([

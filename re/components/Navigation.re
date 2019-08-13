@@ -33,9 +33,9 @@ module NavigationLink = {
 
 [@react.component]
 let make = (~color=`White) => {
-  <div className="col-start-2 bg-transparent flex flex-1 items-start">
+  <div className="lg:col-start-2 bg-transparent flex flex-1 items-start">
     <Logo color />
-    <nav className="flex ml-auto">
+    <nav className="flex ml-auto tablet:hidden">
       <NavigationLink color _to="/erbjudanden" text="Erbjudanden" />
       <NavigationLink color _to="/case" text={j|Våra case|j} />
       <NavigationLink color _to="/hur-vi-jobbar" text="Metod" />

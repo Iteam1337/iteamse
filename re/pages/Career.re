@@ -16,8 +16,7 @@ let make = (~data) => {
       color={header.textBgColor}
       messageOne={header.text}
     />
-    <div
-      className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y my-24">
+    <Container>
       {opportunities
        ->Belt.List.map(opportunity =>
            <Block.Element
@@ -35,7 +34,7 @@ let make = (~data) => {
       <Block.Element title=openApplicationLabel>
         <Block.Markdown source=openApplicationText />
       </Block.Element>
-    </div>
+    </Container>
     <Block.Section color=`RadicalRed>
       <Contacts title=contactTitle contacts />
     </Block.Section>

@@ -1,5 +1,13 @@
 module.exports = {
   theme: {
+    screens: {
+      mobile: { max: '640px' },
+      tablet: { max: '768px' },
+      sm: '640px', // => @media (min-width: 640px) { ... }
+      md: '769px', // => @media (min-width: 768px) { ... }
+      lg: '1025px', // => @media (min-width: 1024px) { ... }
+      xl: '1280px', // => @media (min-width: 1280px) { ... }
+    },
     extend: {
       colors: {
         aquamarine: 'hsl(152, 95%, 66%)', // #54fbac

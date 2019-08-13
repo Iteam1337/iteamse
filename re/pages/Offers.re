@@ -19,9 +19,7 @@ let make = (~data, ~offers) => {
       color={header.textBgColor}
       messageOne={header.text}
     />
-    <div
-      className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid
-      md:grid-gap-24-y py-10 md:py-24">
+    <Container>
       <div className="col-start-2 col-end-2">
         {React.string(intro)}
         <div
@@ -53,7 +51,7 @@ let make = (~data, ~offers) => {
            ->React.array}
         </div>
       </div>
-    </div>
+    </Container>
     {offers
      ->Belt.List.fromArray
      ->Belt.List.map(Offer.make)

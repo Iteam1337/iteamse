@@ -31,8 +31,6 @@ module Style = {
 let make = (~data, ~projects) => {
   let {header}: Page.Case.t = Page.Case.make(data);
 
-  Js.log(projects);
-
   <>
     <Block.Header
       backgroundImage={header.url}

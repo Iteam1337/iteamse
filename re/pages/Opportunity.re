@@ -9,8 +9,7 @@ let make = (~data) => {
       messageOne={page.title}
       messageTwo={Some(page.location)}
     />
-    <div
-      className="grid grid-columns-1fr md:grid-columns-1024 grid-gap-10-y md:grid-gap-24-y my-24">
+    <Container>
       <Breadcrumbs title={page.title} />
       <Block.Text title={page.roleTitle}> {page.role} </Block.Text>
       <Block.Text title={page.knowledgeTitle}> {page.knowledge} </Block.Text>
@@ -25,7 +24,7 @@ let make = (~data) => {
       <Block.Text title={page.applicationTitle}>
         {page.application}
       </Block.Text>
-    </div>
+    </Container>
     <Block.Section color=`Aquamarine>
       <Contacts contacts={page.contacts} title={page.contactTitle} />
     </Block.Section>
