@@ -15,7 +15,7 @@ module AddressBlock = {
         href={Telefonnummer.Link.make(phoneNumber)}>
         {React.string(phoneNumber)}
       </a>
-      <Mailto email />
+      <Contact.Mailto email />
       <div className="mt-1"> {"ORG: " ++ orgNumber |> React.string} </div>
     </div>;
   };

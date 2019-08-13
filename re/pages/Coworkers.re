@@ -27,7 +27,7 @@ module Coworker = {
            pn->React.string
          </a>
        }}
-      <Mailto email />
+      <Contact.Mailto email />
     </div>;
   };
 };

@@ -42,7 +42,7 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
                        pn->React.string
                      </a>
                    }}
-                  <Mailto email />
+                  <Contact.Mailto email />
                 </div>
               </div>
             )
@@ -72,7 +72,7 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
                       name->React.string
                     </Gatsby.Link>
                   </div>
-                  <Mailto email />
+                  <Contact.Mailto email />
                 </div>
               </div>
             )
