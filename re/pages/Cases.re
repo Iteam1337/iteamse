@@ -49,7 +49,10 @@ let make = (~data, ~projects) => {
                className={Some(Style.card)} _to={"/case/" ++ project##slug}>
                <div
                  className="flex items-center justify-center bg-concrete p-8">
-                 <img src=project##thumbnailImage##file##url alt="" />
+                 <Gatsby.FixedImg
+                   className=None
+                   fixed=project##thumbnailImage##fixed
+                 />
                </div>
                <div className=Style.cardText>
                  <div className="text-lg font-medium">

@@ -15,7 +15,10 @@ let make = (~data, ~illustrationFun) => {
       <Block.Text title={page.funTitle}> {page.funText} </Block.Text>
       <Block.Illustration src=illustrationFun />
       <Block.Text title={page.goodTitle}> {page.goodText} </Block.Text>
-      <Block.Image src={page.imageBleed} />
+      <Gatsby.FluidImg
+        className={Some("col-bleed w-full")}
+        fluid=data##imageBleed##fluid
+      />
       <Block.Element title={page.stabilityTitle}>
         page.stabilityText->React.string
         <div className="mt-10 flex items-center">

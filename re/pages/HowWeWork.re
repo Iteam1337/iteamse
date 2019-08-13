@@ -45,7 +45,10 @@ let make = (~ads, ~data, ~illustrationGroup, ~illustrationShare) => {
     </Block.Section>
     <div
       className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y mb-24">
-      <Block.Image src={page.imageBleed} />
+      <Gatsby.FluidImg
+        className={Some("col-bleed w-full")}
+        fluid=data##imageBleed##fluid
+      />
       <Block.Text title={page.sharingTitle}> {page.sharingText} </Block.Text>
       <Block.Illustration src=illustrationShare />
       <Block.Text title={page.customersTitle}>

@@ -6,7 +6,7 @@ import Cases from '../../lib/js/re/pages/Cases'
 
 export default () => {
   const data = useStaticQuery(graphql`
-    query Case {
+    query Cases {
       contentfulSidaCases {
         headerImage {
           title
@@ -37,8 +37,8 @@ export default () => {
         nodes {
           title
           thumbnailImage {
-            file {
-              url
+            fixed(width: 450, height: 450) {
+              ...GatsbyContentfulFixed_withWebp
             }
           }
           shortDescription

@@ -5,3 +5,17 @@ module Link = {
     React.element =
     "default";
 };
+
+module FluidImg = {
+  [@bs.module "gatsby-image"] [@react.component]
+  external make:
+    (~className: option(string), ~fluid: Js.t('a)) => React.element =
+    "default";
+};
+
+module FixedImg = {
+  [@bs.module "gatsby-image"] [@react.component]
+  external make:
+    (~className: option(string), ~fixed: Js.t('a)) => React.element =
+    "default";
+};

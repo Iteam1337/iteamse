@@ -31,8 +31,8 @@ export default () => {
           customersText
         }
         imageBleed {
-          file {
-            url
+          fluid(maxWidth: 1920) {
+            ...GatsbyContentfulFluid_withWebp
           }
         }
         customersTitle

@@ -25,8 +25,8 @@ export default () => {
         }
         goodTitle
         imageBleed {
-          file {
-            url
+          fluid(maxWidth: 1920) {
+            ...GatsbyContentfulFluid_withWebp
           }
         }
         valueText {
