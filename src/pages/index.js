@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Index from '../../lib/js/re/pages/Index'
 import '../index.css'
 import Layout from '../Layout'
+import { Helmet } from 'react-helmet'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -48,6 +49,9 @@ export default () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Iteam - There's a better way</title>
+      </Helmet>
       <Index
         data={data.contentfulSidaStartsida2019}
         illustrationGroup={data.illustrationGroup.publicURL}

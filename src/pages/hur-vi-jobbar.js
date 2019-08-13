@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import HowWeWork from '../../lib/js/re/pages/HowWeWork'
 import Layout from '../Layout'
+import { Helmet } from 'react-helmet'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -72,6 +73,9 @@ export default () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Iteam | Metod</title>
+      </Helmet>
       <HowWeWork
         ads={data.allContentfulAnnonser.nodes}
         data={data.contentfulSidaHurViJobbar}

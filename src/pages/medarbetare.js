@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Coworkers from '../../lib/js/re/pages/Coworkers'
 import Layout from '../Layout'
+import { Helmet } from 'react-helmet'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -50,6 +51,9 @@ export default () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Iteam | Medarbetare</title>
+      </Helmet>
       <Coworkers
         data={data.contentfulSidaTeamet}
         coworkers={data.allContentfulKollegor.nodes}

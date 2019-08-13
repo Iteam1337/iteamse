@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import About from '../../lib/js/re/pages/About'
 import Layout from '../Layout'
+import { Helmet } from 'react-helmet'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -67,6 +68,9 @@ export default () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Iteam | Om oss</title>
+      </Helmet>
       <About
         data={data.contentfulSidaOmOss}
         illustrationFun={data.illustrationFun.publicURL}

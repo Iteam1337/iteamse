@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Layout from '../Layout'
 import Career from '../../lib/js/re/pages/Career'
 import '../index.css'
+import { Helmet } from 'react-helmet'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -49,6 +50,9 @@ export default () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Iteam | Karriär</title>
+      </Helmet>
       <Career data={data} />
     </Layout>
   )

@@ -1,7 +1,8 @@
-import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react'
 import Offers from '../../lib/js/re/pages/Offers'
 import Layout from '../Layout'
+import { Helmet } from 'react-helmet'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -74,6 +75,9 @@ export default () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Iteam | Erbjudanden</title>
+      </Helmet>
       <Offers
         data={data.contentfulSidaErbjudanden}
         offers={data.allContentfulErbjudande.nodes}
