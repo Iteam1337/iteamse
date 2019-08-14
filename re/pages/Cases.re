@@ -13,6 +13,14 @@ module Style = {
 
   let cardText = merge(["border-aquamarine mt-4", cardBorder]);
 
+  let cardImage =
+    style([
+      media(
+        Theme.Breakpoints.fromType(`Mobile),
+        [important(width(pct(100.0))), important(height(px(320)))],
+      ),
+    ]);
+
   let card =
     merge([
       "cursor-pointer",
@@ -44,11 +52,13 @@ let make = (~data, ~projects) => {
          ->Belt.List.fromArray
          ->Belt.List.map(project =>
              <Gatsby.Link
-               className={Some(Style.card)} _to={"/case/" ++ project##slug}>
+               key=project##slug
+               className={Some(Style.card)}
+               _to={"/case/" ++ project##slug}>
                <div
-                 className="flex items-center justify-center bg-concrete p-8">
+                 className="flex items-center justify-center bg-concrete p-8 tablet:p-2">
                  <Gatsby.FixedImg
-                   className=None
+                   className={Some(Style.cardImage)}
                    fixed=project##thumbnailImage##fixed
                  />
                </div>
