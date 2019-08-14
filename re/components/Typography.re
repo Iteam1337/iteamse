@@ -3,7 +3,7 @@ module H1 = {
   let make = (~children, ~className=?) => {
     <h1
       className={Css.merge([
-        "md:text-5xl text-2xl font-medium",
+        "md:text-5xl text-2xl font-medium md:leading-snug",
         className->Cn.unpack,
       ])}>
       children

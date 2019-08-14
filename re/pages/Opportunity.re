@@ -8,6 +8,7 @@ let make = (~data) => {
       color={page.header.textBgColor}
       messageOne={page.title}
       messageTwo={Some(page.location)}
+      messageTwoLight=true
     />
     <Container>
       <Breadcrumbs title={page.title} />

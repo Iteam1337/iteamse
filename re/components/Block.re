@@ -14,7 +14,13 @@ module Header = {
 
   [@react.component]
   let make =
-      (~backgroundImage as bg, ~color as c, ~messageOne, ~messageTwo=None) => {
+      (
+        ~backgroundImage as bg,
+        ~color as c,
+        ~messageOne,
+        ~messageTwo=None,
+        ~messageTwoLight=false,
+      ) => {
     let marker = Css.merge(["px-2 py-1", Theme.Colors.fromType(c)]);
     let navigationBackground =
       Css.(
@@ -48,7 +54,13 @@ module Header = {
              ->Belt.Option.map(m =>
                  <>
                    <div className="mt-1" />
-                   <span className=marker> m->React.string </span>
+                   <span
+                     className={Css.merge([
+                       marker,
+                       "font-light"->Cn.ifTrue(messageTwoLight),
+                     ])}>
+                     m->React.string
+                   </span>
                  </>
                )
              ->Belt.Option.getWithDefault(React.null)}
