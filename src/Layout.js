@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Footer from '../lib/js/re/components/Footer'
 import { graphql, useStaticQuery } from 'gatsby'
+import MobileNavigation from '../lib/js/re/components/MobileNavigation'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -27,6 +28,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <MobileNavigation />
       {children}
       <Footer
         locations={data.allContentfulAdresser.nodes}

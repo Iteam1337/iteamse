@@ -46,8 +46,13 @@ li:before {
   grid-column: -1 / 1;
 }
 
+/* Justify */
 .justify-self-start {
   justify-self: start;
+}
+
+.justify-self-end {
+  justify-self: end;
 }
 
 /* Markdown */

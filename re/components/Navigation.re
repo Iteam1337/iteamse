@@ -31,17 +31,33 @@ module NavigationLink = {
   };
 };
 
+module Options = {
+  type t = {
+    link: string,
+    text: string,
+  };
+
+  let items = [
+    {link: "/erbjudanden", text: "Erbjudanden"},
+    {link: "/case", text: {j|Våra case|j}},
+    {link: "/hur-vi-jobbar", text: "Metod"},
+    {link: "/medarbetare", text: "Medarbetare"},
+    {link: "/karriar", text: {j|Karriär|j}},
+    {link: "/om-oss", text: "Om oss"},
+  ];
+};
+
 [@react.component]
 let make = (~color=`White) => {
   <div className="lg:col-start-2 bg-transparent flex flex-1 items-start">
     <Logo color />
     <nav className="flex ml-auto tablet:hidden">
-      <NavigationLink color _to="/erbjudanden" text="Erbjudanden" />
-      <NavigationLink color _to="/case" text={j|Våra case|j} />
-      <NavigationLink color _to="/hur-vi-jobbar" text="Metod" />
-      <NavigationLink color _to="/medarbetare" text="Medarbetare" />
-      <NavigationLink color _to="/karriar" text={j|Karriär|j} />
-      <NavigationLink color _to="/om-oss" text="Om" />
+      {Options.items
+       ->Belt.List.map(({link, text}) =>
+           <NavigationLink color _to=link text />
+         )
+       ->Belt.List.toArray
+       ->React.array}
     </nav>
   </div>;
 };
