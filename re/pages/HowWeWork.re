@@ -15,7 +15,8 @@ let make = (~ads, ~data, ~illustrationGroup, ~illustrationShare) => {
     </Container>
     <Block.Section color=`Concrete>
       <div
-        className="grid md:grid-columns-2 grid-gap-8-x col-start-2 col-end-2">
+        className="grid md:grid-columns-2 grid-gap-8-x col-start-2 col-end-2
+        tablet-landscape:px-5">
         <div>
           <div className="mb-4">
             <Typography.H3> {page.hiringTitle} </Typography.H3>

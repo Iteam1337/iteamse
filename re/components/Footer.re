@@ -38,7 +38,9 @@ module SocialMediaBlock = {
 [@react.component]
 let make = (~locations, ~socialMedia) => {
   <Block.Section color=`Concrete>
-    <div className="col-start-2 col-end-2 grid md:grid-columns-3 grid-gap-8">
+    <div
+      className="col-start-2 col-end-2 grid md:grid-columns-3 grid-gap-8
+    tablet-landscape:px-5">
       Belt.List.(
         locations
         ->fromArray

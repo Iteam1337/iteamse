@@ -1,6 +1,6 @@
 [@react.component]
 let make = (~contacts: list(Page.Employee.t), ~title=?) => {
-  <div className="col-start-2 col-end-2">
+  <div className="col-start-2 col-end-2 tablet-landscape:px-5">
     {switch (title) {
      | None => React.null
      | Some(title) =>

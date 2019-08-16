@@ -3,6 +3,7 @@ module.exports = {
     screens: {
       mobile: { max: '640px' },
       tablet: { max: '768px' },
+      'tablet-landscape': { max: '1024px' },
       sm: '640px', // => @media (min-width: 640px) { ... }
       md: '769px', // => @media (min-width: 768px) { ... }
       lg: '1025px', // => @media (min-width: 1024px) { ... }

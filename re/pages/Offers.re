@@ -20,7 +20,7 @@ let make = (~data, ~offers) => {
       messageOne={header.text}
     />
     <Container>
-      <div className="col-start-2 col-end-2">
+      <div className="col-start-2 col-end-2 tablet-landscape:px-5">
         {React.string(intro)}
         <div
           className=Css.(
@@ -58,7 +58,7 @@ let make = (~data, ~offers) => {
      ->Belt.List.mapWithIndex((i, offer) =>
          <Block.Section color={i mod 2 === 0 ? `Concrete : `White}>
            <div
-             className="col-start-2 col-end-2"
+             className="col-start-2 col-end-2 tablet-landscape:px-5"
              id={offer.title->Js.String.toLowerCase->Js.String.trim}>
              <Typography.H1> {React.string(offer.title)} </Typography.H1>
              <div className="mt-4"> {React.string(offer.lead)} </div>

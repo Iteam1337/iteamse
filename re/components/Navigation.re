@@ -49,7 +49,9 @@ module Options = {
 
 [@react.component]
 let make = (~color=`White) => {
-  <div className="md:col-start-2 bg-transparent flex flex-1 items-start">
+  <div
+    className="md:col-start-2 bg-transparent flex flex-1 items-start
+    tablet-landscape:px-5">
     <Logo color />
     <nav className="flex ml-auto tablet:hidden">
       {Options.items

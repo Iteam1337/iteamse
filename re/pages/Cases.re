@@ -47,33 +47,36 @@ let make = (~data, ~projects) => {
       messageTwo={header.textSecond}
     />
     <Block.Section color=`White>
-      <div className="grid md:grid-columns-2 col-start-2 col-end-2 grid-gap-8">
-        {projects
-         ->Belt.List.fromArray
-         ->Belt.List.map(project =>
-             <Gatsby.Link
-               key=project##slug
-               className={Some(Style.card)}
-               _to={"/case/" ++ project##slug}>
-               <div
-                 className="flex items-center justify-center bg-concrete p-8 tablet:p-2">
-                 <Gatsby.FixedImg
-                   className={Some(Style.cardImage)}
-                   fixed=project##thumbnailImage##fixed
-                 />
-               </div>
-               <div className=Style.cardText>
-                 <div className="text-lg font-medium">
-                   {React.string(project##title)}
+      <div className="col-start-2 col-end-2 tablet-landscape:px-5">
+        <div className="grid md:grid-columns-2 grid-gap-8">
+          {projects
+           ->Belt.List.fromArray
+           ->Belt.List.map(project =>
+               <Gatsby.Link
+                 key=project##slug
+                 className={Some(Style.card)}
+                 _to={"/case/" ++ project##slug}>
+                 <div
+                   className="flex items-center justify-center bg-concrete p-8
+                   tablet:p-2 tablet-landscape:p-2">
+                   <Gatsby.FixedImg
+                     className={Some(Style.cardImage)}
+                     fixed=project##thumbnailImage##fixed
+                   />
                  </div>
-                 <div className="text-2xl font-light mt-1">
-                   {React.string(project##shortDescription)}
+                 <div className=Style.cardText>
+                   <div className="text-lg font-medium">
+                     {React.string(project##title)}
+                   </div>
+                   <div className="text-2xl font-light mt-1">
+                     {React.string(project##shortDescription)}
+                   </div>
                  </div>
-               </div>
-             </Gatsby.Link>
-           )
-         ->Belt.List.toArray
-         ->React.array}
+               </Gatsby.Link>
+             )
+           ->Belt.List.toArray
+           ->React.array}
+        </div>
       </div>
     </Block.Section>
   </>;

@@ -47,7 +47,9 @@ module Header = {
       ])}>
       <div className=navigationBackground>
         <Navigation />
-        <div className="md:col-start-2 self-end md:pb-20 pb-8">
+        <div
+          className="md:col-start-2 self-end md:pb-20 pb-8
+        tablet-landscape:px-5">
           <Typography.H1 className="ml-5 md:ml-0">
             <span className=marker> messageOne->React.string </span>
             {messageTwo
@@ -88,7 +90,7 @@ module StartpageHeader = {
         <Navigation color=`Black />
         <div
           className="md:col-start-2 self-end md:pb-20 pb-8 startpage2019 flex mobile:flex-col-reverse
-          lg:flex-row">
+          lg:flex-row tablet-landscape:px-5">
           <div className="flex items-start justify-center flex-col">
             <h1 className="md:text-3xl font-light text-3xl mb-12">
               title->React.string
@@ -110,8 +112,8 @@ module Text = {
   [@react.component]
   let make = (~title, ~children as source, ~subtitle=?) => {
     <section
-      className="grid-gap-2-y grid lg:grid-columns-12 col-start-2
-      col-end-2 grid-gap-8-x">
+      className="grid-gap-2-y grid md:grid-columns-12 col-start-2
+      col-end-2 grid-gap-8-x tablet-landscape:px-5">
       <div className="md:col-start-1 md:col-end-5">
         <Typography.H2> title </Typography.H2>
         {subtitle
@@ -130,7 +132,7 @@ module Element = {
   let make = (~title, ~children, ~subtitle=?) => {
     <section
       className="grid-gap-2-y grid md:grid-columns-12 col-start-2
-      col-end-2 grid-gap-8-x">
+      col-end-2 grid-gap-8-x tablet-landscape:px-5">
       <div className="md:col-start-1 md:col-end-5">
         <Typography.H2> title </Typography.H2>
         {subtitle
@@ -171,7 +173,8 @@ module CTA = {
   [@react.component]
   let make = (~button, ~title, ~children, ~illustration) => {
     <div
-      className="grid-gap-2-y grid md:grid-columns-12 col-start-2 col-end-2">
+      className="grid-gap-2-y grid md:grid-columns-12 col-start-2 col-end-2
+      tablet-landscape:px-5">
       <div className="md:col-start-1 md:col-end-5">
         <img src=illustration alt="" />
       </div>

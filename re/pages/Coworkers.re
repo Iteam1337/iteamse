@@ -54,7 +54,7 @@ let make = (~coworkers, ~data) => {
     <div className="grid grid-columns-1fr md:grid-columns-1024">
       <div
         className="grid-gap-2-y grid md:grid-columns-12 col-start-2
-      col-end-2 grid-gap-8-x pt-8 md:pt-24">
+      col-end-2 grid-gap-8-x pt-8 md:pt-24 tablet-landscape:px-5">
         <div
           className=Css.(
             merge([
@@ -87,7 +87,8 @@ let make = (~coworkers, ~data) => {
         </div>
       </div>
       <div
-        className="grid md:grid-columns-4 grid-gap-8 col-start-2 col-end-2 my-24">
+        className="grid md:grid-columns-4 grid-gap-8 col-start-2 col-end-2 my-24
+        tablet-landscape:px-5">
         {coworkers
          ->Page.Employee.fromArray
          ->Belt.List.keep(employee =>
