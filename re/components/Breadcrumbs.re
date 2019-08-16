@@ -47,7 +47,7 @@ let make = (~title) => {
 
   <div
     className="grid-gap-2-y grid md:grid-columns-12 col-start-2
-      col-end-2 grid-gap-8-x">
+      col-end-2 grid-gap-8-x tablet-landscape:px-5">
     <div className=Css.(merge([separator, "md:col-start-1 md:col-end-12"]))>
       {parts
        ->Belt.List.map(p =>

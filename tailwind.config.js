@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       colors: {
         aquamarine: 'hsl(152, 95%, 66%)', // #54fbac
-        concrete: 'hsl(0, 4%, 95%)', // #f3f2f2
+        concrete: 'hsl(0, 0%, 97%)', // #f8f8f8
         'cornflower-blue': 'hsl(225, 100%, 70%)', // #668cff
         'radical-red': 'hsl(350, 100%, 62%)', // #ff3b5c
         current: 'currentcolor',
