@@ -19,4 +19,5 @@ let toImage =
   | "react" => "https://images.ctfassets.net/rj4r6yfcesw5/6Khn8L48laAoQuCkaouyQG/08e4cf1fe02bd945c23807d5a8f29e87/react.png"
   | "restify" => "https://images.ctfassets.net/rj4r6yfcesw5/572UfvNCK4kOEYWwy0u08i/c0fc3506ac26c2701fe489e4dc67e03f/resitfy.png"
   | "rethinkdb" => "https://images.ctfassets.net/rj4r6yfcesw5/6h0zebM6NaiOmE4M2SMWWQ/aa5ae0045a5744cd1751d6eb4e1094b7/rethinkdb.png"
-  | "vue" => "https://images.ctfassets.net/rj4r6yfcesw5/5EBgyxee0oiGqqOmAEmAUq/af8d1ae7d3d578197205205b2c33e8ff/Vue.png";
+  | "vue" => "https://images.ctfassets.net/rj4r6yfcesw5/5EBgyxee0oiGqqOmAEmAUq/af8d1ae7d3d578197205205b2c33e8ff/Vue.png"
+  | _ => "";
