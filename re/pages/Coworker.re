@@ -7,6 +7,8 @@ let make = (~data) => {
       backgroundImage={page.header.url}
       color={page.header.textBgColor}
       messageOne={page.name}
+      messageTwo={Some(page.title)}
+      messageTwoLight=true
     />
     <Container>
       <Breadcrumbs title={page.name} />

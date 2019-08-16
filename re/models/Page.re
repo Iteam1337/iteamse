@@ -265,6 +265,7 @@ module Coworkers = {
 module Coworker = {
   type t = {
     name: string,
+    title: string,
     why: string,
     whyTitle: string,
     phoneNumber: string,
@@ -278,6 +279,7 @@ module Coworker = {
 
   let make = page => {
     name: page##name,
+    title: page##title,
     why: page##why##why,
     whyTitle: page##whyTitle,
     competence: page##competence##competence,

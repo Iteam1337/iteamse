@@ -19,6 +19,7 @@ export const query = graphql`
         why
       }
       whyTitle
+      title
       phoneNumber
       email
       competenceTitle

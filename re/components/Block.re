@@ -6,7 +6,11 @@ module Markdown = {
   };
 
   [@react.component]
-  let make = (~source) => <ReactMarkdown source className="markdown" />;
+  let make = (~source, ~className=?) =>
+    <ReactMarkdown
+      source
+      className={Css.merge(["markdown", className->Cn.unpack])}
+    />;
 };
 
 module Header = {
@@ -82,7 +86,7 @@ module StartpageHeader = {
       className=Css.(
         merge([
           "grid lg:grid-columns-1024 tablet:px-4 grid-columns-1fr bg-no-repeat md:h-startpage2019 h-md",
-          style([backgroundPosition(pct(70.), pct(120.))]),
+          style([backgroundPosition(pct(75.), pct(125.))]),
           bgImage(bg),
         ])
       )>
@@ -95,7 +99,10 @@ module StartpageHeader = {
             <h1 className="md:text-3xl font-light text-3xl mb-12">
               title->React.string
             </h1>
-            <Markdown source=lead />
+            <Markdown
+              source=lead
+              className=Css.(style([important(fontSize(px(20)))]))
+            />
           </div>
           <img
             src=illustrationIteamI
