@@ -307,7 +307,7 @@ module Offers = {
   };
 };
 
-module Case = {
+module Cases = {
   type t = {
     header: Header.t,
     contactTitle: string,
@@ -319,5 +319,63 @@ module Case = {
     contactTitle: page##contactTitle,
     contacts:
       page##contacts->Belt.Array.map(Employee.make)->Belt.List.fromArray,
+  };
+};
+
+module Case = {
+  type t = {
+    aboutCompany: string,
+    aboutCompanyTitle: string,
+    contact: option(string),
+    contactTitle: option(string),
+    development: string,
+    developmentTitle: string,
+    frameworks: array(string),
+    frameworksTitle: string,
+    headerBgColor: string,
+    introduction: string,
+    introductionTitle: string,
+    partners: string,
+    partnersTitle: string,
+    process: string,
+    processTitle: string,
+    quote: option(string),
+    quoteBgColor: option(string),
+    quotePerson: option(string),
+    slug: string,
+    tags: list(string),
+    title: string,
+  };
+
+  let make = page => {
+    aboutCompany: page##aboutCompany##aboutCompany,
+    aboutCompanyTitle: page##aboutCompanyTitle,
+    contact:
+      switch (page##contact->Js.Nullable.toOption) {
+      | Some(c) => c##contact
+      | None => None
+      },
+    contactTitle: page##contactTitle->Js.Nullable.toOption,
+    development: page##development##development,
+    developmentTitle: page##developmentTitle,
+    frameworks: page##frameworks,
+    frameworksTitle: page##frameworksTitle,
+    headerBgColor: page##headerBgColor,
+    introduction: page##introduction##introduction,
+    introductionTitle: page##introductionTitle,
+    partners: page##partners##partners,
+    partnersTitle: page##partnersTitle,
+    process: page##process##process,
+    processTitle: page##processTitle,
+    quote:
+      switch (page##quote->Js.Nullable.toOption) {
+      | Some(q) => q##quote
+      | None => None
+      },
+    quoteBgColor: page##quoteBgColor->Js.Nullable.toOption,
+    quotePerson: page##quotePerson->Js.Nullable.toOption,
+    slug: page##slug,
+    tags: page##tags,
+    title: page##title,
   };
 };

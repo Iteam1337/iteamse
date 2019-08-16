@@ -5,6 +5,7 @@ module Colors = {
     | `CornflowerBlue
     | `RadicalRed
     | `White
+    | `Other(string)
   ];
 
   let fromType =
@@ -13,7 +14,8 @@ module Colors = {
     | `Concrete => "bg-concrete text-black"
     | `CornflowerBlue => "bg-cornflower-blue text-white"
     | `RadicalRed => "bg-radical-red text-white"
-    | `White => "bg-transparent text-black";
+    | `White => "bg-transparent text-black"
+    | `Other(c) => Css.(style([unsafe("background-color", c)]));
 
   let textFromType =
     fun
@@ -21,7 +23,8 @@ module Colors = {
     | `Concrete => "text-concrete"
     | `CornflowerBlue => "text-cornflower-blue"
     | `RadicalRed => "text-radical-red"
-    | `White => "text-white";
+    | `White => "text-white"
+    | `Other(c) => Css.(style([unsafe("color", c)]));
 
   let fromHex =
     fun
@@ -33,7 +36,7 @@ module Colors = {
     | "#668CFF" => `CornflowerBlue
     | "white"
     | "#FFFFFF" => `White
-    | _ => `Concrete;
+    | v => `Other(v);
 };
 
 module Breakpoints = {

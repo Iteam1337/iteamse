@@ -37,7 +37,7 @@ module Style = {
 
 [@react.component]
 let make = (~data, ~projects) => {
-  let {header}: Page.Case.t = Page.Case.make(data);
+  let {header}: Page.Cases.t = Page.Cases.make(data);
 
   <>
     <Block.Header
