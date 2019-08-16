@@ -12,7 +12,14 @@ let make = (~color=`White) => {
       height="75"
       src=logoColor
       alt="Iteam Logotype"
-      className="tablet:mx-5"
+      className=Css.(
+        style([
+          media(
+            Theme.Breakpoints.fromType(`Tablet),
+            [width(px(112)), height(`auto)],
+          ),
+        ])
+      )
     />
   </Gatsby.Link>;
 };

@@ -85,18 +85,39 @@ module StartpageHeader = {
     <header
       className=Css.(
         merge([
-          "grid lg:grid-columns-1024 tablet:px-4 grid-columns-1fr bg-no-repeat md:h-startpage2019 h-md",
-          style([backgroundPosition(pct(75.), pct(125.))]),
+          "grid lg:grid-columns-1024 tablet:px-4 grid-columns-1fr bg-no-repeat md:h-startpage2019
+          sm:h-md",
+          style([
+            media(
+              Theme.Breakpoints.fromType(`Desktop),
+              [backgroundPosition(pct(75.), pct(125.))],
+            ),
+            media(
+              Theme.Breakpoints.fromType(`Tablet),
+              [
+                backgroundPosition(pct(175.), pct(100.)),
+                unsafe("background-size", "80%"),
+              ],
+            ),
+            media(
+              Theme.Breakpoints.fromType(`Mobile),
+              [
+                backgroundPosition(pct(50.), pct(-160.)),
+                unsafe("background-size", "150%"),
+              ],
+            ),
+          ]),
           bgImage(bg),
         ])
       )>
       <div className="grid lg:grid-columns-1024 col-bleed">
         <Navigation color=`Black />
         <div
-          className="md:col-start-2 self-end md:pb-20 pb-8 startpage2019 flex mobile:flex-col-reverse
-          lg:flex-row tablet-landscape:px-5">
-          <div className="flex items-start justify-center flex-col">
-            <h1 className="md:text-3xl font-light text-3xl mb-12">
+          className="md:col-start-2 self-end md:pb-20 startpage2019 flex mobile:flex-col-reverse
+          lg:flex-row tablet-landscape:px-5 mobile:items-center">
+          <div
+            className="flex items-start justify-center flex-col sm:w-2/3 mobile:pt-8">
+            <h1 className="md:text-3xl font-light text-2xl mb-12">
               title->React.string
             </h1>
             <Markdown
@@ -106,7 +127,7 @@ module StartpageHeader = {
           </div>
           <img
             src=illustrationIteamI
-            className="tablet:w-48 tablet:p-4"
+            className="tablet:w-48 tablet:p-4 sm:flex-1"
             alt="The I in Iteam as a construction-site illustration"
           />
         </div>
