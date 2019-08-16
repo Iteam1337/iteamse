@@ -42,6 +42,7 @@ module.exports = {
         '2-y': '0.75rem',
         '4-y': '1rem',
         '10-y': '2.5rem',
+        '12-y': '3rem',
         '24-y': '6rem',
       },
       autoMinWidths: {
