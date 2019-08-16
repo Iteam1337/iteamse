@@ -41,7 +41,8 @@ let make = (~ads, ~data, ~illustrationGroup, ~illustrationShare) => {
         </div>
       </div>
     </Block.Section>
-    <Container className="mt-0">
+    <div
+      className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y mb-10 md:mb-24">
       <Gatsby.FluidImg
         className={Some("col-bleed w-full")}
         fluid=data##imageBleed##fluid
@@ -51,7 +52,7 @@ let make = (~ads, ~data, ~illustrationGroup, ~illustrationShare) => {
       <Block.Text title={page.customersTitle}>
         {page.customersText}
       </Block.Text>
-    </Container>
+    </div>
     <Block.Section color=`CornflowerBlue>
       <Contacts contacts={page.contacts} title={page.contactTitle} />
     </Block.Section>
