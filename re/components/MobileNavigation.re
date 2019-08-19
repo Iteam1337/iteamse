@@ -24,8 +24,12 @@ module MenuButton = {
         focus([outlineWidth(`zero)]),
         media(
           "only screen and (device-width: 375px) and (device-height: 812px)
-              and (-webkit-device-pixel-ratio: 3)",
+                   and (-webkit-device-pixel-ratio: 3)",
           [bottom(`zero), top(`px(20))],
+        ),
+        media(
+          Theme.Breakpoints.fromType(`Tablet),
+          [bottom(`px(20)), right(`px(20))],
         ),
       ])
     );
@@ -76,7 +80,7 @@ let make = () => {
   let (navigationState, updateNavigationState) =
     React.useState(() => NavigationIsHidden);
 
-  <div className="sm:hidden">
+  <div className="md:hidden">
     {switch (navigationState) {
      | NavigationIsHidden => React.null
      | NavigationIsVisible =>

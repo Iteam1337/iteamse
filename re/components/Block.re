@@ -102,8 +102,8 @@ module StartpageHeader = {
             media(
               Theme.Breakpoints.fromType(`Mobile),
               [
-                backgroundPosition(pct(50.), pct(-160.)),
-                unsafe("background-size", "150%"),
+                backgroundPosition(`vw(-30.), `vw(-32.)), /* -17vw */
+                unsafe("background-size", "160vw"),
               ],
             ),
           ]),
@@ -116,8 +116,8 @@ module StartpageHeader = {
           className="md:col-start-2 self-end md:pb-20 startpage2019 flex mobile:flex-col-reverse
           lg:flex-row tablet-landscape:px-5 mobile:items-center">
           <div
-            className="flex items-start justify-center flex-col sm:w-2/3 mobile:pt-8">
-            <h1 className="md:text-3xl font-light text-2xl mb-12">
+            className="flex items-start justify-center flex-col sm:w-3/5 mobile:pt-8">
+            <h1 className="md:text-3xl font-light text-2xl md:mb-12 mb-8">
               title->React.string
             </h1>
             <Markdown
@@ -127,7 +127,17 @@ module StartpageHeader = {
           </div>
           <img
             src=illustrationIteamI
-            className="tablet:w-48 tablet:p-4 sm:flex-1"
+            className=Css.(
+              merge([
+                "tablet:w-48 tablet:p-4 sm:flex-1",
+                style([
+                  media(
+                    Theme.Breakpoints.fromType(`Mobile),
+                    [important(width(`vw(66.0)))],
+                  ),
+                ]),
+              ])
+            )
             alt="The I in Iteam as a construction-site illustration"
           />
         </div>
