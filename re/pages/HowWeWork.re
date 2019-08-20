@@ -14,9 +14,7 @@ let make = (~ads, ~data, ~illustrationGroup, ~illustrationShare) => {
       <Block.Text title={page.methodTitle}> {page.methodText} </Block.Text>
     </Container>
     <Block.Section color=`Concrete>
-      <div
-        className="grid md:grid-columns-2 grid-gap-8-x col-start-2 col-end-2
-        tablet-landscape:px-5">
+      <div className="grid md:grid-columns-2 grid-gap-8-x">
         <div>
           <div className="mb-4">
             <Typography.H3> {page.hiringTitle} </Typography.H3>
@@ -43,7 +41,7 @@ let make = (~ads, ~data, ~illustrationGroup, ~illustrationShare) => {
       </div>
     </Block.Section>
     <div
-      className="grid-columns-1fr md:grid-columns-1024 grid-gap-10-y grid md:grid-gap-24-y mb-10 md:mb-24">
+      className="grid-columns-iteam grid-gap-10-y grid md:grid-gap-24-y mb-10 md:mb-24">
       <Gatsby.FluidImg
         className={Some("col-bleed w-full")}
         fluid=data##imageBleed##fluid

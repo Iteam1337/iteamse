@@ -42,6 +42,18 @@ li:before {
   }
 }
 
+.grid-columns-iteam {
+  grid-template-columns: 20px 1fr minmax(100px, 1024px) 1fr 20px;
+}
+
+.grid-columns-4-fluid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.grid-columns-iteam > * {
+  grid-column: 3/4;
+}
+
 .col-bleed {
   grid-column: -1 / 1;
 }

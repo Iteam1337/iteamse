@@ -149,9 +149,7 @@ module StartpageHeader = {
 module Text = {
   [@react.component]
   let make = (~title, ~children as source, ~subtitle=?) => {
-    <section
-      className="grid-gap-2-y grid md:grid-columns-12 col-start-2
-      col-end-2 grid-gap-8-x tablet-landscape:px-5">
+    <section className="grid-gap-2-y grid md:grid-columns-12 grid-gap-8-x">
       <div className="md:col-start-1 md:col-end-5">
         <Typography.H2> title </Typography.H2>
         {subtitle
@@ -168,9 +166,7 @@ module Text = {
 module Element = {
   [@react.component]
   let make = (~title, ~children, ~subtitle=?) => {
-    <section
-      className="grid-gap-2-y grid md:grid-columns-12 col-start-2
-      col-end-2 grid-gap-8-x tablet-landscape:px-5">
+    <section className="grid-gap-2-y grid md:grid-columns-12 grid-gap-8-x">
       <div className="md:col-start-1 md:col-end-5">
         <Typography.H2> title </Typography.H2>
         {subtitle
@@ -199,7 +195,7 @@ module Section = {
   let make = (~color as c, ~children) => {
     <div
       className={Css.merge([
-        "grid-columns-1fr grid py-10 md:py-24 md:grid-columns-1024 col-bleed",
+        "grid-columns-iteam grid py-10 md:py-24 col-bleed",
         Theme.Colors.fromType(c),
       ])}>
       children
@@ -210,9 +206,7 @@ module Section = {
 module CTA = {
   [@react.component]
   let make = (~button, ~title, ~children, ~illustration) => {
-    <div
-      className="grid-gap-2-y grid md:grid-columns-12 col-start-2 col-end-2
-      tablet-landscape:px-5">
+    <div className="grid-gap-2-y grid md:grid-columns-12">
       <div className="md:col-start-1 md:col-end-5">
         <img src=illustration alt="" />
       </div>
