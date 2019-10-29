@@ -14,12 +14,11 @@ module Markdown = {
 };
 
 module Header = {
-  let bgImage = imageUrl => Css.(style([backgroundImage(`url(imageUrl))]));
-
   [@react.component]
   let make =
       (
         ~backgroundImage as bg,
+        ~backgroundFluid=None,
         ~color as c,
         ~messageOne,
         ~messageTwo=None,
@@ -40,15 +39,20 @@ module Header = {
               ),
             ),
           ]),
-          "grid md:grid-columns-1024 col-bleed",
+          "grid md:grid-columns-1024 col-bleed absolute inset-0 tablet:px-4",
         ])
       );
 
     <header
       className={Css.merge([
-        "grid md:grid-columns-1024 grid-columns-1fr bg-top bg-cover md:h-jumbo h-md tablet:px-4",
-        bgImage(bg),
+        "grid md:grid-columns-1024 grid-columns-1fr bg-top bg-cover md:h-jumbo
+        h-md relative overflow-hidden",
       ])}>
+      {switch (backgroundFluid) {
+       | Some(fluid) =>
+         <Gatsby.FluidImg className={Some("col-bleed")} fluid />
+       | None => <img className="col-bleed w-full" alt="Header" src=bg />
+       }}
       <div className=navigationBackground>
         <Navigation />
         <div

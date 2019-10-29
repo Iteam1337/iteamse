@@ -7,6 +7,7 @@ module Style = {
 [@react.component]
 let make = (~data) => {
   let page = Page.Case.make(data);
+
   <>
     <Container className="md:mb-0 mb-0">
       <Breadcrumbs title={page.title} />

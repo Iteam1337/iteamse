@@ -35,6 +35,13 @@ export const query = graphql`
         file {
           url
         }
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

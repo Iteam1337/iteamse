@@ -31,6 +31,10 @@ li:before {
   display: none;
 }
 
+.max-w-inherit {
+  max-width: inherit;
+}
+
 /* Grid */
 .grid-columns-1fr {
   grid-template-columns: 20px 1fr 20px;

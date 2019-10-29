@@ -42,6 +42,7 @@ let make = (~data, ~projects) => {
   <>
     <Block.Header
       backgroundImage={header.url}
+      backgroundFluid={header.localFile}
       color={header.textBgColor}
       messageOne={header.text}
       messageTwo={header.textSecond}

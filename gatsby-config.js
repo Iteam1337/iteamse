@@ -9,7 +9,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Reason',
+    title: 'Iteam',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -35,6 +35,7 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        downloadLocal: true,
       },
     },
   ],

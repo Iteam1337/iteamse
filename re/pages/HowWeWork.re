@@ -5,6 +5,7 @@ let make = (~ads, ~data, ~illustrationGroup, ~illustrationShare) => {
   <>
     <Block.Header
       backgroundImage={page.header.url}
+      backgroundFluid={page.header.localFile}
       color={page.header.textBgColor}
       messageOne={page.header.text}
     />

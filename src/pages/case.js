@@ -13,6 +13,13 @@ export default () => {
           file {
             url
           }
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         headerText1
         headerText2

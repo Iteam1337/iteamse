@@ -13,6 +13,7 @@ let make = (~data) => {
   <>
     <Block.Header
       backgroundImage={header.url}
+      backgroundFluid={header.localFile}
       color={header.textBgColor}
       messageOne={header.text}
     />

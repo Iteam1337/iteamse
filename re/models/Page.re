@@ -34,6 +34,7 @@ module Employee = {
 module Header = {
   type t = {
     url: string,
+    localFile: option(Js.t({.})),
     text: string,
     textSecond: option(string),
     textBgColor: Theme.Colors.t,
@@ -41,6 +42,11 @@ module Header = {
 
   let make = headerData => {
     url: headerData##headerImage##file##url,
+    localFile:
+      switch (headerData##headerImage##localFile->Js.Nullable.toOption) {
+      | Some(local) => Some(local##childImageSharp##fluid)
+      | None => None
+      },
     text: headerData##headerText1,
     textSecond: headerData##headerText2 |> Js.Nullable.toOption,
     textBgColor: headerData##headerTextBgColor->Theme.Colors.fromHex,

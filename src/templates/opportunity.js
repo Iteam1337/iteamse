@@ -40,7 +40,6 @@ export const query = graphql`
         knowledge
       }
       location
-      title
       perksTitle
       perks {
         perks
@@ -54,6 +53,7 @@ export const query = graphql`
       technicalities {
         technicalities
       }
+      title
       contacts {
         avatar {
           file {
