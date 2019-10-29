@@ -56,3 +56,81 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 }
+
+exports.sourceNodes = ({ actions }) => {
+  const { createTypes } = actions
+
+  const typeDefs = `
+    type AboutUsTextNode {
+      aboutUs: String
+    }
+
+    type ApplicationTextNode {
+      application: String
+    }
+
+    type BonusKnowledgeTextNode {
+      bonusKnowledge: String
+    }
+
+    type KnowledgeTextNode {
+      knowledge: String
+    }
+
+    type PerksTextNode {
+      perks: String
+    }
+
+    type RoleTextNode {
+      id: ID!
+      role: String
+    }
+
+    type TechnicalitiesTextNode {
+      technicalities: String
+    }
+
+    type ContentfulAnnonser implements Node {
+      aboutUsTitle: String
+      aboutUs: AboutUsTextNode
+      applicationTitle: String
+      application: ApplicationTextNode
+      bonusKnowledgeTitle: String
+      bonusKnowledge: BonusKnowledgeTextNode
+      contacts: [ContentfulKollegor]
+      contactTitle: String
+      headerText1: String
+      headerText2: String
+      headerTextBgColor: String
+      headerImage: ContentfulAsset
+      id: ID!
+      knowledgeTitle: String
+      knowledge: KnowledgeTextNode
+      location: String
+      node_locale: String!
+      perksTitle: String
+      perks: PerksTextNode
+      roleTitle: String
+      role: RoleTextNode
+      technicalitiesTitle: String
+      technicalities: TechnicalitiesTextNode
+      title: String
+      urlId: String
+    }
+  `
+
+  createTypes(typeDefs)
+}
+
+exports.createResolvers = ({ createResolvers, schema }) => {
+  createResolvers({
+    Query: {
+      allContentfulAnnonser: {
+        type: `[ContentfulAnnonser!]!`,
+        resolve(source, args, context, info) {
+          return []
+        },
+      },
+    },
+  })
+}

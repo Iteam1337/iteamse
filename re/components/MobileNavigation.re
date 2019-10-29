@@ -11,10 +11,12 @@ module MenuButton = {
         borderWidth(`zero),
         bottom(`px(20)),
         boxShadow(
-          ~x=`zero,
-          ~y=`px(2),
-          ~blur=`px(4),
-          `rgba((0, 0, 0, 0.2)),
+          Shadow.box(
+            ~x=`zero,
+            ~y=`px(2),
+            ~blur=`px(4),
+            `rgba((0, 0, 0, 0.2)),
+          ),
         ),
         height(`px(60)),
         position(`fixed),
