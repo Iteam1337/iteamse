@@ -2,10 +2,12 @@ module NavigationLink = {
   [@react.component]
   let make = (~_to, ~text, ~color) => {
     let parts =
-      Breadcrumbs.JsWindow.location
-      |> Breadcrumbs.split_on_char('/')
-      |> List.tl
-      |> List.hd;
+      Js.String.split("/", Breadcrumbs.JsWindow.location)
+      ->Belt.List.fromArray
+      ->Belt.List.tail
+      ->Belt.Option.getWithDefault([])
+      ->Belt.List.head
+      ->Belt.Option.getWithDefault("/");
 
     let isActive = "/" ++ parts == _to;
 

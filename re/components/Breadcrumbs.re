@@ -3,20 +3,6 @@ module JsWindow = {
   external location: string = "pathname";
 };
 
-/* TODO: Implemented in OCaml 4.05, remove when BuckleScript-version is updated */
-let split_on_char = (sep, s) => {
-  open String;
-  let r = ref([]);
-  let j = ref(length(s));
-  for (i in length(s) - 1 downto 0) {
-    if (unsafe_get(s, i) == sep) {
-      r := [sub(s, i + 1, j^ - i - 1), ...r^];
-      j := i;
-    };
-  };
-  [sub(s, 0, j^), ...r^];
-};
-
 let parseSlug =
   fun
   | "karriar" => Some({js|Karriär|js})
@@ -43,7 +29,11 @@ let make = (~title) => {
       ])
     );
 
-  let parts = JsWindow.location |> split_on_char('/') |> List.tl;
+  let parts =
+    Js.String.split("/", JsWindow.location)
+    ->Belt.List.fromArray
+    ->Belt.List.tail
+    ->Belt.Option.getWithDefault([]);
 
   <div className="grid-gap-2-y grid md:grid-columns-12 grid-gap-8-x">
     <div className=Css.(merge([separator, "md:col-start-1 md:col-end-12"]))>

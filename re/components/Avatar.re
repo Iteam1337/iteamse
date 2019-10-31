@@ -3,7 +3,11 @@
 module Image = {
   [@react.component]
   let make = (~src) => {
-    <img className="w-1/2 md:w-full rounded-full" src alt="" />;
+    <img
+      className="w-1/2 md:w-full rounded-full hover:shadow-2xl hover:-translate-y-6px transition-250"
+      src
+      alt=""
+    />;
   };
 };
 

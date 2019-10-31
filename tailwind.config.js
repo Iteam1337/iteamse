@@ -32,9 +32,19 @@ module.exports = {
       startpage2019: '720px',
       jumbo: '800px',
     },
+    translate: {
+      '-6px': '-6px',
+      '1/10': '10%',
+      '1/2': '50%',
+      full: '100%',
+    },
   },
-  variants: {},
+  variants: {
+    translate: ['responsive', 'hover'],
+  },
   plugins: [
+    require('tailwindcss-transforms')(),
+    require('tailwindcss-transitions')(),
     require('tailwindcss-grid')({
       grids: [2, 3, 4, 5, 6, 8, 10, 12],
       gaps: {
