@@ -7,6 +7,9 @@ import { Helmet } from 'react-helmet'
 export default () => {
   const data = useStaticQuery(graphql`
     query AboutUs {
+      allContentfulKollegor(filter: { node_locale: { eq: "sv-SE" } }) {
+        totalCount
+      }
       contentfulSidaOmOss {
         headerTextBgColor
         headerText1
@@ -82,6 +85,7 @@ export default () => {
       <About
         data={data.contentfulSidaOmOss}
         illustrationFun={data.illustrationFun.publicURL}
+        numberOfEmployees={data.allContentfulKollegor.totalCount}
       />
     </Layout>
   )

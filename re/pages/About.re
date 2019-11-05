@@ -1,5 +1,5 @@
 [@react.component]
-let make = (~data, ~illustrationFun) => {
+let make = (~data, ~illustrationFun, ~numberOfEmployees) => {
   let page = Page.About.make(data);
 
   <>
@@ -11,7 +11,13 @@ let make = (~data, ~illustrationFun) => {
       messageTwo={page.header.textSecond}
     />
     <Container>
-      <Block.Text title={page.valueeText}> {page.valueIteam} </Block.Text>
+      <Block.Text title={page.valueeText}>
+        {page.valueIteam
+         |> Js.String.replace(
+              "{{coworkers}}",
+              numberOfEmployees->string_of_int,
+            )}
+      </Block.Text>
       <Block.Text title={page.valueTitle}> {page.valueText} </Block.Text>
       <Block.Text title={page.funTitle}> {page.funText} </Block.Text>
       <Block.Illustration src=illustrationFun />
