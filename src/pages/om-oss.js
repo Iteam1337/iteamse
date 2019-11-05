@@ -49,6 +49,7 @@ export default () => {
           stabilityText
         }
         stabilityIcons {
+          description
           file {
             url
           }

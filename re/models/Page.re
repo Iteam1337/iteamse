@@ -97,7 +97,7 @@ module About = {
     valueIteam: string,
     stabilityText: string,
     stabilityTitle: string,
-    stabilityIcons: list(string),
+    stabilityIcons: list((string, string)),
     contactTitle: string,
     contacts: list(Employee.t),
     header: Header.t,
@@ -117,7 +117,7 @@ module About = {
     stabilityText: page##stabilityText##stabilityText,
     stabilityIcons:
       page##stabilityIcons
-      ->Belt.Array.map(icon => icon##file##url)
+      ->Belt.Array.map(icon => (icon##description, icon##file##url))
       ->Belt.List.fromArray,
     contactTitle: page##contactTitle,
     contacts: Employee.fromArray(page##contacts),

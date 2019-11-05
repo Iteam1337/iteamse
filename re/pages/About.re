@@ -11,6 +11,7 @@ let make = (~data, ~illustrationFun) => {
       messageTwo={page.header.textSecond}
     />
     <Container>
+      <Block.Text title={page.valueeText}> {page.valueIteam} </Block.Text>
       <Block.Text title={page.valueTitle}> {page.valueText} </Block.Text>
       <Block.Text title={page.funTitle}> {page.funText} </Block.Text>
       <Block.Illustration src=illustrationFun />
@@ -23,14 +24,13 @@ let make = (~data, ~illustrationFun) => {
         page.stabilityText->React.string
         <div className="mt-10 flex items-center">
           {page.stabilityIcons
-           ->Belt.List.map(src =>
-               <img key=src className="mr-5 w-40" src alt="" />
+           ->Belt.List.map(((alt, src)) =>
+               <img key=src className="mr-5 w-40" src alt />
              )
            ->Belt.List.toArray
            ->React.array}
         </div>
       </Block.Element>
-      <Block.Text title={page.valueeText}> {page.valueIteam} </Block.Text>
     </Container>
     <Block.Section color=`Aquamarine>
       <Contacts contacts={page.contacts} title={page.contactTitle} />
