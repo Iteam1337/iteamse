@@ -6,7 +6,15 @@ This is an updated version of [iteam.se](https://iteam.se/) built on top of Gats
 
 ## Prerequisites
 
-`.env.development` with `CONTENTFUL_SPACE` and `CONTENTFUL_ACCESS_TOKEN`
+Environment variables are needed in a `.env.development` with:
+
+```
+CONTENTFUL_SPACE=
+CONTENTFUL_ACCESS_TOKEN=
+GHOST_CONTENT_API=
+```
+
+Values are available in LastPass.
 
 ## Get started
 

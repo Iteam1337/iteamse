@@ -387,3 +387,18 @@ module Case = {
     title: page##title,
   };
 };
+
+module Blog = {
+  type t = {
+    content: string,
+    slug: string,
+    title: string,
+  };
+
+  let make = items =>
+    items
+    ->Belt.List.fromArray
+    ->Belt.List.map(item =>
+        {content: item##plaintext, title: item##title, slug: item##slug}
+      );
+};

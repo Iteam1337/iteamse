@@ -31,6 +31,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-ghost`,
+      options: {
+        apiUrl: `https://blog.iteam.life`,
+        contentApiKey: process.env.GHOST_CONTENT_API,
+        version: `v2`,
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACE,
