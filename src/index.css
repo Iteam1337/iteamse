@@ -72,6 +72,10 @@ li:before {
 }
 
 /* Markdown */
+.markdown ul {
+  @apply pl-5;
+}
+
 .markdown li {
   @apply text-lg;
 }
