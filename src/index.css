@@ -4,11 +4,11 @@
 
 html,
 body {
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
 
-  @apply font-sans font-light !important;
-  -webkit-font-smoothing: antialiased !important;
+  @apply font-sans font-light;
+  -webkit-font-smoothing: antialiased;
 }
 
 p {
