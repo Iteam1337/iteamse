@@ -29,15 +29,24 @@ let make = (~title) => {
       ])
     );
 
-  let parts =
-    Js.String.split("/", JsWindow.location)
-    ->Belt.List.fromArray
-    ->Belt.List.tail
-    ->Belt.Option.getWithDefault([]);
+  let (parts, setUrlParts) = React.useState(() => None);
+
+  React.useEffect0(() => {
+    let parts =
+      Js.String.split("/", JsWindow.location)
+      ->Belt.List.fromArray
+      ->Belt.List.tail
+      ->Belt.Option.getWithDefault([]);
+
+    setUrlParts(_prevParts => Some(parts));
+
+    None;
+  });
 
   <div className="grid-gap-2-y grid md:grid-columns-12 grid-gap-8-x">
     <div className=Css.(merge([separator, "md:col-start-1 md:col-end-12"]))>
       {parts
+       ->Belt.Option.getWithDefault([])
        ->Belt.List.map(p =>
            <span key=p>
              {parseSlug(p)

@@ -6,6 +6,6 @@ yarn-error.log
 .merlin
 /public
 lib
-.env.development
+.env.*
 .bsb.lock
 
