@@ -49,6 +49,7 @@ module.exports = {
       grids: [2, 3, 4, 5, 6, 8, 10, 12],
       gaps: {
         '5': '1.25rem',
+        '4': '1rem',
         '8': '2rem',
         '8-x': '2rem',
         '2-y': '0.75rem',

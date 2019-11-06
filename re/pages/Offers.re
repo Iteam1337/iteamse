@@ -62,7 +62,7 @@ let make = (~data, ~offers) => {
              <Typography.H1> {React.string(offer.title)} </Typography.H1>
              <div className="mt-4"> {React.string(offer.lead)} </div>
              <div
-               className="grid md:grid-columns-2 my-8 md:my-20 grid-gap-4-y md:grid-gap-12-y">
+               className="grid md:grid-columns-2 my-8 md:my-20 grid-gap-4 md:grid-gap-12-y">
                {offer.usps
                 ->Belt.List.map(usp =>
                     <div>

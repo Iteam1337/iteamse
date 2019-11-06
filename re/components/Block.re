@@ -94,7 +94,10 @@ module StartpageHeader = {
           style([
             media(
               Theme.Breakpoints.fromType(`Desktop),
-              [backgroundPosition(pct(75.), pct(125.))],
+              [
+                backgroundPosition(vw(35.), px(-160)),
+                unsafe("background-size", "940px"),
+              ],
             ),
             media(
               Theme.Breakpoints.fromType(`Tablet),
@@ -106,8 +109,8 @@ module StartpageHeader = {
             media(
               Theme.Breakpoints.fromType(`Mobile),
               [
-                backgroundPosition(`vw(-30.), `vw(-32.)), /* -17vw */
-                unsafe("background-size", "160vw"),
+                backgroundPosition(px(-140), `px(-170)),
+                unsafe("background-size", "640px"),
               ],
             ),
           ]),
