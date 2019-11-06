@@ -44,9 +44,13 @@ let make = (~data) => {
       <Block.Text title={page.aboutCompanyTitle}>
         {page.aboutCompany}
       </Block.Text>
-      <Block.Element title={page.partnersTitle}>
-        <Block.Markdown source={page.partners} />
-      </Block.Element>
+      {page.partners
+       ->Belt.Option.map(partners =>
+           <Block.Element title={page.partnersTitle}>
+             <Block.Markdown source=partners />
+           </Block.Element>
+         )
+       ->Belt.Option.getWithDefault(React.null)}
       <Block.Section color=`Concrete>
         <div className="grid grid-gap-8-x col-start-2 col-end-2">
           <div>
