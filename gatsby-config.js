@@ -26,7 +26,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`roboto\:300,400,500,700`],
+        fonts: [`roboto:300,400,500,700`],
         display: 'swap',
       },
     },
