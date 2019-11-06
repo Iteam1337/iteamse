@@ -14,10 +14,11 @@ let make = (~data) => {
     <Container>
       <Breadcrumbs title={page.name} />
       <Block.Element title="Kontakt">
-        <Contact.Telephone
-          className="text-lg"
-          phoneNumber={page.phoneNumber}
-        />
+        {page.phoneNumber
+         ->Belt.Option.map(phoneNumber =>
+             <Contact.Telephone className="text-lg" phoneNumber />
+           )
+         ->Belt.Option.getWithDefault(React.null)}
         <Contact.Mailto
           className="text-lg text-cornflower-blue"
           email={page.email}
