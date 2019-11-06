@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Footer from '../lib/js/re/components/Footer'
 import { graphql, useStaticQuery } from 'gatsby'
-import './index.css'
 import MobileNavigation from '../lib/js/re/components/MobileNavigation'
 
 const Layout = ({ children }) => {
