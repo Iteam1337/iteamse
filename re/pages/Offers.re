@@ -32,7 +32,7 @@ let make = (~data, ~offers) => {
           )>
           {miniUsps
            ->Belt.List.map(usp =>
-               <div className="grid grid-gap-5">
+               <div className="grid grid-gap-5" key={usp.title}>
                  <img className="h-32" src={usp.illustration} alt="" />
                  <Typography.H3> {usp.title} </Typography.H3>
                  <div> {React.string(usp.text)} </div>
@@ -57,7 +57,8 @@ let make = (~data, ~offers) => {
      ->Belt.List.fromArray
      ->Belt.List.map(Offer.make)
      ->Belt.List.mapWithIndex((i, offer) =>
-         <Block.Section color={i mod 2 === 0 ? `Concrete : `White}>
+         <Block.Section
+           key={offer.lead} color={i mod 2 === 0 ? `Concrete : `White}>
            <div id={offer.title->Js.String.toLowerCase->Js.String.trim}>
              <Typography.H1> {React.string(offer.title)} </Typography.H1>
              <div className="mt-4"> {React.string(offer.lead)} </div>
@@ -65,7 +66,7 @@ let make = (~data, ~offers) => {
                className="grid md:grid-columns-2 my-8 md:my-20 grid-gap-4 md:grid-gap-12-y">
                {offer.usps
                 ->Belt.List.map(usp =>
-                    <div>
+                    <div key={usp.text}>
                       <Typography.H3> {usp.title} </Typography.H3>
                       <div className="mt-4"> {React.string(usp.text)} </div>
                     </div>

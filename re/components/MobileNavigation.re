@@ -22,13 +22,8 @@ module MenuButton = {
         position(`fixed),
         right(`px(20)),
         width(`px(60)),
-        zIndex(2),
+        zIndex(11),
         focus([outlineWidth(`zero)]),
-        media(
-          "only screen and (device-width: 375px) and (device-height: 812px)
-                   and (-webkit-device-pixel-ratio: 3)",
-          [bottom(`zero), top(`px(20))],
-        ),
         media(
           Theme.Breakpoints.fromType(`Tablet),
           [bottom(`px(20)), right(`px(20))],
@@ -87,7 +82,7 @@ let make = () => {
      | NavigationIsHidden => React.null
      | NavigationIsVisible =>
        <div
-         className="fixed inset-0 bg-white text-right grid items-end px-5 pb-32">
+         className="fixed inset-0 bg-see-through-white text-right grid items-end px-5 pb-32 z-10">
          <nav className="grid grid-gap-10-y">
            {Navigation.Options.items
             ->Belt.List.map(({link, text}) =>
@@ -97,7 +92,8 @@ let make = () => {
                       "text-black text-2xl border-b-2 border-black justify-self-end",
                     )
                   }
-                  _to=link>
+                  _to=link
+                  key=link>
                   {React.string(text)}
                 </Gatsby.Link>
               )

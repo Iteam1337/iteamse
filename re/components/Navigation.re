@@ -58,7 +58,7 @@ let make = (~color=`White) => {
     <nav className="flex ml-auto tablet:hidden">
       {Options.items
        ->Belt.List.map(({link, text}) =>
-           <NavigationLink color _to=link text />
+           <NavigationLink key=link color _to=link text />
          )
        ->Belt.List.toArray
        ->React.array}

@@ -18,6 +18,7 @@ module.exports = {
         'radical-red': 'hsl(350, 100%, 62%)', // #ff3b5c
         current: 'currentcolor',
         white: 'white',
+        'see-through-white': 'rgba(255, 255, 255, 0.99)',
       },
       maxWidth: {
         initial: 'initial',

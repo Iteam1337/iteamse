@@ -95,7 +95,7 @@ module StartpageHeader = {
             media(
               Theme.Breakpoints.fromType(`Desktop),
               [
-                backgroundPosition(vw(35.), px(-160)),
+                backgroundPosition(vw(40.), px(-160)),
                 unsafe("background-size", "940px"),
               ],
             ),
