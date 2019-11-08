@@ -5,7 +5,13 @@
 html,
 body {
   @apply font-sans font-light;
+
   -webkit-font-smoothing: antialiased;
+}
+
+html.comic-sans,
+html.comic-sans body {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif !important;
 }
 
 p {

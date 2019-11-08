@@ -6,7 +6,8 @@
     "reason-react",
     "bs-css",
     "bs-telefonnummer",
-    "re-classnames"
+    "re-classnames",
+    "bs-webapi"
   ],
   "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "sources": [
