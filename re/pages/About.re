@@ -28,10 +28,10 @@ let make = (~data, ~illustrationFun, ~numberOfEmployees) => {
       />
       <Block.Element title={page.stabilityTitle}>
         page.stabilityText->React.string
-        <div className="mt-10 flex items-center">
+        <div className="mt-10 flex items-center flex-wrap justify-center">
           {page.stabilityIcons
            ->Belt.List.map(((alt, src)) =>
-               <img key=src className="mr-5 w-40" src alt />
+               <img key=src className="md:mr-5 mx-5 my-5 w-40" src alt />
              )
            ->Belt.List.toArray
            ->React.array}
