@@ -16,8 +16,20 @@ module Konami = {
     | ClearKeys
     | StoreKey(t);
 
-  let code =
-    [Up, Up, Down, Down, Left, Right, Left, Right, B, A]->Belt.List.reverse;
+  // Konami code in reverse
+  let code = [A, B, Right, Left, Right, Left, Down, Down, Up, Up];
+
+  let rec testKonamiCode = (keys, iter) => {
+    switch (keys, iter) {
+    | ([], 0) => false
+    | ([], _) => true
+    | ([head, ...tail], _) =>
+      switch (code->Belt.List.get(iter)) {
+      | Some(v) => v === head ? testKonamiCode(tail, iter + 1) : false
+      | None => false
+      }
+    };
+  };
 
   let useCode = (~success, ~reset) => {
     let (storedKeys, dispatch) =
@@ -35,18 +47,6 @@ module Konami = {
 
     React.useEffect1(
       () => {
-        let rec testKonamiCode = (keys, iter) => {
-          switch (keys, iter) {
-          | ([], 0) => false
-          | ([], _) => true
-          | ([head, ...tail], _) =>
-            switch (code->Belt.List.get(iter)) {
-            | Some(v) => v === head ? testKonamiCode(tail, iter + 1) : false
-            | None => false
-            }
-          };
-        };
-
         if (testKonamiCode(storedKeys, 0)) {
           success();
           dispatch(ClearKeys);
@@ -72,16 +72,9 @@ module Konami = {
         };
       };
 
-      document
-      |> Document.asEventTarget
-      |> EventTarget.addKeyUpEventListener(handleKeyUp);
+      Web.Keyboard.addKeyUpListener(handleKeyUp);
 
-      Some(
-        () =>
-          document
-          |> Document.asEventTarget
-          |> EventTarget.removeKeyUpEventListener(handleKeyUp),
-      );
+      Some(() => Web.Keyboard.removeKeyUpListener(handleKeyUp));
     });
   };
 };

@@ -1,19 +1,9 @@
 [@react.component]
 let make = (~className=?, ~children) => {
-  Webapi.Dom.(
+  Web.(
     EasterEggs.Konami.useCode(
-      ~success=
-        _ =>
-          document
-          |> Document.documentElement
-          |> Element.classList
-          |> DomTokenList.add("comic-sans"),
-      ~reset=
-        _ =>
-          document
-          |> Document.documentElement
-          |> Element.classList
-          |> DomTokenList.remove("comic-sans"),
+      ~success=_ => Document.element->ClassName.add("comic-sans"),
+      ~reset=_ => Document.element->ClassName.remove("comic-sans"),
     )
   );
 
