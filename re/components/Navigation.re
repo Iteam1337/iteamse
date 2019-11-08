@@ -1,15 +1,25 @@
 module NavigationLink = {
   [@react.component]
   let make = (~_to, ~text, ~color) => {
-    let parts =
-      Js.String.split("/", Breadcrumbs.JsWindow.location)
-      ->Belt.List.fromArray
-      ->Belt.List.tail
-      ->Belt.Option.getWithDefault([])
-      ->Belt.List.head
-      ->Belt.Option.getWithDefault("/");
+    let (_urlParts, setUrlParts) = React.useState(() => None);
+    let (isActive, setIsActive) = React.useState(() => false);
 
-    let isActive = "/" ++ parts == _to;
+    React.useEffect0(() => {
+      let parts =
+        Js.String.split("/", Breadcrumbs.JsWindow.location)
+        ->Belt.List.fromArray
+        ->Belt.List.tail
+        ->Belt.Option.getWithDefault([])
+        ->Belt.List.head
+        ->Belt.Option.getWithDefault("/");
+
+      let isActive = "/" ++ parts == _to;
+
+      setUrlParts(_prevParts => Some(parts));
+      setIsActive(_wasActive => isActive);
+
+      None;
+    });
 
     let textColor =
       switch (color) {

@@ -22,8 +22,8 @@ module Employee = {
     title: employee##title,
     phoneNumber:
       switch (employee##phoneNumber->Js.Nullable.toOption) {
-      | None => None
       | Some(pn) => Some(Telefonnummer.parse(pn))
+      | _ => None
       },
   };
 
@@ -274,7 +274,7 @@ module Coworker = {
     title: string,
     why: string,
     whyTitle: string,
-    phoneNumber: string,
+    phoneNumber: option(string),
     email: string,
     competence: string,
     competenceTitle: string,
@@ -293,7 +293,11 @@ module Coworker = {
     background: page##background##background,
     backgroundTitle: page##backgroundTitle,
     email: page##email,
-    phoneNumber: Telefonnummer.parse(page##phoneNumber),
+    phoneNumber:
+      switch (page##phoneNumber->Js.Nullable.toOption) {
+      | Some(pn) => Some(Telefonnummer.parse(pn))
+      | _ => None
+      },
     header: Header.make(page),
   };
 };
@@ -343,7 +347,7 @@ module Case = {
     headerBgColor: string,
     introduction: string,
     introductionTitle: string,
-    partners: string,
+    partners: option(string),
     partnersTitle: string,
     process: string,
     processTitle: string,
@@ -371,7 +375,11 @@ module Case = {
     headerBgColor: page##headerBgColor,
     introduction: page##introduction##introduction,
     introductionTitle: page##introductionTitle,
-    partners: page##partners##partners,
+    partners:
+      switch (page##partners->Js.Nullable.toOption) {
+      | Some(p) => p##partners
+      | None => None
+      },
     partnersTitle: page##partnersTitle,
     process: page##process##process,
     processTitle: page##processTitle,
