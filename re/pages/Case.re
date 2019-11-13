@@ -25,7 +25,7 @@ let make = (~data) => {
                   />,
                 )
               }>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap items-center h-full">
           {page.tags
            ->Belt.Array.map(tag =>
                <div

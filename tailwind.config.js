@@ -32,6 +32,7 @@ module.exports = {
     },
     height: {
       32: '8rem',
+      full: '100%',
       md: '430px',
       startpage2019: '720px',
       jumbo: '800px',
