@@ -26,6 +26,11 @@ export const query = graphql`
           }
         }
       }
+      logo {
+        localFile {
+          publicURL
+        }
+      }
       headerBgColor
       slug
       frameworks

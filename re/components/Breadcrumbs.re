@@ -39,8 +39,6 @@ let make = (~title) => {
       ->Belt.Option.getWithDefault([])
       ->Belt.List.keep(p => p != "");
 
-    Js.log(parts->Belt.List.toArray);
-
     setUrlParts(_prevParts => Some(parts));
 
     None;

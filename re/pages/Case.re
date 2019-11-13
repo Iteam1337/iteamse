@@ -15,7 +15,16 @@ let make = (~data) => {
     />
     <Container className="md:mb-0 mb-0">
       <Breadcrumbs title={page.title} />
-      <Block.Element title="">
+      <Block.Element
+        title={
+                `Image(
+                  <img
+                    className="max-h-200"
+                    src={page.logo}
+                    alt={page.title}
+                  />,
+                )
+              }>
         <div className="flex flex-wrap">
           {page.tags
            ->Belt.Array.map(tag =>
@@ -63,7 +72,7 @@ let make = (~data) => {
       </Block.Text>
       {page.partners
        ->Belt.Option.map(partners =>
-           <Block.Element title={page.partnersTitle}>
+           <Block.Element title={`Text(page.partnersTitle)}>
              <Block.Markdown source=partners />
            </Block.Element>
          )

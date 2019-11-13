@@ -13,7 +13,7 @@ let make = (~data) => {
     />
     <Container>
       <Breadcrumbs title={page.name} />
-      <Block.Element title="Kontakt">
+      <Block.Element title={`Text("Kontakt")}>
         {page.phoneNumber
          ->Belt.Option.map(phoneNumber =>
              <Contact.Telephone className="text-lg" phoneNumber />

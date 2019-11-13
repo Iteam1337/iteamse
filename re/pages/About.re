@@ -26,7 +26,7 @@ let make = (~data, ~illustrationFun, ~numberOfEmployees) => {
         className={Some("col-bleed w-full")}
         fluid=data##imageBleed##fluid
       />
-      <Block.Element title={page.stabilityTitle}>
+      <Block.Element title={`Text(page.stabilityTitle)}>
         page.stabilityText->React.string
         <div className="mt-10 flex items-center flex-wrap justify-center">
           {page.stabilityIcons

@@ -364,6 +364,7 @@ module Case = {
     headerBgColor: string,
     introduction: string,
     introductionTitle: string,
+    logo: string,
     partners: option(string),
     partnersTitle: string,
     process: string,
@@ -393,6 +394,7 @@ module Case = {
     headerBgColor: page##headerBgColor,
     introduction: page##introduction##introduction,
     introductionTitle: page##introductionTitle,
+    logo: page##logo##localFile##publicURL,
     partners:
       switch (page##partners->Js.Nullable.toOption) {
       | Some(p) => p##partners

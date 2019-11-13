@@ -207,11 +207,16 @@ module Text = {
 };
 
 module Element = {
+  type title = [ | `Text(string) | `Image(React.element)];
+
   [@react.component]
   let make = (~title, ~children, ~subtitle=?) => {
     <section className="grid-gap-2-y grid md:grid-columns-12 grid-gap-8-x">
       <div className="md:col-start-1 md:col-end-5">
-        <Typography.H2> title </Typography.H2>
+        {switch (title) {
+         | `Text(text) => <Typography.H2> text </Typography.H2>
+         | `Image(imageEl) => imageEl
+         }}
         {subtitle
          ->Belt.Option.map(s =>
              <span className="text-lg"> s->React.string </span>

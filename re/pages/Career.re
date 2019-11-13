@@ -22,7 +22,7 @@ let make = (~data) => {
        ->Belt.List.map(opportunity =>
            <Block.Element
              key={opportunity.id}
-             title={opportunity.title}
+             title={`Text(opportunity.title)}
              subtitle={opportunity.location}>
              <Block.Markdown source={opportunity.role} />
              <Link url={"/karriar/" ++ opportunity.urlId}>
@@ -32,7 +32,7 @@ let make = (~data) => {
          )
        ->Belt.List.toArray
        ->React.array}
-      <Block.Element title=openApplicationLabel>
+      <Block.Element title={`Text(openApplicationLabel)}>
         <Block.Markdown source=openApplicationText />
       </Block.Element>
     </Container>

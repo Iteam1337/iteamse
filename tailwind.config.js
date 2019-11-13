@@ -23,6 +23,9 @@ module.exports = {
       maxWidth: {
         initial: 'initial',
       },
+      maxHeight: {
+        '200': '200px',
+      },
     },
     fontFamily: {
       sans: ['Roboto', 'sans-serif'],
