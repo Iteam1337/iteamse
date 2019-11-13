@@ -14,6 +14,18 @@ export default ({ data }) => {
 export const query = graphql`
   query Case($slug: String!) {
     contentfulProjekt(slug: { eq: $slug }) {
+      casePageBackgroundImage {
+        file {
+          url
+        }
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              src
+            }
+          }
+        }
+      }
       headerBgColor
       slug
       frameworks

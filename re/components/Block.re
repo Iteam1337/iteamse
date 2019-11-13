@@ -61,7 +61,7 @@ module Header = {
           <Typography.H1>
             <span className=marker> messageOne->React.string </span>
             {messageTwo
-             ->Belt.Option.map(m =>
+             ->Belt.Option.map(message =>
                  <>
                    <div className="mt-1" />
                    <span
@@ -69,7 +69,7 @@ module Header = {
                        marker,
                        "font-light"->Cn.ifTrue(messageTwoLight),
                      ])}>
-                     m->React.string
+                     message->React.string
                    </span>
                  </>
                )
@@ -77,6 +77,42 @@ module Header = {
           </Typography.H1>
         </div>
       </div>
+    </header>;
+  };
+};
+
+module CaseHeader = {
+  [@react.component]
+  let make = (~backgroundImage as bg, ~backgroundFluid=None) => {
+    let navigationBackground =
+      Css.(
+        merge([
+          style([
+            backgroundImage(
+              linearGradient(
+                `deg(180.0),
+                [
+                  (`px(0), `rgba((0, 0, 0, 0.3))),
+                  (`px(100), `rgba((0, 0, 0, 0.0))),
+                ],
+              ),
+            ),
+          ]),
+          "grid md:grid-columns-1024 col-bleed absolute inset-0 tablet:px-4",
+        ])
+      );
+
+    <header
+      className={Css.merge([
+        "grid md:grid-columns-1024 grid-columns-1fr bg-top bg-cover md:h-16
+        h-md relative overflow-hidden",
+      ])}>
+      {switch (backgroundFluid) {
+       | Some(fluid) =>
+         <Gatsby.FluidImg className={Some("col-bleed")} fluid />
+       | None => <img className="col-bleed w-full" alt="Header" src=bg />
+       }}
+      <div className=navigationBackground> <Navigation /> </div>
     </header>;
   };
 };

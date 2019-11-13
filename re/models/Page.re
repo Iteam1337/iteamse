@@ -335,6 +335,22 @@ module Cases = {
 };
 
 module Case = {
+  module Header = {
+    type t = {
+      url: string,
+      localFile: option(Js.t({.})),
+    };
+
+    let make = headerData => {
+      url: headerData##file##url,
+      localFile:
+        switch (headerData##localFile->Js.Nullable.toOption) {
+        | Some(local) => Some(local##childImageSharp##fluid)
+        | None => None
+        },
+    };
+  };
+
   type t = {
     aboutCompany: string,
     aboutCompanyTitle: string,
@@ -344,6 +360,7 @@ module Case = {
     developmentTitle: string,
     frameworks: array(string),
     frameworksTitle: string,
+    header: Header.t,
     headerBgColor: string,
     introduction: string,
     introductionTitle: string,
@@ -355,13 +372,14 @@ module Case = {
     quoteBgColor: option(string),
     quotePerson: option(string),
     slug: string,
-    tags: list(string),
+    tags: array(string),
     title: string,
   };
 
   let make = page => {
     aboutCompany: page##aboutCompany##aboutCompany,
     aboutCompanyTitle: page##aboutCompanyTitle,
+    header: Header.make(page##casePageBackgroundImage),
     contact:
       switch (page##contact->Js.Nullable.toOption) {
       | Some(c) => c##contact

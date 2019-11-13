@@ -9,8 +9,25 @@ let make = (~data) => {
   let page = Page.Case.make(data);
 
   <>
+    <Block.CaseHeader
+      backgroundImage={page.header.url}
+      backgroundFluid={page.header.localFile}
+    />
     <Container className="md:mb-0 mb-0">
       <Breadcrumbs title={page.title} />
+      <Block.Element title="">
+        <div className="flex flex-wrap">
+          {page.tags
+           ->Belt.Array.map(tag =>
+               <div
+                 key=tag
+                 className="h-16 py-2 px-4 rounded mr-2 mb-2 bg-concrete">
+                 {j|$tag|j}->React.string
+               </div>
+             )
+           ->React.array}
+        </div>
+      </Block.Element>
       <Block.Text title={page.introductionTitle}>
         {page.introduction}
       </Block.Text>
