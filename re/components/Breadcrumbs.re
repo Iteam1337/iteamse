@@ -36,7 +36,10 @@ let make = (~title) => {
       Js.String.split("/", JsWindow.location)
       ->Belt.List.fromArray
       ->Belt.List.tail
-      ->Belt.Option.getWithDefault([]);
+      ->Belt.Option.getWithDefault([])
+      ->Belt.List.keep(p => p != "");
+
+    Js.log(parts->Belt.List.toArray);
 
     setUrlParts(_prevParts => Some(parts));
 
