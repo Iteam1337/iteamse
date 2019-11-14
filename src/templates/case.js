@@ -20,7 +20,7 @@ export const query = graphql`
         }
         localFile {
           childImageSharp {
-            fluid(maxWidth: 1920) {
+            fluid(maxWidth: 1920, quality: 95) {
               src
             }
           }

@@ -20,7 +20,7 @@ export default () => {
           }
           localFile {
             childImageSharp {
-              fluid(maxWidth: 1920) {
+              fluid(maxWidth: 1920, quality: 95) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -35,7 +35,7 @@ export default () => {
         }
         goodTitle
         imageBleed {
-          fluid(maxWidth: 1920) {
+          fluid(maxWidth: 1920, quality: 95) {
             ...GatsbyContentfulFluid_withWebp
           }
         }
