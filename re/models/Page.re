@@ -343,7 +343,7 @@ module Cases = {
 };
 
 module Case = {
-  module Header = {
+  module FluidImage = {
     type t = {
       url: string,
       localFile: option(Js.t({.})),
@@ -362,13 +362,14 @@ module Case = {
   type t = {
     aboutCompany: string,
     aboutCompanyTitle: string,
+    casePageImage: FluidImage.t,
     contact: option(string),
     contactTitle: option(string),
     development: string,
     developmentTitle: string,
     frameworks: array(string),
     frameworksTitle: string,
-    header: Header.t,
+    header: FluidImage.t,
     headerBgColor: string,
     introduction: string,
     introductionTitle: string,
@@ -380,6 +381,7 @@ module Case = {
     quote: option(string),
     quoteBgColor: option(string),
     quotePerson: option(string),
+    shortDescription: string,
     slug: string,
     tags: array(string),
     title: string,
@@ -388,7 +390,8 @@ module Case = {
   let make = page => {
     aboutCompany: page##aboutCompany##aboutCompany,
     aboutCompanyTitle: page##aboutCompanyTitle,
-    header: Header.make(page##casePageBackgroundImage),
+    header: FluidImage.make(page##casePageBackgroundImage),
+    casePageImage: FluidImage.make(page##casePageImage),
     contact:
       switch (page##contact->Js.Nullable.toOption) {
       | Some(c) => c##contact
@@ -418,6 +421,7 @@ module Case = {
       },
     quoteBgColor: page##quoteBgColor->Js.Nullable.toOption,
     quotePerson: page##quotePerson->Js.Nullable.toOption,
+    shortDescription: page##shortDescription,
     slug: page##slug,
     tags: page##tags,
     title: page##title,

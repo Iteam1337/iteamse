@@ -26,6 +26,18 @@ export const query = graphql`
           }
         }
       }
+      casePageImage {
+        file {
+          url
+        }
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              src
+            }
+          }
+        }
+      }
       logo {
         localFile {
           publicURL
@@ -45,6 +57,7 @@ export const query = graphql`
       process {
         process
       }
+      shortDescription
       development {
         development
       }

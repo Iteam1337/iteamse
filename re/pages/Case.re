@@ -14,8 +14,9 @@ let make = (~data) => {
     <Block.Header
       backgroundImage={page.header.url}
       backgroundFluid={page.header.localFile}
-      color={`Other("#56fbae")}
-      messageOne="Header one"
+      color={`Other(page.headerBgColor)}
+      textColor=`White
+      messageOne={page.shortDescription}
     />
     <Container className="md:mb-0 mb-0">
       <Breadcrumbs title={page.title} />
@@ -47,6 +48,15 @@ let make = (~data) => {
         <Block.Case title={`Text(page.processTitle)}>
           <p> page.process->React.string </p>
         </Block.Case>
+      </div>
+      <Block.Section color=`Concrete>
+        <img
+          className="justify-self-center"
+          width="720"
+          src={page.casePageImage.url}
+        />
+      </Block.Section>
+      <div className=narrowContainer>
         <Block.Case title={`Text(page.developmentTitle)}>
           <p> page.development->React.string </p>
         </Block.Case>
@@ -79,13 +89,6 @@ let make = (~data) => {
           <p> page.aboutCompany->React.string </p>
         </Block.Case>
       </div>
-      {page.partners
-       ->Belt.Option.map(partners =>
-           <Block.Element title={`Text(page.partnersTitle)}>
-             <Block.Markdown source=partners />
-           </Block.Element>
-         )
-       ->Belt.Option.getWithDefault(React.null)}
       <Block.Section color=`Concrete>
         <div className="grid grid-gap-8-x col-start-2 col-end-2">
           <div>

@@ -31,6 +31,7 @@ module Header = {
         ~backgroundImage as bg,
         ~backgroundFluid=None,
         ~color as c,
+        ~textColor=?,
         ~messageOne,
         ~messageTwo=None,
         ~messageTwoLight=false,
@@ -272,7 +273,7 @@ module Case = {
       };
 
     <section className="flex flex-col items-center">
-      <div className={Cn.make(["mb-4", Cn.ifTrue("self-start", isText)])}>
+      <div className={isText ? "self-start mb-4" : "mb-16"}>
         {switch (title) {
          | `Text(text) => <Typography.H3> text </Typography.H3>
          | `Image(imageEl) => imageEl
@@ -300,11 +301,12 @@ module Illustration = {
 
 module Section = {
   [@react.component]
-  let make = (~color as c, ~children) => {
+  let make = (~color as c, ~children, ~className=?) => {
     <div
       className={Css.merge([
         "grid-columns-iteam grid py-10 md:py-24 col-bleed",
         Theme.Colors.fromType(c),
+        Cn.unpack(className),
       ])}>
       children
     </div>;
