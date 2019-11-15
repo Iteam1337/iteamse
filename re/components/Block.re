@@ -1,16 +1,27 @@
 module Markdown = {
-  module ReactMarkdown = {
-    [@bs.module] [@react.component]
-    external make: (~source: string, ~className: string) => React.element =
-      "react-markdown";
+  module Parse = {
+    [@bs.module "react-html-parser"]
+    external make: string => React.element = "default";
+  };
+
+  module Dedent = {
+    [@bs.module] external make: string => string = "dedent";
+  };
+
+  module Generate = {
+    [@bs.module] external make: string => string = "marked";
   };
 
   [@react.component]
-  let make = (~source, ~className=?) =>
-    <ReactMarkdown
-      source
-      className={Css.merge(["markdown", className->Cn.unpack])}
-    />;
+  let make = (~source, ~className=?) => {
+    <div className={Cn.make(["markdown", className->Cn.unpack])}>
+      {source
+       |> Js.String.replaceByRe([%re "/\\n\\s+/g"], "")
+       |> Dedent.make
+       |> Generate.make
+       |> Parse.make}
+    </div>;
+  };
 };
 
 module Header = {
@@ -28,6 +39,7 @@ module Header = {
     let navigationBackground =
       Css.(
         merge([
+          "grid md:grid-columns-1024 col-bleed absolute inset-0 tablet:px-4",
           style([
             backgroundImage(
               linearGradient(
@@ -39,7 +51,21 @@ module Header = {
               ),
             ),
           ]),
-          "grid md:grid-columns-1024 col-bleed absolute inset-0 tablet:px-4",
+        ])
+      );
+
+    let transition =
+      Css.(
+        style([
+          after([
+            contentRule(""),
+            display(`block),
+            height(`px(200)),
+            position(`absolute),
+            bottom(`px(0)),
+            left(`px(0)),
+            right(`px(0)),
+          ]),
         ])
       );
 
@@ -47,11 +73,17 @@ module Header = {
       className={Css.merge([
         "grid md:grid-columns-1024 grid-columns-1fr bg-top bg-cover md:h-jumbo
         h-md relative overflow-hidden",
+        transition,
       ])}>
       {switch (backgroundFluid) {
        | Some(fluid) =>
          <Gatsby.FluidImg className={Some("col-bleed")} fluid />
-       | None => <img className="col-bleed w-full" alt="Header" src=bg />
+       | None =>
+         <img
+           className="col-bleed w-full h-full object-cover"
+           alt="Header"
+           src=bg
+         />
        }}
       <div className=navigationBackground>
         <Navigation />

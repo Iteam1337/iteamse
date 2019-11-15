@@ -4,7 +4,7 @@
 
 html,
 body {
-  @apply font-sans font-light;
+  @apply font-sans font-light text-base;
 
   -webkit-font-smoothing: antialiased;
 }
@@ -31,6 +31,30 @@ li:before {
   display: inline-block;
   margin-left: -1em;
   width: 1em;
+}
+
+/* Table styling from Ghost */
+table {
+  @apply inline-block mt-6 mb-12 max-w-full;
+
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  border-spacing: 0;
+  border-collapse: collapse;
+  white-space: nowrap;
+  vertical-align: top;
+  -webkit-overflow-scrolling: touch;
+  background-attachment: scroll, scroll;
+  background-size: 10px 100%, 10px 100%;
+  background-repeat: no-repeat;
+}
+
+table th,
+table td {
+  @apply px-3 py-2;
+
+  border: 1px solid #e3ecf3;
 }
 
 .list-no-dots:before {
@@ -91,7 +115,12 @@ li:before {
 }
 
 .markdown h2 {
-  @apply text-2xl font-medium pb-4;
+  @apply text-2xl font-medium pb-4 min-w-full;
+}
+
+.markdown p,
+.markdown ul {
+  @apply min-w-full;
 }
 
 .markdown p:last-of-type {
@@ -101,4 +130,8 @@ li:before {
 .markdown b,
 .markdown strong {
   font-weight: bold;
+}
+
+.markdown figure {
+  @apply mt-8 mb-12;
 }

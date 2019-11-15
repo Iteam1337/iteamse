@@ -5,9 +5,10 @@ module JsWindow = {
 
 let parseSlug =
   fun
-  | "karriar" => Some({js|Karriär|js})
-  | "medarbetare" => Some({js|Medarbetare|js})
-  | "case" => Some({js|Case|js})
+  | "karriar" => Some({j|Karriär|j})
+  | "medarbetare" => Some({j|Medarbetare|j})
+  | "case" => Some({j|Case|j})
+  | "labs" => Some({j|Labs|j})
   | _ => None;
 
 [@react.component]

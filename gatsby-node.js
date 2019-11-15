@@ -23,6 +23,11 @@ exports.createPages = ({ graphql, actions }) => {
           slug
         }
       }
+      allGhostPost {
+        nodes {
+          slug
+        }
+      }
     }
   `).then(result => {
     result.data.allContentfulKollegor.nodes.forEach(node => {
@@ -49,6 +54,16 @@ exports.createPages = ({ graphql, actions }) => {
       createPage({
         path: `/case/${node.slug}`,
         component: path.resolve('./src/templates/case.js'),
+        context: {
+          slug: node.slug,
+        },
+      })
+    })
+
+    result.data.allGhostPost.nodes.forEach(node => {
+      createPage({
+        path: `/labs/${node.slug}`,
+        component: path.resolve('./src/templates/lab.js'),
         context: {
           slug: node.slug,
         },

@@ -13,8 +13,12 @@ module H1 = {
 
 module H2 = {
   [@react.component]
-  let make = (~children) => {
-    <h2 className="text-2xl md:text-4xl font-medium leading-tight">
+  let make = (~children, ~className=?) => {
+    <h2
+      className={Cn.make([
+        "text-2xl md:text-4xl font-medium leading-tight",
+        className->Cn.unpack,
+      ])}>
       {React.string(children)}
     </h2>;
   };

@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Blog from '../../lib/js/re/pages/Blog'
+import Labs from '../../lib/js/re/pages/Labs'
 import Layout from '../Layout'
 import { Helmet } from 'react-helmet'
 
@@ -9,14 +9,19 @@ export default () => {
     query allGhostPost {
       allGhostPost {
         nodes {
-          authors {
-            id
+          feature_image
+          excerpt
+          published_at(formatString: "DD MMMM YYYY", locale: "sv-SE")
+          primary_author {
+            profile_image
             name
           }
-          plaintext
-          title
           slug
+          title
         }
+      }
+      ghostSettings {
+        cover_image
       }
     }
   `)
@@ -24,9 +29,9 @@ export default () => {
   return (
     <Layout>
       <Helmet>
-        <title>Iteam | Blogg</title>
+        <title>Iteam | Labs</title>
       </Helmet>
-      <Blog data={data.allGhostPost.nodes} />
+      <Labs posts={data.allGhostPost.nodes} settings={data.ghostSettings} />
     </Layout>
   )
 }

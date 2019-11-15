@@ -417,16 +417,87 @@ module Case = {
 };
 
 module Blog = {
+  module Tag = {
+    type t = {name: string};
+
+    let make = tag => {
+      switch (tag |> Js.Nullable.toOption) {
+      | Some(tag) => Some({name: tag##name})
+      | None => None
+      };
+    };
+  };
+
+  module Author = {
+    type t = {
+      bio: option(string),
+      name: string,
+      profileImage: string,
+    };
+
+    let make = author => {
+      bio: author##bio,
+      name: author##name,
+      profileImage: author##profile_image,
+    };
+  };
+
+  module Settings = {
+    type t = {cover: string};
+
+    let make = settings => {cover: settings##cover_image};
+  };
+
+  module Short = {
+    type post = {
+      author: Author.t,
+      content: string,
+      featureImage: string,
+      publishedAt: string,
+      slug: string,
+      title: string,
+    };
+
+    type t = {
+      posts: list(post),
+      settings: Settings.t,
+    };
+
+    let make = (~posts, ~settings) => {
+      posts:
+        posts
+        ->Belt.List.fromArray
+        ->Belt.List.map(item =>
+            {
+              author: Author.make(item##primary_author),
+              content: item##excerpt,
+              title: item##title,
+              publishedAt: item##published_at,
+              slug: item##slug,
+              featureImage: item##feature_image,
+            }
+          ),
+      settings: Settings.make(settings),
+    };
+  };
+
   type t = {
+    author: Author.t,
     content: string,
+    featureImage: string,
+    publishedAt: string,
     slug: string,
+    tag: option(Tag.t),
     title: string,
   };
 
-  let make = items =>
-    items
-    ->Belt.List.fromArray
-    ->Belt.List.map(item =>
-        {content: item##plaintext, title: item##title, slug: item##slug}
-      );
+  let make = item => {
+    author: Author.make(item##primary_author),
+    content: item##html,
+    featureImage: item##feature_image,
+    publishedAt: item##published_at,
+    slug: item##slug,
+    tag: Tag.make(item##primary_tag),
+    title: item##title,
+  };
 };
