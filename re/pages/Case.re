@@ -4,46 +4,53 @@ module Style = {
   let frameworkImage = style([maxWidth(px(75))]);
 };
 
+let narrowContainer = "md:mb-0 mb-0 max-w-3xl grid justify-self-center grid-gap-24-y";
+
 [@react.component]
 let make = (~data) => {
   let page = Page.Case.make(data);
 
   <>
-    <Block.CaseHeader
+    <Block.Header
       backgroundImage={page.header.url}
       backgroundFluid={page.header.localFile}
+      color={`Other("#56fbae")}
+      messageOne="Header one"
     />
     <Container className="md:mb-0 mb-0">
       <Breadcrumbs title={page.title} />
-      <Block.Element
-        title={
-                `Image(
-                  <img
-                    className="max-h-200"
-                    src={page.logo}
-                    alt={page.title}
-                  />,
-                )
-              }>
-        <div className="flex flex-wrap items-center h-full">
-          {page.tags
-           ->Belt.Array.map(tag =>
-               <div
-                 key=tag
-                 className="h-16 py-2 px-4 rounded mr-2 mb-2 bg-concrete">
-                 {j|$tag|j}->React.string
-               </div>
-             )
-           ->React.array}
-        </div>
-      </Block.Element>
-      <Block.Text title={page.introductionTitle}>
-        {page.introduction}
-      </Block.Text>
-      <Block.Text title={page.processTitle}> {page.process} </Block.Text>
-      <Block.Text title={page.developmentTitle}>
-        {page.development}
-      </Block.Text>
+      <div className=narrowContainer>
+        <Block.Case
+          title={
+                  `Image(
+                    <img
+                      className="max-h-200"
+                      src={page.logo}
+                      alt={page.title}
+                    />,
+                  )
+                }>
+          <div className="flex flex-wrap items-center h-full">
+            {page.tags
+             ->Belt.Array.map(tag =>
+                 <div
+                   key=tag className="py-2 px-4 rounded mr-2 mb-2 bg-concrete">
+                   {j|$tag|j}->React.string
+                 </div>
+               )
+             ->React.array}
+          </div>
+        </Block.Case>
+        <Block.Case title={`Text(page.introductionTitle)}>
+          <p> page.introduction->React.string </p>
+        </Block.Case>
+        <Block.Case title={`Text(page.processTitle)}>
+          <p> page.process->React.string </p>
+        </Block.Case>
+        <Block.Case title={`Text(page.developmentTitle)}>
+          <p> page.development->React.string </p>
+        </Block.Case>
+      </div>
       {page.quote
        ->Belt.Option.map(quote =>
            <Block.Section
@@ -67,9 +74,11 @@ let make = (~data) => {
            </Block.Section>
          )
        ->Belt.Option.getWithDefault(React.null)}
-      <Block.Text title={page.aboutCompanyTitle}>
-        {page.aboutCompany}
-      </Block.Text>
+      <div className=narrowContainer>
+        <Block.Case title={`Text(page.aboutCompanyTitle)}>
+          <p> page.aboutCompany->React.string </p>
+        </Block.Case>
+      </div>
       {page.partners
        ->Belt.Option.map(partners =>
            <Block.Element title={`Text(page.partnersTitle)}>

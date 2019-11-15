@@ -101,6 +101,10 @@ table td {
   justify-self: end;
 }
 
+.justify-self-center {
+  justify-self: center;
+}
+
 /* Markdown */
 .markdown ul {
   @apply pl-5;

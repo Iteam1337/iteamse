@@ -36,6 +36,7 @@ module.exports = {
       16: '4rem',
       32: '8rem',
       48: '12rem',
+      '1/3': '33vh',
       full: '100%',
       md: '430px',
       startpage2019: '720px',

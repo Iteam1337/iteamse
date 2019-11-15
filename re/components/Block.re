@@ -137,7 +137,7 @@ module CaseHeader = {
     <header
       className={Css.merge([
         "grid md:grid-columns-1024 grid-columns-1fr bg-top bg-cover md:h-16
-        h-md relative overflow-hidden",
+        relative overflow-hidden h-1/3 md:h-1/3",
       ])}>
       {switch (backgroundFluid) {
        | Some(fluid) =>
@@ -256,6 +256,34 @@ module Element = {
          ->Belt.Option.getWithDefault(React.null)}
       </div>
       <div className="md:col-start-5 md:col-end-13"> children </div>
+    </section>;
+  };
+};
+
+module Case = {
+  type title = [ | `Text(string) | `Image(React.element)];
+
+  [@react.component]
+  let make = (~title, ~children, ~subtitle=?) => {
+    let isText =
+      switch (title) {
+      | `Text(_) => true
+      | _ => false
+      };
+
+    <section className="flex flex-col items-center">
+      <div className={Cn.make(["mb-4", Cn.ifTrue("self-start", isText)])}>
+        {switch (title) {
+         | `Text(text) => <Typography.H3> text </Typography.H3>
+         | `Image(imageEl) => imageEl
+         }}
+        {subtitle
+         ->Belt.Option.map(s =>
+             <span className="text-lg"> s->React.string </span>
+           )
+         ->Belt.Option.getWithDefault(React.null)}
+      </div>
+      <div> children </div>
     </section>;
   };
 };
