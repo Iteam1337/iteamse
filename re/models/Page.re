@@ -307,6 +307,7 @@ module Offers = {
     intro: string,
     header: Header.t,
     contactTitle: string,
+    contactSubtitle: option(string),
     contacts: list(Employee.t),
   };
 
@@ -314,6 +315,7 @@ module Offers = {
     header: Header.make(page),
     intro: page##offersLeadText##offersLeadText,
     contactTitle: page##contactTitle,
+    contactSubtitle: page##contactSubtitle |> Js.Nullable.toOption,
     contacts:
       page##contacts->Belt.Array.map(Employee.make)->Belt.List.fromArray,
   };

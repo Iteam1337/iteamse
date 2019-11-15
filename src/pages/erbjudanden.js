@@ -26,6 +26,7 @@ export default () => {
           offersLeadText
         }
         contactTitle
+        contactSubtitle
         contacts {
           avatar {
             file {
@@ -33,6 +34,7 @@ export default () => {
             }
           }
           email
+          location
           name
           phoneNumber
           short

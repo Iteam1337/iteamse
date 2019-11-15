@@ -4,7 +4,7 @@ module Mailto = {
     <div>
       <a
         className={Css.merge([
-          "border-b-2 border-solid border-current",
+          "border-b border-solid border-current",
           className->Cn.unpack,
         ])}
         href={"mailto:" ++ email}>

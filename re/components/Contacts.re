@@ -1,17 +1,42 @@
+module Layout = {
+  type t = [ | `Normal | `Centered];
+};
+
 [@react.component]
-let make = (~contacts: list(Page.Employee.t), ~title=?) => {
+let make =
+    (
+      ~contacts: list(Page.Employee.t),
+      ~title=?,
+      ~layout: Layout.t=`Normal,
+      ~subtitle=None,
+    ) => {
   <div>
     {switch (title) {
      | None => React.null
      | Some(title) =>
-       <div className="mb-12"> <Typography.H2> title </Typography.H2> </div>
+       <div
+         className={Cn.make([
+           "mb-12",
+           switch (layout) {
+           | `Normal => ""
+           | `Centered => "text-center"
+           },
+         ])}>
+         <Typography.H2> title </Typography.H2>
+         {switch (subtitle) {
+          | Some(subtitle) =>
+            <div className="mt-3"> {React.string(subtitle)} </div>
+          | None => React.null
+          }}
+       </div>
      }}
     {switch (Belt.List.length(contacts)) {
      | 2 =>
        <div
          className="grid md:grid-columns-2 grid-gap-8 col-start-2 col-end-2">
          {contacts
-          ->Belt.List.map(({title, short, avatar, email, name, phoneNumber}) =>
+          ->Belt.List.map(
+              ({title, short, avatar, email, name, phoneNumber, location}) =>
               <div
                 className="grid md:grid-columns-10 items-center
               justify-center text-center md:text-left"
@@ -27,12 +52,15 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
                   </Gatsby.Link>
                 </div>
                 <div className="md:col-start-6 md:col-end-11 font-light">
-                  <div className="font-medium mb-2"> title->React.string </div>
-                  <div>
-                    <Gatsby.Link className=None _to={"/medarbetare/" ++ short}>
-                      name->React.string
-                    </Gatsby.Link>
+                  <div className="font-medium"> title->React.string </div>
+                  <div className="mb-4">
+                    {React.string(Location.toString(location))}
                   </div>
+                  <Gatsby.Link
+                    className={Some("font-medium")}
+                    _to={"/medarbetare/" ++ short}>
+                    name->React.string
+                  </Gatsby.Link>
                   {switch (phoneNumber) {
                    | None => React.null
                    | Some(pn) =>
@@ -53,7 +81,7 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
        <div
          className="grid md:grid-columns-4 grid-gap-8 col-start-2 col-end-2">
          {contacts
-          ->Belt.List.map(({title, avatar, email, name, short}) =>
+          ->Belt.List.map(({title, avatar, email, name, short, location}) =>
               <div
                 className="flex flex-col items-center justify-between text-center"
                 key=name>
@@ -71,6 +99,9 @@ let make = (~contacts: list(Page.Employee.t), ~title=?) => {
                     <Gatsby.Link className=None _to={"/medarbetare/" ++ short}>
                       name->React.string
                     </Gatsby.Link>
+                  </div>
+                  <div className="text-sm">
+                    {React.string(Location.toString(location))}
                   </div>
                   <Contact.Mailto email />
                 </div>

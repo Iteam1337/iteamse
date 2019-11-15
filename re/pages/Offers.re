@@ -1,7 +1,8 @@
 [@react.component]
 let make = (~data, ~offers) => {
-  let {header, intro, contacts, contactTitle}: Page.Offers.t =
+  let {header, intro, contacts, contactTitle, contactSubtitle}: Page.Offers.t =
     Page.Offers.make(data);
+
   let miniUsps =
     offers
     ->Belt.List.fromArray
@@ -85,7 +86,7 @@ let make = (~data, ~offers) => {
      ->Belt.List.toArray
      ->React.array}
     <Block.Section color=`Aquamarine>
-      <Contacts title=contactTitle contacts />
+      <Contacts title=contactTitle contacts subtitle=contactSubtitle />
     </Block.Section>
   </>;
 };

@@ -2,8 +2,18 @@
 let make = (~className=?, ~children) => {
   Web.(
     EasterEggs.Konami.useCode(
-      ~success=_ => Document.element->ClassName.add("comic-sans"),
-      ~reset=_ => Document.element->ClassName.remove("comic-sans"),
+      ~success=
+        _ =>
+          switch (Document.element) {
+          | Some(el) => el->ClassName.add("comic-sans")
+          | None => ()
+          },
+      ~reset=
+        _ =>
+          switch (Document.element) {
+          | Some(el) => el->ClassName.remove("comic-sans")
+          | None => ()
+          },
     )
   );
 
