@@ -1,3 +1,9 @@
+module Assets = {
+  module Image = {
+    let make = asset => (asset##description, asset##file##url);
+  };
+};
+
 module Employee = {
   type t = {
     avatar: option(string),
@@ -117,7 +123,7 @@ module About = {
     stabilityText: page##stabilityText##stabilityText,
     stabilityIcons:
       page##stabilityIcons
-      ->Belt.Array.map(icon => (icon##description, icon##file##url))
+      ->Belt.Array.map(Assets.Image.make)
       ->Belt.List.fromArray,
     contactTitle: page##contactTitle,
     contacts: Employee.fromArray(page##contacts),
