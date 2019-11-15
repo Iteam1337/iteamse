@@ -11,7 +11,12 @@ module ClassName = {
 };
 
 module Document = {
-  let element = document |> Document.documentElement;
+  let element =
+    if (Js.typeof(document) !== "undefined") {
+      Some(document |> Document.documentElement);
+    } else {
+      None;
+    };
 };
 
 module Keyboard = {
