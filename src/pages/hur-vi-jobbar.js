@@ -51,6 +51,7 @@ export default () => {
             }
           }
           email
+          location
           name
           short
           title
