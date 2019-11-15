@@ -28,7 +28,7 @@ let make = (~posts, ~settings) => {
                  src={item.featureImage}
                />
              </div>
-             <article className="ml-5">
+             <article className="ml-10">
                <header className="mb-2">
                  <h2 className="text-lg font-semibold mb-4">
                    {React.string(item.title)}
@@ -45,10 +45,10 @@ let make = (~posts, ~settings) => {
                      src={item.author.profileImage}
                    />
                  </div>
-                 <div className="px-2 text-gray-700">
+                 <div className="text-xs px-2 text-gray-700">
                    {React.string("/")}
                  </div>
-                 <div className="text-sm text-gray-700">
+                 <div className="text-xs text-gray-700">
                    {React.string(item.publishedAt)}
                  </div>
                </div>
