@@ -1,3 +1,7 @@
+/**
+ * Uses custom markdown and styling to
+ * get more freedom in styling the blog
+ */
 module Style = {
   open Css;
 
