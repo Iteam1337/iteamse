@@ -1,7 +1,8 @@
+import { graphql, useStaticQuery } from 'gatsby'
 import * as React from 'react'
 import Footer from '../lib/js/re/components/Footer'
-import { graphql, useStaticQuery } from 'gatsby'
 import MobileNavigation from '../lib/js/re/components/MobileNavigation'
+import './index.css'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

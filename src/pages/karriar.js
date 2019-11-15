@@ -1,9 +1,8 @@
-import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Layout from '../Layout'
-import Career from '../../lib/js/re/pages/Career'
-import '../index.css'
+import React from 'react'
 import { Helmet } from 'react-helmet'
+import Career from '../../lib/js/re/pages/Career'
+import Layout from '../Layout'
 
 export default () => {
   const data = useStaticQuery(graphql`
