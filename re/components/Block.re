@@ -31,7 +31,7 @@ module Header = {
         ~backgroundImage as bg,
         ~backgroundFluid=None,
         ~color as c,
-        ~textColor=?,
+        ~textColor as _tc=?,
         ~messageOne,
         ~messageTwo=None,
         ~messageTwoLight=false,

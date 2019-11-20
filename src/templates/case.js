@@ -6,7 +6,7 @@ import Case from '../../lib/js/re/pages/Case'
 export default ({ data }) => {
   return (
     <Layout>
-      <Case data={data.contentfulProjekt} />
+      <Case data={{ ...data.contentfulProjekt, ...data.contentfulSidaCases }} />
     </Layout>
   )
 }
@@ -79,6 +79,22 @@ export const query = graphql`
       }
       quotePerson
       quoteBgColor
+    }
+
+    contentfulSidaCases {
+      contactTitle
+      contactSubtitle
+      contacts {
+        avatar {
+          file {
+            url
+          }
+        }
+        email
+        name
+        short
+        title
+      }
     }
   }
 `

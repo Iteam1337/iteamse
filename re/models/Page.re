@@ -365,6 +365,8 @@ module Case = {
     casePageImage: FluidImage.t,
     contact: option(string),
     contactTitle: option(string),
+    contactSubtitle: option(string),
+    contacts: list(Employee.t),
     development: string,
     developmentTitle: string,
     frameworks: array(string),
@@ -398,6 +400,9 @@ module Case = {
       | None => None
       },
     contactTitle: page##contactTitle->Js.Nullable.toOption,
+    contactSubtitle: page##contactSubtitle->Js.Nullable.toOption,
+    contacts:
+      page##contacts->Belt.Array.map(Employee.make)->Belt.List.fromArray,
     development: page##development##development,
     developmentTitle: page##developmentTitle,
     frameworks: page##frameworks,

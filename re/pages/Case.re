@@ -9,6 +9,7 @@ let narrowContainer = "md:mb-0 mb-0 max-w-3xl grid justify-self-center grid-gap-
 [@react.component]
 let make = (~data) => {
   let page = Page.Case.make(data);
+  let title = page.contactTitle;
 
   <>
     <Block.Header
@@ -117,6 +118,14 @@ let make = (~data) => {
         </div>
       </Block.Section>
     </Container>
+    <Block.Section color=`Aquamarine>
+      <Contacts
+        layout=`Centered
+        contacts={page.contacts}
+        ?title
+        subtitle={page.contactSubtitle}
+      />
+    </Block.Section>
   </>;
 };
 let default = make;
