@@ -13,7 +13,7 @@ module Style = {
           `px(20),
           `fr(1.0),
           `px(32),
-          `minmax((`px(300), `px(984))),
+          `minmax((`px(256), `px(984))),
           `px(32),
           `fr(1.0),
           `px(20),

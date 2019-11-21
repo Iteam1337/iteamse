@@ -2,7 +2,16 @@ module Style = {
   open Css;
 
   let grid =
-    merge(["grid", style([gridTemplateColumns([`px(300), `fr(1.0)])])]);
+    merge([
+      "grid",
+      style([
+        gridTemplateColumns([`px(300), `fr(1.0)]),
+        media(
+          Theme.Breakpoints.fromType(`Mobile),
+          [gridTemplateColumns([`fr(1.0)])],
+        ),
+      ]),
+    ]);
 };
 
 [@react.component]
@@ -28,7 +37,7 @@ let make = (~posts, ~settings) => {
                  src={item.featureImage}
                />
              </div>
-             <article className="ml-10">
+             <article className="ml-1 mt-4 md:ml-10 md:mt-0">
                <header className="mb-2">
                  <h2 className="text-lg font-semibold mb-4">
                    {React.string(item.title)}

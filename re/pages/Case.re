@@ -2,9 +2,20 @@ module Style = {
   open Css;
 
   let frameworkImage = style([maxWidth(px(75))]);
+  let narrowContainer = "md:mb-0 mb-0 max-w-3xl grid justify-self-center grid-gap-24-y";
+  let quoteSection =
+    style([
+      important(paddingTop(rem(8.))),
+      important(paddingBottom(rem(8.))),
+      media(
+        Theme.Breakpoints.fromType(`Mobile),
+        [
+          important(paddingTop(rem(5.5))),
+          important(paddingBottom(rem(3.))),
+        ],
+      ),
+    ]);
 };
-
-let narrowContainer = "md:mb-0 mb-0 max-w-3xl grid justify-self-center grid-gap-24-y";
 
 [@react.component]
 let make = (~data) => {
@@ -21,7 +32,7 @@ let make = (~data) => {
     />
     <Container className="md:mb-0 mb-0">
       <Breadcrumbs title={page.title} />
-      <div className=narrowContainer>
+      <div className=Style.narrowContainer>
         <Block.Case
           title={
                   `Image(
@@ -32,7 +43,7 @@ let make = (~data) => {
                     />,
                   )
                 }>
-          <div className="flex flex-wrap items-center h-full">
+          <div className="flex flex-wrap items-center justify-center h-full">
             {page.tags
              ->Belt.Array.map(tag =>
                  <div
@@ -57,7 +68,7 @@ let make = (~data) => {
           src={page.casePageImage.url}
         />
       </Block.Section>
-      <div className=narrowContainer>
+      <div className=Style.narrowContainer>
         <Block.Case title={`Text(page.developmentTitle)}>
           <p> page.development->React.string </p>
         </Block.Case>
@@ -65,18 +76,19 @@ let make = (~data) => {
       {page.quote
        ->Belt.Option.map(quote =>
            <Block.Section
+             className=Style.quoteSection
              color={
                page.quoteBgColor
                ->Belt.Option.map(Theme.Colors.fromHex)
                ->Belt.Option.getWithDefault(`CornflowerBlue)
              }>
              <blockquote className="grid grid-gap-8-x col-start-2 col-end-2">
-               <p className="text-3xl">
+               <p className="md:text-3xl text-xl">
                  {React.string({j|“$quote”|j})}
                </p>
                {page.quotePerson
                 ->Belt.Option.map(person =>
-                    <footer className="mt-4 text-lg font-medium">
+                    <footer className="mt-4 md:text-lg text-base font-medium">
                       {React.string({j|— $person|j})}
                     </footer>
                   )
@@ -85,7 +97,7 @@ let make = (~data) => {
            </Block.Section>
          )
        ->Belt.Option.getWithDefault(React.null)}
-      <div className=narrowContainer>
+      <div className=Style.narrowContainer>
         <Block.Case title={`Text(page.aboutCompanyTitle)}>
           <p> page.aboutCompany->React.string </p>
         </Block.Case>
