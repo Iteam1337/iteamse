@@ -139,3 +139,21 @@ table td {
 .markdown figure {
   @apply mt-8 mb-12;
 }
+
+/* Blockquoute */
+blockquote {
+  position: relative;
+}
+
+blockquote:before {
+  background-image: url('./images/quote.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  bottom: calc(100% + 16px);
+  content: ' ';
+  filter: invert(1);
+  height: 33px;
+  left: 0;
+  position: absolute;
+  width: 44px;
+}

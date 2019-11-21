@@ -71,12 +71,12 @@ let make = (~data) => {
                ->Belt.Option.getWithDefault(`CornflowerBlue)
              }>
              <blockquote className="grid grid-gap-8-x col-start-2 col-end-2">
-               <p className="text-4xl">
+               <p className="text-3xl">
                  {React.string({j|“$quote”|j})}
                </p>
                {page.quotePerson
                 ->Belt.Option.map(person =>
-                    <footer className="mt-4 text-lg">
+                    <footer className="mt-4 text-lg font-medium">
                       {React.string({j|— $person|j})}
                     </footer>
                   )
@@ -93,7 +93,7 @@ let make = (~data) => {
       <Block.Section color=`Concrete>
         <div className="grid grid-gap-8-x col-start-2 col-end-2">
           <div>
-            <div className="mb-4">
+            <div className="mb-4 text-center">
               <Typography.H3> {page.frameworksTitle} </Typography.H3>
             </div>
             <div className="flex flex-wrap justify-center items-center">
