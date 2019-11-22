@@ -107,7 +107,9 @@ let make =
        <div
          className="grid md:grid-columns-2 grid-gap-8 col-start-2 col-end-2">
          {contacts
-          ->Belt.List.map(employee => <TwoContacts employee />)
+          ->Belt.List.map(employee =>
+              <TwoContacts key={employee.name} employee />
+            )
           ->Belt.List.toArray
           ->React.array}
        </div>
@@ -115,7 +117,9 @@ let make =
        <div
          className="grid md:grid-columns-4 grid-gap-8 col-start-2 col-end-2">
          {contacts
-          ->Belt.List.map(employee => <MultipleContacts employee />)
+          ->Belt.List.map(employee =>
+              <MultipleContacts key={employee.name} employee />
+            )
           ->Belt.List.toArray
           ->React.array}
        </div>

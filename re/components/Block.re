@@ -165,21 +165,21 @@ module StartpageHeader = {
               Theme.Breakpoints.fromType(`Desktop),
               [
                 backgroundPosition(vw(40.), px(-160)),
-                unsafe("background-size", "940px"),
+                unsafe("backgroundSize", "940px"),
               ],
             ),
             media(
               Theme.Breakpoints.fromType(`Tablet),
               [
                 backgroundPosition(pct(175.), pct(100.)),
-                unsafe("background-size", "80%"),
+                unsafe("backgroundSize", "80%"),
               ],
             ),
             media(
               Theme.Breakpoints.fromType(`Mobile),
               [
                 backgroundPosition(px(-140), `px(-170)),
-                unsafe("background-size", "640px"),
+                unsafe("backgroundSize", "640px"),
               ],
             ),
           ]),

@@ -16,7 +16,7 @@ module Colors = {
     | `RadicalRed => "bg-radical-red text-white"
     | `White => "bg-transparent text-black"
     | `Other(c) =>
-      Css.(style([unsafe("background-color", c)])) ++ " text-white";
+      Css.(style([unsafe("backgroundColor", c)])) ++ " text-white";
 
   let textFromType =
     fun
