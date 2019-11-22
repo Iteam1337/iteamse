@@ -46,5 +46,17 @@ module.exports = {
         downloadLocal: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Iteam`,
+        short_name: `Iteam`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#668cff`,
+        display: `standalone`,
+        icon: `src/images/favicon.png`,
+      },
+    },
   ],
 }

@@ -82,6 +82,7 @@ export default () => {
   return (
     <Layout>
       <Helmet>
+        <html lang="sv" />
         <title>Iteam | Metod</title>
       </Helmet>
       <HowWeWork

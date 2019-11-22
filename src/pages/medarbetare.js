@@ -60,6 +60,7 @@ export default () => {
   return (
     <Layout>
       <Helmet>
+        <html lang="sv" />
         <title>Iteam | Medarbetare</title>
       </Helmet>
       <Coworkers

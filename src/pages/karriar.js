@@ -58,6 +58,7 @@ export default () => {
   return (
     <Layout>
       <Helmet>
+        <html lang="sv" />
         <title>Iteam | Karriär</title>
       </Helmet>
       <Career data={data} />

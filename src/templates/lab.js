@@ -8,6 +8,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <Helmet>
+        <html lang="sv" />
         <title>Iteam | {data.ghostPost.title}</title>
       </Helmet>
       <Lab data={data.ghostPost} />

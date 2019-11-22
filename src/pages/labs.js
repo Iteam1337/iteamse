@@ -29,6 +29,7 @@ export default () => {
   return (
     <Layout>
       <Helmet>
+        <html lang="sv" />
         <title>Iteam | Labs</title>
       </Helmet>
       <Labs posts={data.allGhostPost.nodes} settings={data.ghostSettings} />

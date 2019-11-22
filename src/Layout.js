@@ -18,7 +18,9 @@ const Layout = ({ children }) => {
           title
         }
       }
-      socialMediaIcons: allFile(filter: { relativePath: { regex: "/icon/" } }) {
+      socialMediaIcons: allFile(
+        filter: { relativePath: { regex: "/icon-/" } }
+      ) {
         nodes {
           name
           publicURL
