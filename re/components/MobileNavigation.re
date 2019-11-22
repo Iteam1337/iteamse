@@ -33,7 +33,7 @@ module MenuButton = {
 
   [@react.component]
   let make = (~children, ~onClick) => {
-    <button title="Meny för mobil" className onClick type_="button">
+    <button title={js|Meny för mobil|js} className onClick type_="button">
       children
     </button>;
   };
