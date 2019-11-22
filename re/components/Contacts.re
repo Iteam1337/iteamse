@@ -12,6 +12,7 @@ module TwoContacts = {
       key=name>
       <div className="mb-5 md:mb-0 md:col-start-1 md:col-end-5">
         <Gatsby.Link
+          ariaLabel={j|Gå till medarbetar-sidan för $name|j}
           className={Some("flex justify-center items-start")}
           _to={"/medarbetare/" ++ short}>
           {switch (avatar) {
@@ -26,7 +27,9 @@ module TwoContacts = {
           {React.string(Location.toString(location))}
         </div>
         <Gatsby.Link
-          className={Some("font-medium")} _to={"/medarbetare/" ++ short}>
+          ariaLabel={j|Gå till medarbetar-sidan för $name|j}
+          className={Some("font-medium")}
+          _to={"/medarbetare/" ++ short}>
           name->React.string
         </Gatsby.Link>
         {switch (phoneNumber) {
@@ -53,6 +56,7 @@ module MultipleContacts = {
       <div className="font-medium"> title->React.string </div>
       <div>
         <Gatsby.Link
+          ariaLabel={j|Gå till medarbetar-sidan för $name|j}
           className={Some("flex justify-center items-start my-5")}
           _to={"/medarbetare/" ++ short}>
           {switch (avatar) {
@@ -61,7 +65,10 @@ module MultipleContacts = {
            }}
         </Gatsby.Link>
         <div className="font-medium">
-          <Gatsby.Link className=None _to={"/medarbetare/" ++ short}>
+          <Gatsby.Link
+            ariaLabel={j|Gå till medarbetar-sidan för $name|j}
+            className=None
+            _to={"/medarbetare/" ++ short}>
             name->React.string
           </Gatsby.Link>
         </div>

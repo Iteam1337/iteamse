@@ -1,6 +1,7 @@
 [@react.component]
-let make = (~url, ~children, ~color as c=`CornflowerBlue) => {
+let make = (~ariaLabel, ~url, ~children, ~color as c=`CornflowerBlue) => {
   <Gatsby.Link
+    ariaLabel
     className={
       Some(
         Css.(

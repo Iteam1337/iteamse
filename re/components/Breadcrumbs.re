@@ -53,7 +53,8 @@ let make = (~title) => {
            <span key=p>
              {parseSlug(p)
               ->Belt.Option.map(link =>
-                  <Gatsby.Link className=None _to=p>
+                  <Gatsby.Link
+                    ariaLabel={j|Gå till $link|j} className=None _to=p>
                     link->React.string
                   </Gatsby.Link>
                 )

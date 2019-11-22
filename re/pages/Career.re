@@ -26,7 +26,9 @@ let make = (~data) => {
                title={`Text(opportunity.title)}
                subtitle={opportunity.location}>
                <Block.Markdown source={opportunity.role} />
-               <Link url={"/karriar/" ++ opportunity.urlId}>
+               <Link
+                 ariaLabel={j|Läs mer om annonsen för $opportunity.title|j}
+                 url={"/karriar/" ++ opportunity.urlId}>
                  {React.string({j|Läs mer och ansök|j})}
                </Link>
              </Block.Element>

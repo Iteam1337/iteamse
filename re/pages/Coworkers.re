@@ -5,6 +5,7 @@ module Coworker = {
 
     <div className="text-center flex flex-col justify-between items-center">
       <Gatsby.Link
+        ariaLabel={j|Gå till medarbetar-sidan för $name|j}
         className={Some("flex justify-center items-start")}
         _to={"/medarbetare/" ++ short}>
         {switch (avatar) {
@@ -13,7 +14,10 @@ module Coworker = {
          }}
       </Gatsby.Link>
       <div className="font-medium mt-5 text-lg">
-        <Gatsby.Link className=None _to={"/medarbetare/" ++ short}>
+        <Gatsby.Link
+          ariaLabel={j|Gå till medarbetar-sidan för $name|j}
+          className=None
+          _to={"/medarbetare/" ++ short}>
           name->React.string
         </Gatsby.Link>
       </div>

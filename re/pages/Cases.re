@@ -51,8 +51,11 @@ let make = (~data, ~projects) => {
       <div className="grid md:grid-columns-2 grid-gap-8">
         {projects
          ->Belt.List.fromArray
-         ->Belt.List.map(project =>
+         ->Belt.List.map(project => {
+             let projectTitle = project##title;
+
              <Gatsby.Link
+               ariaLabel={j|Gå till projekt-sidan för $projectTitle|j}
                key=project##slug
                className={Some(Style.card)}
                _to={"/case/" ++ project##slug}>
@@ -71,8 +74,8 @@ let make = (~data, ~projects) => {
                    {React.string(project##shortDescription)}
                  </div>
                </div>
-             </Gatsby.Link>
-           )
+             </Gatsby.Link>;
+           })
          ->Belt.List.toArray
          ->React.array}
       </div>

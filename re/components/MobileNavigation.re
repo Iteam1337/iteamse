@@ -33,7 +33,9 @@ module MenuButton = {
 
   [@react.component]
   let make = (~children, ~onClick) => {
-    <button className onClick type_="button"> children </button>;
+    <button title="Meny för mobil" className onClick type_="button">
+      children
+    </button>;
   };
 };
 
@@ -87,6 +89,7 @@ let make = () => {
            {Navigation.Options.items
             ->Belt.List.map(({link, text}) =>
                 <Gatsby.Link
+                  ariaLabel={j|Gå till $link|j}
                   className={
                     Some(
                       "text-black text-2xl border-b-2 border-black justify-self-end",

@@ -28,6 +28,7 @@ module NavigationLink = {
       };
 
     <Gatsby.Link
+      ariaLabel={j|Gå till $_to|j}
       className={
         Some(
           Css.merge([

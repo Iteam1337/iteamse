@@ -26,8 +26,11 @@ let make = (~posts, ~settings) => {
     />
     <Container>
       {page.posts
-       ->Belt.List.map(item =>
+       ->Belt.List.map(item => {
+           let postTitle = item.title;
+
            <Gatsby.Link
+             ariaLabel={j|Gå till blogg-inlägget: $postTitle|j}
              className={Some(Style.grid)}
              key={item.slug}
              _to={"/labs/" ++ item.slug}>
@@ -62,8 +65,8 @@ let make = (~posts, ~settings) => {
                  </div>
                </div>
              </article>
-           </Gatsby.Link>
-         )
+           </Gatsby.Link>;
+         })
        ->Belt.List.toArray
        ->React.array}
     </Container>

@@ -25,7 +25,9 @@ let make = (~ads, ~data, ~illustrationGroup, ~illustrationShare) => {
              ->Belt.List.fromArray
              ->Belt.List.map(ad =>
                  <div className="mb-4">
-                   <Link url={"/karriar/" ++ ad##urlId}>
+                   <Link
+                     ariaLabel={j|Se annons för $ad##title|j}
+                     url={"/karriar/" ++ ad##urlId}>
                      {React.string(ad##title)}
                    </Link>
                    {React.string(" (" ++ ad##location ++ ")")}
