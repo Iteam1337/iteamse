@@ -49,6 +49,9 @@ export default () => {
             file {
               url
             }
+            fluid(maxWidth: 232, quality: 90) {
+              src
+            }
           }
           email
           location

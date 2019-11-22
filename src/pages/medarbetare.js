@@ -13,8 +13,8 @@ export default () => {
       ) {
         nodes {
           avatar {
-            file {
-              url
+            fluid(maxWidth: 232, quality: 90) {
+              src
             }
           }
           name
@@ -43,8 +43,8 @@ export default () => {
         contactTitle
         contacts {
           avatar {
-            file {
-              url
+            fluid(maxWidth: 232, quality: 90) {
+              src
             }
           }
           email

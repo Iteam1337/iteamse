@@ -86,8 +86,8 @@ export const query = graphql`
       contactSubtitle
       contacts {
         avatar {
-          file {
-            url
+          fluid(maxWidth: 232, quality: 90) {
+            src
           }
         }
         email

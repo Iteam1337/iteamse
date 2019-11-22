@@ -19,7 +19,7 @@ module Employee = {
     avatar:
       switch (employee##avatar->Js.Nullable.toOption) {
       | None => None
-      | Some(src) => Some(src##file##url)
+      | Some(avatar) => Some(avatar##fluid##src)
       },
     email: employee##email,
     name: employee##name,
