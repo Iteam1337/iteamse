@@ -127,7 +127,7 @@ let make = (~data) => {
                                  ])}
                                  src={
                                    framework
-                                   |> String.lowercase
+                                   |> Js.String.toLowerCase
                                    |> Framework.toImage
                                  }
                                  alt=framework
