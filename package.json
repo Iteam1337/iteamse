@@ -46,7 +46,7 @@
     "re:build": "bsb -make-world",
     "start": "cross-env BS_WATCH_CLEAR=true bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "build": "npm run gatsby clean && re:build && gatsby build",
+    "build": "npm run re:build && gatsby clean && gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "is-ci \"test:ci\" \"test:watch\"",
