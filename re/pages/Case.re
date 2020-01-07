@@ -93,6 +93,13 @@ let make = (~data) => {
                     </footer>
                   )
                 ->Belt.Option.getWithDefault(React.null)}
+               {page.quoteEmployeePosition
+                ->Belt.Option.map(position =>
+                    <p className="md:text-lg text-base font-light">
+                      {React.string({j|$position|j})}
+                    </p>
+                  )
+                ->Belt.Option.getWithDefault(React.null)}
              </blockquote>
            </Block.Section>
          )
