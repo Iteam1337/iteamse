@@ -37,9 +37,11 @@ let make = (~data) => {
           title={
                   `Image(
                     <img
-                      className="max-h-200"
-                      src={page.logo}
                       alt={page.title}
+                      className="max-h-200"
+                      height={page.logo.height}
+                      src={page.logo.src}
+                      width={page.logo.width}
                     />,
                   )
                 }>

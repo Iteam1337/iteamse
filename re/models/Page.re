@@ -359,6 +359,20 @@ module Case = {
     };
   };
 
+  module Logo = {
+    type t = {
+      src: string,
+      height: string,
+      width: string,
+    };
+
+    let make = logo => {
+      src: logo##localFile##publicURL,
+      height: logo##file##details##image##height,
+      width: logo##file##details##image##width,
+    };
+  };
+
   type t = {
     aboutCompany: string,
     aboutCompanyTitle: string,
@@ -375,7 +389,7 @@ module Case = {
     headerBgColor: string,
     introduction: string,
     introductionTitle: string,
-    logo: string,
+    logo: Logo.t,
     partners: option(string),
     partnersTitle: string,
     process: string,
@@ -411,7 +425,7 @@ module Case = {
     headerBgColor: page##headerBgColor,
     introduction: page##introduction##introduction,
     introductionTitle: page##introductionTitle,
-    logo: page##logo##localFile##publicURL,
+    logo: Logo.make(page##logo),
     partners:
       switch (page##partners->Js.Nullable.toOption) {
       | Some(p) => p##partners

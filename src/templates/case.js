@@ -56,6 +56,14 @@ export const query = graphql`
         localFile {
           publicURL
         }
+        file {
+          details {
+            image {
+              height
+              width
+            }
+          }
+        }
       }
       headerBgColor
       slug
