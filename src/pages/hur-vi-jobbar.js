@@ -20,6 +20,7 @@ export default () => {
                 ...GatsbyImageSharpFluid
               }
             }
+            publicURL
           }
         }
         methodTitle
@@ -87,6 +88,13 @@ export default () => {
       <Helmet>
         <html lang="sv" />
         <title>Iteam | Metod</title>
+        <meta property="og:title" content="Iteam | Metod" />
+        <meta
+          property="og:image"
+          content={
+            data.contentfulSidaHurViJobbar.headerImage.localFile.publicURL
+          }
+        />
       </Helmet>
       <HowWeWork
         ads={data.allContentfulAnnonser.nodes}

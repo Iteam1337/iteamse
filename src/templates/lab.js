@@ -10,6 +10,8 @@ export default ({ data }) => {
       <Helmet>
         <html lang="sv" />
         <title>Iteam | {data.ghostPost.title}</title>
+        <meta property="og:title" content={`Iteam | ${data.ghostPost.title}`} />
+        <meta property="og:image" content={data.ghostPost.feature_image} />
       </Helmet>
       <Lab data={data.ghostPost} />
     </Layout>

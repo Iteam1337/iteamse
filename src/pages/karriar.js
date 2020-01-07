@@ -19,6 +19,7 @@ export default () => {
                 ...GatsbyImageSharpFluid
               }
             }
+            publicURL
           }
         }
         headerText1
@@ -60,6 +61,13 @@ export default () => {
       <Helmet>
         <html lang="sv" />
         <title>Iteam | Karriär</title>
+        <meta property="og:title" content="Iteam | Karriär" />
+        <meta
+          property="og:image"
+          content={
+            data.contentfulSidaJobbaHosOss.headerImage.localFile.publicURL
+          }
+        />
       </Helmet>
       <Career data={data} />
     </Layout>

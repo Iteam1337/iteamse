@@ -20,6 +20,7 @@ export default () => {
                 ...GatsbyImageSharpFluid
               }
             }
+            publicURL
           }
         }
         offersLeadText {
@@ -87,6 +88,13 @@ export default () => {
       <Helmet>
         <html lang="sv" />
         <title>Iteam | Erbjudanden</title>
+        <meta property="og:title" content="Iteam | Erbjudanden" />
+        <meta
+          property="og:image"
+          content={
+            data.contentfulSidaErbjudanden.headerImage.localFile.publicURL
+          }
+        />
       </Helmet>
       <Offers
         data={data.contentfulSidaErbjudanden}

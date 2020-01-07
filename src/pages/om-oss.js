@@ -24,6 +24,7 @@ export default () => {
                 ...GatsbyImageSharpFluid
               }
             }
+            publicURL
           }
         }
         funTitle
@@ -83,6 +84,11 @@ export default () => {
       <Helmet>
         <html lang="sv" />
         <title>Iteam | Om oss</title>
+        <meta property="og:title" content="Iteam | Om oss" />
+        <meta
+          property="og:image"
+          content={data.contentfulSidaOmOss.headerImage.localFile.publicURL}
+        />
       </Helmet>
       <About
         data={data.contentfulSidaOmOss}
