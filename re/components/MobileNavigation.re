@@ -84,7 +84,7 @@ let make = () => {
      | NavigationIsHidden => React.null
      | NavigationIsVisible =>
        <div
-         className="fixed inset-0 bg-see-through-white text-right grid items-end px-5 pb-32 z-10">
+         className="fixed inset-0 bg-see-through-white text-right grid items-end content-end px-5 pb-32 z-10">
          <nav className="grid grid-gap-10-y">
            {Navigation.Options.items
             ->Belt.List.map(({link, text}) =>
