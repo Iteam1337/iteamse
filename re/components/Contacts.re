@@ -8,7 +8,7 @@ module Contact = {
     let {title, avatar, email, name, short, location}: Page.Employee.t = employee;
 
     <div
-      className="flex flex-col items-center flex-none text-center ml-6 mr-6"
+      className="flex flex-col items-center justify-between text-center"
       key=name>
       <div className="font-medium"> title->React.string </div>
       <div>
@@ -43,7 +43,7 @@ let make =
     (
       ~contacts: list(Page.Employee.t),
       ~title=?,
-      ~layout: Layout.t=`Centered,
+      ~layout: Layout.t=`Normal,
       ~subtitle=None,
     ) => {
   <div>
@@ -66,7 +66,7 @@ let make =
        </div>
      | None => React.null
      }}
-    <div className="flex flex-wrap justify-center">
+    <div className="grid md:grid-columns-4 grid-gap-8 col-start-2 col-end-2">
       {contacts
        ->Belt.List.map(employee => <Contact key={employee.name} employee />)
        ->Belt.List.toArray
