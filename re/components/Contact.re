@@ -19,7 +19,7 @@ module Telephone = {
   let make = (~phoneNumber, ~className=?) => {
     <div>
       <a
-        href={String.concat("", ["tel:", phoneNumber])}
+        href={[|"tel:", phoneNumber|]->Js.String.concatMany("")}
         className={Css.merge(["text-cornflower-blue", className->Cn.unpack])}>
         phoneNumber->React.string
       </a>

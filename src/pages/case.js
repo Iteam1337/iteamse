@@ -19,6 +19,7 @@ export default () => {
                 ...GatsbyImageSharpFluid
               }
             }
+            publicURL
           }
         }
         headerText1
@@ -60,6 +61,11 @@ export default () => {
       <Helmet>
         <html lang="sv" />
         <title>Iteam | Case</title>
+        <meta property="og:title" content="Iteam | Case" />
+        <meta
+          property="og:image"
+          content={data.contentfulSidaCases.headerImage.localFile.publicURL}
+        />
       </Helmet>
       <Cases
         data={data.contentfulSidaCases}

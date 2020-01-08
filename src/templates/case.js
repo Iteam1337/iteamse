@@ -1,11 +1,24 @@
 import React from 'react'
 import Layout from '../Layout'
+import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import Case from '../../lib/js/re/pages/Case'
 
 export default ({ data }) => {
   return (
     <Layout>
+      <Helmet>
+        <html lang="sv" />
+        <title>{`Iteam | Case - ${data.contentfulProjekt.title}`}</title>
+        <meta
+          property="og:title"
+          content={`Iteam | Case - ${data.contentfulProjekt.title}`}
+        />
+        <meta
+          property="og:image"
+          content={data.contentfulProjekt.logo.localFile.publicURL}
+        />
+      </Helmet>
       <Case data={{ ...data.contentfulProjekt, ...data.contentfulSidaCases }} />
     </Layout>
   )
@@ -24,6 +37,7 @@ export const query = graphql`
               src
             }
           }
+          publicURL
         }
       }
       casePageImage {
@@ -41,6 +55,14 @@ export const query = graphql`
       logo {
         localFile {
           publicURL
+        }
+        file {
+          details {
+            image {
+              height
+              width
+            }
+          }
         }
       }
       headerBgColor
@@ -78,6 +100,7 @@ export const query = graphql`
         quote
       }
       quotePerson
+      quoteEmployeePosition
       quoteBgColor
     }
 

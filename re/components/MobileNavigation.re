@@ -92,7 +92,7 @@ let make = () => {
                   ariaLabel={j|Gå till $link|j}
                   className={
                     Some(
-                      "text-black text-2xl border-b-2 border-black justify-self-end",
+                      "text-black text-xl md:text-2xl border-b-2 border-black justify-self-end",
                     )
                   }
                   _to=link

@@ -37,9 +37,11 @@ let make = (~data) => {
           title={
                   `Image(
                     <img
-                      className="max-h-200"
-                      src={page.logo}
                       alt={page.title}
+                      className="max-h-200"
+                      height={page.logo.height}
+                      src={page.logo.src}
+                      width={page.logo.width}
                     />,
                   )
                 }>
@@ -93,6 +95,13 @@ let make = (~data) => {
                     </footer>
                   )
                 ->Belt.Option.getWithDefault(React.null)}
+               {page.quoteEmployeePosition
+                ->Belt.Option.map(position =>
+                    <p className="md:text-lg text-base font-light">
+                      {React.string({j|$position|j})}
+                    </p>
+                  )
+                ->Belt.Option.getWithDefault(React.null)}
              </blockquote>
            </Block.Section>
          )
@@ -102,33 +111,49 @@ let make = (~data) => {
           <p> page.aboutCompany->React.string </p>
         </Block.Case>
       </div>
-      <Block.Section color=`Concrete>
-        <div className="grid grid-gap-8-x col-start-2 col-end-2">
-          <div>
-            <div className="mb-4 text-center">
-              <Typography.H3> {page.frameworksTitle} </Typography.H3>
-            </div>
-            <div className="flex flex-wrap justify-center items-center">
-              {page.frameworks
-               ->Belt.List.fromArray
-               ->Belt.List.map(framework =>
-                   <div
-                     key=framework
-                     className="flex flex-col items-center justify-center">
-                     <img
-                       className={Css.merge(["m-8", Style.frameworkImage])}
-                       src={framework |> String.lowercase |> Framework.toImage}
-                       alt=framework
-                     />
-                     framework->React.string
-                   </div>
-                 )
-               ->Belt.List.toArray
-               ->React.array}
-            </div>
-          </div>
-        </div>
-      </Block.Section>
+      {page.frameworksTitle
+       ->Belt.Option.map(frameworksTitle =>
+           <Block.Section color=`Concrete>
+             <div className="grid grid-gap-8-x col-start-2 col-end-2">
+               <div>
+                 <div className="mb-4 text-center">
+                   <Typography.H3> frameworksTitle </Typography.H3>
+                 </div>
+                 {page.frameworks
+                  ->Belt.Option.map(frameworks =>
+                      <div
+                        className="flex flex-wrap justify-center items-center">
+                        {frameworks
+                         ->Belt.List.fromArray
+                         ->Belt.List.map(framework =>
+                             <div
+                               key=framework
+                               className="flex flex-col items-center justify-center">
+                               <img
+                                 className={Css.merge([
+                                   "m-8",
+                                   Style.frameworkImage,
+                                 ])}
+                                 src={
+                                   framework
+                                   |> Js.String.toLowerCase
+                                   |> Framework.toImage
+                                 }
+                                 alt=framework
+                               />
+                               framework->React.string
+                             </div>
+                           )
+                         ->Belt.List.toArray
+                         ->React.array}
+                      </div>
+                    )
+                  ->Belt.Option.getWithDefault(React.null)}
+               </div>
+             </div>
+           </Block.Section>
+         )
+       ->Belt.Option.getWithDefault(React.null)}
     </Container>
     <Block.Section color=`Aquamarine>
       <Contacts

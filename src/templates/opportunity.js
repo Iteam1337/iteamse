@@ -6,6 +6,12 @@ import Opportunity from '../../lib/js/re/pages/Opportunity'
 export default ({ data }) => {
   return (
     <Layout>
+      <html lang="sv" />
+      <title>{`Iteam | Karriär - ${data.contentfulAnnonser.applicationTitle}`}</title>
+      <meta
+        property="og:title"
+        content={`Iteam | Karriär - ${data.contentfulAnnonser.applicationTitle}`}
+      />
       <Opportunity data={data.contentfulAnnonser} />
     </Layout>
   )

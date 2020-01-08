@@ -38,6 +38,7 @@ export default () => {
                 ...GatsbyImageSharpFluid
               }
             }
+            publicURL
           }
         }
         contactTitle
@@ -62,6 +63,11 @@ export default () => {
       <Helmet>
         <html lang="sv" />
         <title>Iteam | Medarbetare</title>
+        <meta property="og:title" content="Iteam | Medarbetare" />
+        <meta
+          property="og:image"
+          content={data.contentfulSidaTeamet.headerImage.localFile.publicURL}
+        />
       </Helmet>
       <Coworkers
         data={data.contentfulSidaTeamet}

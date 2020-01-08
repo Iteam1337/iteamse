@@ -5,7 +5,7 @@
   "author": "",
   "dependencies": {
     "bs-css": "10.0.1",
-    "bs-platform": "5.2.1",
+    "bs-platform": "^7.0.1",
     "bs-telefonnummer": "1.2.0",
     "bs-webapi": "0.15.5",
     "dedent": "0.7.0",
@@ -46,7 +46,7 @@
     "re:build": "bsb -make-world",
     "start": "cross-env BS_WATCH_CLEAR=true bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "build": "npm run re:build && gatsby build",
+    "build": "npm run re:build && gatsby clean && gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "is-ci \"test:ci\" \"test:watch\"",

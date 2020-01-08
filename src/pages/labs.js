@@ -31,6 +31,8 @@ export default () => {
       <Helmet>
         <html lang="sv" />
         <title>Iteam | Labs</title>
+        <meta property="og:title" content="Iteam | Labs" />
+        <meta property="og:image" content={data.ghostSettings.cover_image} />
       </Helmet>
       <Labs posts={data.allGhostPost.nodes} settings={data.ghostSettings} />
     </Layout>
