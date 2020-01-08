@@ -40,7 +40,7 @@ module Header = {
     let navigationBackground =
       Css.(
         merge([
-          "grid md:grid-columns-1024 col-bleed absolute inset-0 tablet:px-4",
+          "md:grid md:grid-columns-1024 flex flex-col col-bleed absolute inset-0 tablet:px-4",
           style([
             backgroundImage(
               linearGradient(
@@ -89,7 +89,7 @@ module Header = {
       <div className=navigationBackground>
         <Navigation />
         <div
-          className="md:col-start-2 self-end lg:pb-20 pb-8
+          className="md:col-start-2 md:self-end lg:pb-20 pb-8
         tablet-landscape:px-5">
           <Typography.H1>
             <span className=marker> messageOne->React.string </span>
