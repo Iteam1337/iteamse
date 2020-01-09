@@ -25,3 +25,7 @@ npm run dev (in another terminal)
 ```
 
 Open http://localhost:8000
+
+## Deployment & CI
+
+Every push (and therefore every merge to master) gets built and deployed automatically at [Zeit](https://zeit.co). Every opened pull request also gets built and deployed automatically under a separate alias for easy reviewing.
