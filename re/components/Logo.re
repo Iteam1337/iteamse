@@ -8,7 +8,7 @@ let make = (~color=`White) => {
 
   <Gatsby.Link
     ariaLabel={j|Gå till startsidan|j}
-    className={Some("py-8 border-t-4 border-transparent")}
+    className={Some("border-t-4 border-transparent")}
     _to="/">
     <img
       width="150"
