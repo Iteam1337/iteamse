@@ -29,7 +29,8 @@ let make = (~data) => {
          backgroundImage=url
          backgroundFluid=localFile
          color={`Other(page.headerBgColor)}
-         navStyle=`Black
+         navColor=`Black
+         navStyle=`Case
          textColor=`White
          messageOne={page.shortDescription}
        />

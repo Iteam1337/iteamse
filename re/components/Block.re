@@ -31,7 +31,8 @@ module Header = {
         ~messageOne,
         ~messageTwo=None,
         ~messageTwoLight=false,
-        ~navStyle=`White,
+        ~navColor=`White,
+        ~navStyle=`Default,
       ) => {
     let marker = Css.merge(["px-2 py-1", Theme.Colors.fromType(c)]);
     let navigationBackground =
@@ -85,7 +86,7 @@ module Header = {
          />
        }}
       <div className=navigationBackground>
-        <Navigation color=navStyle />
+        <Navigation color=navColor navStyle />
         <div
           className="md:col-start-2 md:self-end lg:pb-20 pb-8
         tablet-landscape:px-5">

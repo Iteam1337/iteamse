@@ -62,11 +62,12 @@ module Options = {
 };
 
 [@react.component]
-let make = (~color=`White) => {
+let make = (~color=`White, ~navStyle=`Default) => {
   let bg =
-    switch (color) {
-    | `White => "md:bg-transparent"
-    | `Black => "md:bg-white"
+    switch (color, navStyle) {
+    | (`White, _) => "md:bg-transparent"
+    | (`Black, `Case) => "md:bg-white"
+    | (`Black, _) => "md:bg-transparent"
     };
 
   let className =
@@ -77,8 +78,14 @@ let make = (~color=`White) => {
 
   <div className>
     <div className="md:col-start-2 flex items-center">
-      <div className="md:hidden py-8"> <Logo color=`White /> </div>
-      <div className="hidden md:block py-8"> <Logo color /> </div>
+      {switch (navStyle) {
+       | `Case =>
+         <>
+           <div className="md:hidden py-8"> <Logo color=`White /> </div>
+           <div className="hidden md:block py-8"> <Logo color /> </div>
+         </>
+       | _ => <div className="py-8"> <Logo color /> </div>
+       }}
       <nav className="flex ml-auto tablet:hidden">
         {Options.items
          ->Belt.List.map(({link, text}) =>
