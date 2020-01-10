@@ -350,12 +350,16 @@ module Case = {
     };
 
     let make = headerData => {
-      url: headerData##file##url,
-      localFile:
-        switch (headerData##localFile->Js.Nullable.toOption) {
-        | Some(local) => Some(local##childImageSharp##fluid)
-        | None => None
-        },
+      headerData##file##url->Js.String2.includes("empty")
+        ? None
+        : Some({
+            url: headerData##file##url,
+            localFile:
+              switch (headerData##localFile->Js.Nullable.toOption) {
+              | Some(local) => Some(local##childImageSharp##fluid)
+              | None => None
+              },
+          });
     };
   };
 
@@ -376,7 +380,7 @@ module Case = {
   type t = {
     aboutCompany: string,
     aboutCompanyTitle: string,
-    casePageImage: FluidImage.t,
+    casePageImage: option(FluidImage.t),
     contact: option(string),
     contactTitle: option(string),
     contactSubtitle: option(string),
@@ -385,7 +389,7 @@ module Case = {
     developmentTitle: string,
     frameworks: option(array(string)),
     frameworksTitle: option(string),
-    header: FluidImage.t,
+    header: option(FluidImage.t),
     headerBgColor: string,
     introduction: string,
     introductionTitle: string,

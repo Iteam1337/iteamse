@@ -23,13 +23,17 @@ let make = (~data) => {
   let title = page.contactTitle;
 
   <>
-    <Block.Header
-      backgroundImage={page.header.url}
-      backgroundFluid={page.header.localFile}
-      color={`Other(page.headerBgColor)}
-      textColor=`White
-      messageOne={page.shortDescription}
-    />
+    {switch (page.header) {
+     | Some({url, localFile}) =>
+       <Block.Header
+         backgroundImage=url
+         backgroundFluid=localFile
+         color={`Other(page.headerBgColor)}
+         textColor=`White
+         messageOne={page.shortDescription}
+       />
+     | None => React.null
+     }}
     <Container className="md:mb-0 mb-0">
       <Breadcrumbs title={page.title} />
       <div className=Style.narrowContainer>
@@ -57,22 +61,22 @@ let make = (~data) => {
           </div>
         </Block.Case>
         <Block.Case title={`Text(page.introductionTitle)}>
-          <p> page.introduction->React.string </p>
+          <Block.Markdown source={page.introduction} />
         </Block.Case>
         <Block.Case title={`Text(page.processTitle)}>
-          <p> page.process->React.string </p>
+          <Block.Markdown source={page.process} />
         </Block.Case>
       </div>
-      <Block.Section color=`Concrete>
-        <img
-          className="justify-self-center"
-          width="720"
-          src={page.casePageImage.url}
-        />
-      </Block.Section>
+      {switch (page.casePageImage) {
+       | Some({url}) =>
+         <Block.Section color=`Concrete>
+           <img className="justify-self-center" width="720" src=url />
+         </Block.Section>
+       | None => React.null
+       }}
       <div className=Style.narrowContainer>
         <Block.Case title={`Text(page.developmentTitle)}>
-          <p> page.development->React.string </p>
+          <Block.Markdown source={page.development} />
         </Block.Case>
       </div>
       {page.quote
@@ -86,7 +90,7 @@ let make = (~data) => {
              }>
              <blockquote className="grid grid-gap-8-x col-start-2 col-end-2">
                <p className="md:text-3xl text-xl">
-                 {React.string({j|“$quote”|j})}
+                 {React.string({j|$quote|j})}
                </p>
                {page.quotePerson
                 ->Belt.Option.map(person =>
@@ -108,7 +112,7 @@ let make = (~data) => {
        ->Belt.Option.getWithDefault(React.null)}
       <div className=Style.narrowContainer>
         <Block.Case title={`Text(page.aboutCompanyTitle)}>
-          <p> page.aboutCompany->React.string </p>
+          <Block.Markdown source={page.aboutCompany} />
         </Block.Case>
       </div>
       {page.frameworksTitle

@@ -15,11 +15,7 @@ module Markdown = {
   [@react.component]
   let make = (~source, ~className=?) => {
     <div className={Cn.make(["markdown", className->Cn.unpack])}>
-      {source
-       |> Js.String.replaceByRe([%re "/\\n\\s+/g"], "")
-       |> Dedent.make
-       |> Generate.make
-       |> Parse.make}
+      {source->Dedent.make->Generate.make->Parse.make}
     </div>;
   };
 };
