@@ -127,7 +127,7 @@ table td {
   @apply min-w-full;
 }
 
-.markdown p:last-of-type {
+.markdown p:not(:last-of-type) {
   @apply mb-5;
 }
 
