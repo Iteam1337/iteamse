@@ -1,5 +1,5 @@
 {
-  "name": "iteamse-poc",
+  "name": "iteamse",
   "regions": ["arn1", "arn", "bru1"],
   "github": {
     "autoAlias": false
