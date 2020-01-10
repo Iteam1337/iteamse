@@ -21,10 +21,10 @@ module NavigationLink = {
       None;
     });
 
-    let textColor =
+    let (textColor, borderColor) =
       switch (color) {
-      | `White => "text-white"
-      | `Black => "text-black"
+      | `White => ("text-white", "border-white")
+      | `Black => ("text-black", "border-black")
       };
 
     <Gatsby.Link
@@ -33,7 +33,7 @@ module NavigationLink = {
         Some(
           Css.merge([
             "border-t-4 text-lg font-normal mr-6 last:mr-0 py-8 flex justify-center items-center border-transparent",
-            "border-white"->Cn.ifTrue(isActive),
+            borderColor->Cn.ifTrue(isActive),
             textColor,
           ]),
         )
@@ -62,18 +62,38 @@ module Options = {
 };
 
 [@react.component]
-let make = (~color=`White) => {
-  <div
-    className="md:col-start-2 bg-transparent flex flex-1 items-start
-    tablet-landscape:px-5">
-    <Logo color />
-    <nav className="flex ml-auto tablet:hidden">
-      {Options.items
-       ->Belt.List.map(({link, text}) =>
-           <NavigationLink key=link color _to=link text />
-         )
-       ->Belt.List.toArray
-       ->React.array}
-    </nav>
+let make = (~color=`White, ~navStyle=`Default) => {
+  let bg =
+    switch (color, navStyle) {
+    | (`White, _) => "md:bg-transparent"
+    | (`Black, `Case) => "md:bg-white"
+    | (`Black, _) => "md:bg-transparent"
+    };
+
+  let className =
+    Css.merge([
+      "flex flex-1 md:grid items-start tablet-landscape:px-5 col-bleed md:grid-columns-1024 grid-columns-1fr",
+      bg,
+    ]);
+
+  <div className>
+    <div className="md:col-start-2 flex items-center">
+      {switch (navStyle) {
+       | `Case =>
+         <>
+           <div className="md:hidden py-8"> <Logo color=`White /> </div>
+           <div className="hidden md:block py-8"> <Logo color /> </div>
+         </>
+       | _ => <div className="py-8"> <Logo color /> </div>
+       }}
+      <nav className="flex ml-auto tablet:hidden">
+        {Options.items
+         ->Belt.List.map(({link, text}) =>
+             <NavigationLink key=link color _to=link text />
+           )
+         ->Belt.List.toArray
+         ->React.array}
+      </nav>
+    </div>
   </div>;
 };

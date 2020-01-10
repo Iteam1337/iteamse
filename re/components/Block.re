@@ -31,12 +31,15 @@ module Header = {
         ~messageOne,
         ~messageTwo=None,
         ~messageTwoLight=false,
+        ~navColor=`White,
+        ~navStyle=`Default,
       ) => {
     let marker = Css.merge(["px-2 py-1", Theme.Colors.fromType(c)]);
     let navigationBackground =
       Css.(
         merge([
-          "md:grid md:grid-columns-1024 flex flex-col col-bleed absolute inset-0 tablet:px-4",
+          "md:grid md:grid-columns-1024 flex flex-col col-bleed absolute inset-0
+          tablet:px-4 items-start",
           style([
             backgroundImage(
               linearGradient(
@@ -83,7 +86,7 @@ module Header = {
          />
        }}
       <div className=navigationBackground>
-        <Navigation />
+        <Navigation color=navColor navStyle />
         <div
           className="md:col-start-2 md:self-end lg:pb-20 pb-8
         tablet-landscape:px-5">
