@@ -65,5 +65,13 @@ module.exports = {
         icon: `src/images/favicon.png`,
       },
     },
+    {
+      resolve: "gatsby-plugin-hubspot",
+      options: {
+          trackingCode: "5211588",
+          respectDNT: true,
+          productionOnly: false,
+      },
+    },
   ],
 }
