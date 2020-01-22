@@ -1,6 +1,6 @@
 {
   "name": "iteamse",
-  "regions": ["arn1", "arn", "bru1"],
+  "regions": ["arn1"],
   "github": {
     "autoAlias": false
   },
