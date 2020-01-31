@@ -50,6 +50,11 @@ module Header = {
                 ],
               ),
             ),
+            // Safari fix
+            media(
+              "not all and (min-resolution:.001dpcm)",
+              [gridTemplateRows([`px(95), `px(705)])],
+            ),
           ]),
         ])
       );
