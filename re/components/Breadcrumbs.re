@@ -7,7 +7,7 @@ let parseSlug =
   fun
   | "karriar" => Some({j|Karriär|j})
   | "medarbetare" => Some({j|Medarbetare|j})
-  | "case" => Some({j|Case|j})
+  | "case" => Some({j|Våra case|j})
   | "labs" => Some({j|Labs|j})
   | _ => None;
 
@@ -26,7 +26,6 @@ let make = (~title) => {
             display(`inlineBlock),
           ],
         ),
-        selector("span:last-of-type", [fontWeight(`num(500))]),
       ])
     );
 
@@ -54,7 +53,9 @@ let make = (~title) => {
              {parseSlug(p)
               ->Belt.Option.map(link =>
                   <Gatsby.Link
-                    ariaLabel={j|Gå till $link|j} className=None _to=p>
+                    ariaLabel={j|Gå till $link|j}
+                    className={Some("border-b-2 border-black pb-1 font-bold")}
+                    _to=p>
                     link->React.string
                   </Gatsby.Link>
                 )
