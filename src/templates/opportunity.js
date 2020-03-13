@@ -67,6 +67,7 @@ export const query = graphql`
           }
         }
         email
+        location
         name
         short
         title
