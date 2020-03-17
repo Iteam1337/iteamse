@@ -52,9 +52,25 @@ module Style = {
         ),
         selector("li", [fontSize(`rem(1.125))]),
         selector(
+          "h1",
+          [
+            fontSize(`rem(2.0)),
+            fontWeight(`medium),
+            paddingBottom(`rem(1.0)),
+          ],
+        ),
+        selector(
           "h2",
           [
             fontSize(`rem(1.5)),
+            fontWeight(`medium),
+            paddingBottom(`rem(1.0)),
+          ],
+        ),
+        selector(
+          "h3",
+          [
+            fontSize(`rem(1.25)),
             fontWeight(`medium),
             paddingBottom(`rem(1.0)),
           ],
