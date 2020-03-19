@@ -15,7 +15,7 @@ html.comic-sans body {
 }
 
 p {
-  @apply mb-5 text-lg;
+  @apply mb-5;
 }
 
 p:last-of-type {
