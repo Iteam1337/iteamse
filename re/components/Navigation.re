@@ -77,7 +77,7 @@ let make = (~color=`White, ~navStyle=`Default) => {
     ]);
 
   <div className>
-    <div className="md:col-start-2 flex items-center">
+    <div className="md:col-start-3 flex items-center">
       {switch (navStyle) {
        | `Case =>
          <>

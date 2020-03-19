@@ -93,7 +93,7 @@ module Header = {
       <div className=navigationBackground>
         <Navigation color=navColor navStyle />
         <div
-          className="md:col-start-2 md:self-end lg:pb-20 pb-8
+          className="md:col-start-3 md:self-end lg:pb-20 pb-8
         tablet-landscape:px-5">
           <Typography.H1>
             <span className=marker> messageOne->React.string </span>
@@ -190,10 +190,10 @@ module StartpageHeader = {
           bgImage(bg),
         ])
       )>
-      <div className="grid lg:grid-columns-1024 col-bleed">
+      <div className="grid md:grid-columns-1024 col-bleed">
         <Navigation color=`Black />
         <div
-          className="md:col-start-2 self-end md:pb-20 startpage2019 flex mobile:flex-col-reverse
+          className="md:col-start-3 self-end md:pb-20 startpage2019 flex mobile:flex-col-reverse
           lg:flex-row tablet-landscape:px-5 mobile:items-center">
           <div
             className="flex items-start justify-center flex-col sm:w-3/5 mobile:pt-8">
