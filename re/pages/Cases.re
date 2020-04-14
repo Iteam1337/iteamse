@@ -51,7 +51,7 @@ let make = (~data, ~projects) => {
       <div className="grid md:grid-columns-2 grid-gap-8">
         {projects
          ->Belt.List.fromArray
-         ->Belt.List.map(project => {
+         ->Belt.List.mapReverse(project => {
              let projectTitle = project##title;
 
              <Gatsby.Link
