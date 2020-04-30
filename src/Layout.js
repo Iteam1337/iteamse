@@ -3,6 +3,7 @@ import * as React from 'react'
 import Footer from '../lib/js/re/components/Footer'
 import MobileNavigation from '../lib/js/re/components/MobileNavigation'
 import './index.css'
+import Closr from '../lib/js/re/components/Closr'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -37,7 +38,7 @@ const Layout = ({ children }) => {
 ██║   ██║   ██╔══╝  ██╔══██║██║╚██╔╝██║
 ██║   ██║   ███████╗██║  ██║██║ ╚═╝ ██║
 ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝
-                                       
+
   `)
 
   return (
@@ -48,6 +49,7 @@ const Layout = ({ children }) => {
         locations={data.allContentfulAdresser.nodes}
         socialMedia={data.socialMediaIcons.nodes}
       />
+      <Closr url={"https://chatbot.sirchat.iteamdev.se/?accountId=63c85932-3b31-483a-9b9c-897505aebb87"} />
     </>
   )
 }
