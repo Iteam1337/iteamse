@@ -23,7 +23,7 @@ let make = (~data, ~offers) => {
     />
     <Container>
       <div>
-        {React.string(intro)}
+        <Block.Markdown source=intro />
         <div
           className=Css.(
             merge([
