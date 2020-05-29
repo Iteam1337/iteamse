@@ -66,6 +66,10 @@ export default () => {
         <title>Iteam - There's a better way</title>
         <meta property="og:title" content="Iteam - There's a better way" />
         <meta property="og:image" content={data.illustrationIteamI.publicURL} />
+        <script src="https://chatbot.sirchat.iteamdev.se/embed/closr.min.js" />
+        <script type="text/javascript">
+          {`setTimeout(() => {Closr.init({ accountId: "e98e7bd1-9f1b-4a48-aec3-311431008ade" })}, 500)`}
+        </script>
       </Helmet>
       <Index
         data={data.contentfulSidaStartsida2019}
