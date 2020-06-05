@@ -2,18 +2,18 @@
 let make =
     (
       ~data,
-      ~illustrationIteamI,
       ~illustrationGroup,
       ~illustrationCrane,
       ~greenBlob,
+      ~lottieAnimationData,
     ) => {
   let page = Page.Start.make(data);
 
   Block.(
     <>
       <StartpageHeader
+        lottieAnimationData
         backgroundImage=greenBlob
-        illustrationIteamI
         title={page.headerText1}
         lead={page.headerLead}
       />

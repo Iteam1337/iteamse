@@ -10,6 +10,9 @@ module.exports = {
       xl: '1280px', // => @media (min-width: 1280px) { ... }
     },
     extend: {
+      scale: {
+        'mirror': '-1',
+      },
       colors: {
         aquamarine: 'hsl(152, 95%, 66%)', // #54fbac
         concrete: 'hsl(0, 0%, 97%)', // #f7f7f7
