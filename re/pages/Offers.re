@@ -23,7 +23,8 @@ let make = (~data, ~offers) => {
     />
     <Container>
       <div>
-        <Block.Markdown source=intro />
+        <Block.Markdown source=intro className="w-2/3 mx-auto" />
+        <div className="w-2/3 pt-4 mx-auto" id="hubspotForm" />
         <div
           className=Css.(
             merge([
@@ -38,8 +39,7 @@ let make = (~data, ~offers) => {
                  <Typography.H3> {usp.title} </Typography.H3>
                  <div> {React.string(usp.text)} </div>
                  <a
-                   className="border-b-2 border-solid border-current text-lg
-                   text-cornflower-blue justify-self-start"
+                   className="text-lg border-b-2 border-solid border-current text-cornflower-blue justify-self-start"
                    href={
                      "#" ++ usp.title->Js.String.toLowerCase->Js.String.trim
                    }>
@@ -64,7 +64,7 @@ let make = (~data, ~offers) => {
              <Typography.H1> {React.string(offer.title)} </Typography.H1>
              <div className="mt-4"> {React.string(offer.lead)} </div>
              <div
-               className="grid md:grid-columns-2 my-8 md:my-20 grid-gap-4 md:grid-gap-12-y">
+               className="my-8 grid md:grid-columns-2 md:my-20 grid-gap-4 md:grid-gap-12-y">
                {offer.usps
                 ->Belt.List.map(usp =>
                     <div key={usp.text}>
@@ -76,7 +76,7 @@ let make = (~data, ~offers) => {
                 ->React.array}
              </div>
              <img
-               className="mx-auto block w-2/3 md:w-1/2"
+               className="block w-2/3 mx-auto md:w-1/2"
                src={offer.illustration}
                alt=""
              />
