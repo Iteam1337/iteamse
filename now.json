@@ -7,8 +7,7 @@
   "build": {
     "env": {
       "CONTENTFUL_SPACE": "@contentful_space",
-      "CONTENTFUL_ACCESS_TOKEN": "@contentful_access_token",
-      "GHOST_CONTENT_API": "@ghost_content_api"
+      "CONTENTFUL_ACCESS_TOKEN": "@contentful_access_token"
     }
   }
 }

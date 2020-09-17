@@ -57,7 +57,6 @@ module Options = {
     {link: "/medarbetare", text: "Medarbetare"},
     {link: "/karriar", text: {j|Karriär|j}},
     {link: "/om-oss", text: "Om oss"},
-    {link: "/labs", text: "Labs"},
   ];
 };
 

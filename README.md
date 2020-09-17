@@ -11,7 +11,6 @@ Environment variables are needed in a `.env.development` with:
 ```
 CONTENTFUL_SPACE=
 CONTENTFUL_ACCESS_TOKEN=
-GHOST_CONTENT_API=
 ```
 
 Values are available in LastPass.
