@@ -66,6 +66,7 @@ export default () => {
         <title>Iteam - There's a better way</title>
         <meta property="og:title" content="Iteam - There's a better way" />
         <meta property="og:image" content={data.illustrationIteamI.publicURL} />
+        
       </Helmet>
       <Index
         data={data.contentfulSidaStartsida2019}
