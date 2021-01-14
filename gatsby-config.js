@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: `gatsby-source-ghost`,
       options: {
-        apiUrl: `https://blog.iteam.life`,
+        apiUrl: `https://iteam-se.iteamdev.io`,
         contentApiKey: process.env.GHOST_CONTENT_API,
         version: `v2`,
       },

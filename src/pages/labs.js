@@ -7,7 +7,9 @@ import Layout from '../Layout'
 export default () => {
   const data = useStaticQuery(graphql`
     query allGhostPost {
-      allGhostPost {
+      allGhostPost(
+        filter: { primary_tag: { slug: { regex: "/erbjudande|karriar/" } } }
+      ) {
         nodes {
           feature_image
           excerpt
