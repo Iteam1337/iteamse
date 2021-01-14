@@ -3,6 +3,9 @@
   "description": "Iteam.se with Reason and Gatsby",
   "version": "0.1.0",
   "author": "",
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "bs-css": "10.0.1",
     "bs-platform": "7.0.1",
