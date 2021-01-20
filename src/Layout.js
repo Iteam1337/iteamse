@@ -11,7 +11,6 @@ const Layout = ({ children }) => {
         nodes {
           city
           address1
-          contactPhone
           contactMail
           orgNumber
           zip

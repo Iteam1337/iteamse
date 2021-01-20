@@ -1,7 +1,7 @@
 module AddressBlock = {
   [@react.component]
   let make = (~location) => {
-    let {title, address, postalAddress, orgNumber, phoneNumber, email}: Address.t =
+    let {title, address, postalAddress, orgNumber, email}: Address.t =
       Address.make(location);
 
     <div>
@@ -10,11 +10,6 @@ module AddressBlock = {
         <div> {React.string(address)} </div>
         <div> {React.string(postalAddress)} </div>
       </div>
-      <a
-        className="font-light block mb-1"
-        href={Telefonnummer.Link.make(phoneNumber)}>
-        {React.string(phoneNumber)}
-      </a>
       <Contact.Mailto email />
       <div className="mt-1"> {"ORG: " ++ orgNumber |> React.string} </div>
     </div>;
