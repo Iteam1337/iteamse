@@ -158,7 +158,13 @@ module StartpageHeader = {
   let bgImage = imageUrl => Css.(style([backgroundImage(`url(imageUrl))]));
 
   [@react.component]
-  let make = (~title, ~lead, ~illustrationIteamI, ~backgroundImage as bg) => {
+  let make = (~title, ~lead, ~backgroundImage as bg, ~lottieAnimationData) => {
+    let animationConfig: Lottie.animationConfig = {
+      loop: true,
+      autoplay: true,
+      animationData: lottieAnimationData,
+    };
+
     <header
       className=Css.(
         merge([
@@ -205,11 +211,10 @@ module StartpageHeader = {
               className=Css.(style([important(fontSize(px(20)))]))
             />
           </div>
-          <img
-            src=illustrationIteamI
+          <div
             className=Css.(
               merge([
-                "tablet:w-48 tablet:p-4 sm:flex-1",
+                "scale-x-mirror tablet:w-48 tablet:p-4 sm:flex-1",
                 style([
                   media(
                     Theme.Breakpoints.fromType(`Mobile),
@@ -217,12 +222,27 @@ module StartpageHeader = {
                   ),
                 ]),
               ])
-            )
-            alt="The I in Iteam as a construction-site illustration"
-          />
+            )>
+            <Lottie options=animationConfig />
+          </div>
         </div>
       </div>
     </header>;
+    // <img
+    //   src=illustrationIteamI
+    //   className=Css.(
+    //     merge([
+    //       "tablet:w-48 tablet:p-4 sm:flex-1",
+    //       style([
+    //         media(
+    //           Theme.Breakpoints.fromType(`Mobile),
+    //           [important(width(`vw(66.0)))],
+    //         ),
+    //       ]),
+    //     ])
+    //   )
+    //   alt="The I in Iteam as a construction-site illustration"
+    // />
   };
 };
 

@@ -3,6 +3,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import Index from '../../lib/js/re/pages/Index'
 import Layout from '../Layout'
+import lottieAnimationData from '../content/animation-data.json'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -73,6 +74,7 @@ export default () => {
         illustrationIteamI={data.illustrationIteamI.publicURL}
         illustrationGroup={data.illustrationGroup.publicURL}
         illustrationCrane={data.illustrationCrane.publicURL}
+        lottieAnimationData={lottieAnimationData}
       />
     </Layout>
   )
