@@ -16,7 +16,7 @@ module Gravatar = {
   [@react.component]
   let make = (~email) => {
     let hash = md5(email);
-    let src = {j|https://www.gravatar.com/avatar/$hash?s=300|j};
+    let src = {j|https://www.gravatar.com/avatar/$hash?s=232|j};
 
     <Image src />;
   };

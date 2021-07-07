@@ -2,50 +2,7 @@ module Layout = {
   type t = [ | `Normal | `Centered];
 };
 
-module TwoContacts = {
-  [@react.component]
-  let make = (~employee) => {
-    let {title, short, avatar, email, name, phoneNumber, location}: Page.Employee.t = employee;
-
-    <div
-      className="grid md:grid-columns-10 items-center justify-center text-center md:text-left"
-      key=name>
-      <div className="mb-5 md:mb-0 md:col-start-1 md:col-end-5">
-        <Gatsby.Link
-          ariaLabel={j|Gå till medarbetar-sidan för $name|j}
-          className={Some("flex justify-center items-start")}
-          _to={"/medarbetare/" ++ short}>
-          {switch (avatar) {
-           | None => <Avatar.Gravatar email />
-           | Some(src) => <Avatar.Contentful src />
-           }}
-        </Gatsby.Link>
-      </div>
-      <div className="md:col-start-6 md:col-end-11 font-light">
-        <div className="font-medium"> title->React.string </div>
-        <div className="mb-4">
-          {React.string(Location.toString(location))}
-        </div>
-        <Gatsby.Link
-          ariaLabel={j|Gå till medarbetar-sidan för $name|j}
-          className={Some("font-medium")}
-          _to={"/medarbetare/" ++ short}>
-          name->React.string
-        </Gatsby.Link>
-        {switch (phoneNumber) {
-         | None => React.null
-         | Some(pn) =>
-           <a className="font-light block" href={Telefonnummer.Link.make(pn)}>
-             pn->React.string
-           </a>
-         }}
-        <Contact.Mailto email />
-      </div>
-    </div>;
-  };
-};
-
-module MultipleContacts = {
+module Contact = {
   [@react.component]
   let make = (~employee) => {
     let {title, avatar, email, name, short, location}: Page.Employee.t = employee;
@@ -109,27 +66,11 @@ let make =
        </div>
      | None => React.null
      }}
-    {switch (Belt.List.length(contacts)) {
-     | 2 =>
-       <div
-         className="grid md:grid-columns-2 grid-gap-8 col-start-2 col-end-2">
-         {contacts
-          ->Belt.List.map(employee =>
-              <TwoContacts key={employee.name} employee />
-            )
-          ->Belt.List.toArray
-          ->React.array}
-       </div>
-     | _ =>
-       <div
-         className="grid md:grid-columns-4 grid-gap-8 col-start-2 col-end-2">
-         {contacts
-          ->Belt.List.map(employee =>
-              <MultipleContacts key={employee.name} employee />
-            )
-          ->Belt.List.toArray
-          ->React.array}
-       </div>
-     }}
+    <div className="grid md:grid-columns-4 grid-gap-8 col-start-2 col-end-2">
+      {contacts
+       ->Belt.List.map(employee => <Contact key={employee.name} employee />)
+       ->Belt.List.toArray
+       ->React.array}
+    </div>
   </div>;
 };

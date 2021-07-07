@@ -163,7 +163,6 @@ let make = (~data) => {
     </Container>
     <Block.Section color=`Aquamarine>
       <Contacts
-        layout=`Centered
         contacts={page.contacts}
         ?title
         subtitle={page.contactSubtitle}
